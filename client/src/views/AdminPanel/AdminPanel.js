@@ -1,13 +1,13 @@
 import React from 'react';
 import useAdminPanel from './useAdminPanel';
 
-function AdminPanel(){
-    const {inputs,handleInputChange,handleSubmit}=useAdminPanel();
-    return(
+const AdminPanel = () => {
+    const {inputs, handleInputChange, handleSubmit} = useAdminPanel();
+    return (
         <form onSubmit={handleSubmit}>
             <div>
                 <label>Username</label>
-                <input type="text" name="username" onChange={handleInputChange} value={inputs.username}required/>
+                <input type="text" name="username" onChange={handleInputChange} value={inputs.username} required/>
             </div>
             <div>
                 <label>Password</label>
@@ -17,4 +17,5 @@ function AdminPanel(){
         </form>
     );
 }
+
 export default AdminPanel;

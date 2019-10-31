@@ -1,4 +1,3 @@
-
 #wrapper {
     display: grid;
     max-width: 1000px;
@@ -88,8 +87,6 @@
 #upcoming-events-title {
     margin-bottom: 0;
 }
-
-
 
 
 .event-title {
