@@ -10,3 +10,4 @@ function ProofOfConcepts(){
         </div>
     );
 }
+export default ProofOfConcepts;

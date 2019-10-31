@@ -10,3 +10,4 @@ function AboutUs(){
         </div>
     );
 }
+export default AboutUs;
