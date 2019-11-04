@@ -21,5 +21,12 @@
     color: #09d3ac;
 }
 
-.topnav {
+.navbar-item {
+    transition: 400ms !important;
+}
+
+.navbar-item:hover {
+    color: #09d3ac !important;
+    transition: color 250ms ease !important;
+    cursor: pointer;
 }
