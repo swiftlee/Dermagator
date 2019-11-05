@@ -10,9 +10,8 @@ const ProductsInfo = () => {
                 <p>
                 Information on product
                 </p>
-                <a href={/*Place holder: put link to the product's pharmacy page/section here */}> Link to Ordering </a>
+                <a href=""> Link to Ordering </a>
             </div>
-           {/*We can expand this later with the other products that they sell */}
            
         </div>
     );
