@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from "react-scroll";
-import {Router, Route} from 'react-router'
 const NavBar = () => {
     return (
         <nav className='container'>
