@@ -4,7 +4,7 @@ import 'aos/dist/aos.css'
 AOS.init();
 const ContactUs = () => {
     return (
-        <div data-aos="fade-left">
+        <div data-aos="fade-left" data-aos-duration='1000'>
             <h1>Contact Us </h1>
             <p>
                 This is a placeholder for the information for the employees sections and

@@ -22,7 +22,7 @@ function Home() {
             <div id='product' className='mb-5'>
                 <ProductInfo/>
             </div>
-            <div id='contact' style={{marginTop:"50rem"}}> {/*REMOVE STYLE WHEN DONE TESTING*/}
+            <div id='contact' className= 'mb-5' style={{marginTop:"50rem"}}> {/*REMOVE STYLE WHEN DONE TESTING*/}
                 <ContactUs/>
             </div>
         </div>

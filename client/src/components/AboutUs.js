@@ -14,6 +14,6 @@ const AboutUs = () => {
             </p>
         </div>
     );
-}
+};
 
 export default AboutUs;

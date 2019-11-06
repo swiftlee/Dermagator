@@ -1,26 +1,28 @@
 import React from 'react';
 import useAdminPanel from './useAdminPanel';
 import './AdminPanel.css';
+
 const AdminPanel = () => {
     const {inputs, handleInputChange, handleSubmit} = useAdminPanel();
     return (
-        <body>
-            <div className="AdminPanel">
-                <h1 className="header">Welcome User!</h1>
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label>Username:</label>
-                        <input type="text" name="username" onChange={handleInputChange} value={inputs.username} required/>
-                    </div>
-                    <div>
-                        <label>Password:</label>
-                        <input type="password" name="password1" onChange={handleInputChange} value={inputs.password1}/>
-                    </div>
-                    <button type="submit">Log in</button>
-                </form>
+        <div className='login-container'>
+            <div className='login-form' onSubmit={handleSubmit}>
+                <h2 className='login-header'>Welcome, sign in below</h2>
+                <div className='section' style={{marginTop: '50%'}}>
+                    <input type="email" name="username" onChange={handleInputChange} value={inputs.username}
+                           required/>
+                    <label className='login-label' htmlFor="username"><span
+                        className='login-label-content'>Username</span></label>
+                </div>
+                <div className='section'>
+                    <input type="password" name="password" onChange={handleInputChange} value={inputs.password}
+                           required/>
+                    <label className='login-label' htmlFor="password"><span
+                        className='login-label-content'>Password</span></label>
+                </div>
             </div>
-        </body>
+        </div>
     );
-}
+};
 
 export default AdminPanel;
