@@ -1,8 +1,9 @@
 import React from 'react';
+import './AboutUs.css'
 
 const AboutUs = () => {
     return (
-        <div>
+        <div className='AboutUs'>
             <h1>About the Company</h1>
             <p>
                 This is a placeholder for the information for the company this might gain some links to the employees

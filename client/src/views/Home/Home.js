@@ -12,7 +12,7 @@ function Home() {
             <div className='mb-5 sticky-top'>
                 <NavBar/>
             </div>
-            <div id='about' className='mb-5'>
+            <div id='about'>
                 <AboutUs/>
             </div>
             <div id='proof-of-concept' className='mb-5'>

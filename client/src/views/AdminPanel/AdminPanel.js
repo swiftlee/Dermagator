@@ -4,7 +4,7 @@ import './AdminPanel.css';
 const AdminPanel = () => {
     const {inputs, handleInputChange, handleSubmit} = useAdminPanel();
     return (
-        <body style={{backgroundColor: 'blue'}}>
+        <body>
             <div className="AdminPanel">
                 <h1 className="header">Welcome User!</h1>
                 <form onSubmit={handleSubmit}>
