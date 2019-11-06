@@ -1,8 +1,10 @@
 import React from 'react';
-
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+AOS.init();
 const ContactUs = () => {
     return (
-        <div>
+        <div data-aos="fade-left">
             <h1>Contact Us </h1>
             <p>
                 This is a placeholder for the information for the employees sections and

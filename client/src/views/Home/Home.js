@@ -12,6 +12,7 @@ function Home() {
             <div className='mb-5 sticky-top'>
                 <NavBar/>
             </div>
+            <header className="Welcome">Welcome to DermaGator</header>
             <div id='about'>
                 <AboutUs/>
             </div>

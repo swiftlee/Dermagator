@@ -1,9 +1,11 @@
 import React from 'react';
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import './AboutUs.css'
-
+AOS.init();
 const AboutUs = () => {
     return (
-        <div className='AboutUs'>
+        <div data-aos='fade-right' data-aos-duration="1000"className='AboutUs'>
             <h1>About the Company</h1>
             <p>
                 This is a placeholder for the information for the company this might gain some links to the employees
