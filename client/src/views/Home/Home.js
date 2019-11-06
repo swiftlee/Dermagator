@@ -12,7 +12,8 @@ function Home() {
             <div className='mb-5 sticky-top'>
                 <NavBar/>
             </div>
-            <div id='about' className='mb-5'>
+            <header className="Welcome">Welcome to DermaGator</header>
+            <div id='about'>
                 <AboutUs/>
             </div>
             <div id='proof-of-concept' className='mb-5'>
@@ -21,7 +22,7 @@ function Home() {
             <div id='product' className='mb-5'>
                 <ProductInfo/>
             </div>
-            <div id='contact' style={{marginTop:"50rem"}}> {/*REMOVE STYLE WHEN DONE TESTING*/}
+            <div id='contact' className= 'mb-5' style={{marginTop:"50rem"}}> {/*REMOVE STYLE WHEN DONE TESTING*/}
                 <ContactUs/>
             </div>
         </div>
