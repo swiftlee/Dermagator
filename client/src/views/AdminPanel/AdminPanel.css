@@ -1,0 +1,81 @@
+.login-header {
+    position: absolute;
+    top: 45%;
+}
+
+.login-container {
+    position: relative;
+    padding: 0 20px 20px 20px;
+    /*box-shadow: 0 0 6px rgba(35, 173, 278, 1);*/
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
+
+.login-form .section {
+    width: 500px;
+    height: 75px;
+    margin-top: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-form input {
+    width: 100%;
+    height: 100%;
+    color: #595f6e;
+    padding-top: 20px;
+    border: none;
+    outline: none;
+}
+
+.login-form label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid black;
+}
+
+.login-form label::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid #5fa8d3;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.login-label-content {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+/* 1. This affects the login labels on input focus!
+   2. This makes sure the label text stays out of the way if we have some sort of input.
+ */
+.login-form input:focus + .login-label .login-label-content,
+.login-form input[value]:not([value='']) + .login-label .login-label-content {
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: #5fa8d3;
+}
+
+/*
+    1. If the input is focused, append styles to label.
+    2. If our input is valid (aka has text), append styles to label.
+*/
+.login-form input:focus + .login-label::after, .login-form input[value]:not([value='']) + .login-label::after {
+    transform: translateX(0%);
+}
