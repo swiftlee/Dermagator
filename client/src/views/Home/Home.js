@@ -9,11 +9,11 @@ import NavBar from "../../components/Header/NavBar";
 function Home() {
     return (
         <div className="App">
-            <div className='mb-5 sticky-top'>
+            <div className='sticky-top'>
                 <NavBar/>
             </div>
-            <header className="Welcome">Welcome to DermaGator</header>
-            <div id='about'>
+            <header id="Welcome" className="Welcome">Welcome to DermaGator</header>
+            <div id='about'className='mb-5'>
                 <AboutUs/>
             </div>
             <div id='proof-of-concept' className='mb-5'>
@@ -22,7 +22,7 @@ function Home() {
             <div id='product' className='mb-5'>
                 <ProductInfo/>
             </div>
-            <div id='contact' className= 'mb-5' style={{marginTop:"50rem"}}> {/*REMOVE STYLE WHEN DONE TESTING*/}
+            <div  id='contact' className= 'mb-5' name='contact' style={{marginTop:"50rem"}}> {/*REMOVE STYLE WHEN DONE TESTING*/}
                 <ContactUs/>
             </div>
         </div>
