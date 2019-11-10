@@ -4,7 +4,7 @@ import Home from "./views/Home/Home"
 import NotFound from "./views/NotFound"
 import AdminPanel from "./views/AdminPanel/AdminPanel"
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import WhitePaper from './views/WhitePaperPage/WhitePaper';
 
 const App = () => {
   return (
@@ -15,6 +15,7 @@ const App = () => {
           <Redirect to="/Home" />
         </Route>
         <Route exact path="/login" component={AdminPanel} pattern="/login"/>
+        <Route path="/whitepages" component={WhitePaper}/>
         <Route component={NotFound}/>
       </Switch>
     </div>
