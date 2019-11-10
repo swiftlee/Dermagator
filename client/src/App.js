@@ -5,6 +5,7 @@ import NotFound from "./views/NotFound"
 import AdminPanel from "./views/AdminPanel/AdminPanel"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import WhitePaper from './views/WhitePaperPage/WhitePaper';
+import NavBar from './components/Header/NavBar';
 
 const App = () => {
   return (

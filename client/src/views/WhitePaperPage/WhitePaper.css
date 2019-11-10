@@ -8,6 +8,8 @@
     align-items: center;
     flex-direction: column;
     font-family: sans-serif;
+    background-color: lightblue;
+    
 }
 .first-page{
     text-align: center;
