@@ -10,7 +10,6 @@
     "start": "concurrently --kill-others-on-fail \"yarn server\"  \"yarn client\""
   },
   "dependencies": {
-    "aos": "^3.0.0-beta.6",
     "concurrently": "^5.0.0"
   }
 }
