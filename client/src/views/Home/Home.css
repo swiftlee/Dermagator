@@ -33,8 +33,14 @@
 }
 .mb-5{
     color:darkorange;
+    padding-top:60px;
 }
 .Welcome{
     font-size: 50px;
     color:blue;
+    padding-top:60px;
+}
+.sticky-top{
+    position: sticky;
+    top:0;
 }
