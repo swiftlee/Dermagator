@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import WhitePaper from './views/WhitePaperPage/WhitePaper';
 import About from './views/About/About';
 import ProductPage from './views/ProductPage/ProductPage';
->>>>>>>>> Temporary merge branch 2
 
 const App = () => {
     return (
