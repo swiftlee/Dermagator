@@ -2,7 +2,7 @@
   "name": "server",
   "version": "0.1.0",
   "description": "An app to help serve doctors and patients with information.",
-  "main": "dist/index.js",
+  "main": "dist/server.js",
   "contributors": [
     {
       "name": "Jonathan Conlin",
@@ -13,8 +13,13 @@
   "scripts": {
     "test": "mocha src/tests",
     "watch": "concurrently \"tsc -w\" \"nodemon dist/server.js\"",
-    "build": "tsc --traceResolution",
-    "start": "node dist/server.js"
+    "build": "tsc",
+    "start": "npm run serve",
+    "serve": "node dist/server.js",
+    "postinstall": "npm run build"
+  },
+  "engines": {
+    "node": "12.11.0"
   },
   "repository": {
     "type": "git",
