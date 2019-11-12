@@ -10,11 +10,11 @@ const ProductsInfo = () => {
                 <p>
                 Information on product
                 </p>
-                <a href=""> Link to Ordering </a>
+                <a href="">Link to Ordering </a>
             </div>
            
         </div>
     );
-}
+};
 
 export default ProductsInfo;
