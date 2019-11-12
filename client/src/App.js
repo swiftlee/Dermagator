@@ -5,6 +5,7 @@ import NotFound from "./views/NotFound"
 import AdminPanel from "./views/AdminPanel/AdminPanel"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import WhitePaper from './views/WhitePaperPage/WhitePaper';
+import About from './views/About/About';
 import ProductPage from './views/ProductPage/ProductPage';
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
                 <Route exact path="/login" component={AdminPanel} pattern="/login"/>
                 <Route path="/whitepages" component={WhitePaper}/>
                 <Route path="/productpage" component={ProductPage}/>
+                <Route path="/about" component={About}/>
                 <Route component={NotFound}/>
             </Switch>
     </div>
