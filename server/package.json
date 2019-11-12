@@ -19,7 +19,7 @@
     "postinstall": "npm run build"
   },
   "engines": {
-    "node": "^12.13.0"
+    "node": "^12.12.7"
   },
   "repository": {
     "type": "git",
