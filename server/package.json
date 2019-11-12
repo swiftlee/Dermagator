@@ -16,7 +16,7 @@
     "build": "tsc",
     "start": "yarn serve",
     "serve": "node dist/server.js",
-    "postinstall": "yarn add typescript && yarn build"
+    "postinstall": "yarn build"
   },
   "engines": {
     "node": "^12.12.7"
