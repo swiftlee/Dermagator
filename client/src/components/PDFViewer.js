@@ -1,5 +1,3 @@
-//import React, { useEffect } from 'react';
-//import pdfjs from '../backends/pdfjs';
 import React, { Component, useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 
@@ -22,7 +20,7 @@ const PDFViewer = () => {
 
     return(
         <div>
-            <div style={{ width: 600 }}>
+            <div style={{ width: 925 }}>
                 <Document
                     file="/cream_article.pdf"
                     onLoadSuccess={onDocumentLoadSuccess}
@@ -46,48 +44,3 @@ const PDFViewer = () => {
 }
 
 export default PDFViewer;
-
-/*
-export default class PDFViewer extends React.Component {
-    constructor(props) {
-        super(props);
-        this.viewerRef = React.createRef();
-        this.backend = new props.backend();
-    }
-
-    componentDidMount() {
-        const { src } = this.props;
-        const element = this.viewerRef.current;
-
-        this.backend.init(src, element);
-    }
-
-    render() {
-        return (
-            <div ref={this.viewerRef} id='viewer' style={{ width: '100%', height: '100%'}}>
-
-            </div>
-        )
-    }
-}
-const PDFViewer = (props) => {
-    const viewerRef = React.createRef();
-    const backend = new props.backend();
-
-    useEffect(() => {
-        const { src } = props;
-        const element = viewerRef.current;
-        backend.init(src, element);
-    });
-
-    return (
-        <div 
-            ref={viewerRef} 
-            id='viewer'
-            style={{ width: '100%', height: '100%'}}>
-        </div>
-    );
-}
-
-export default PDFViewer;
-*/
