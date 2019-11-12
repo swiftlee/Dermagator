@@ -16,6 +16,6 @@ app.get('*', (req, res) => {
 });
 // Use env port or default
 console.log(`THE PORT IS THIS THING: ${process.env.PORT}`);
-const port = process.env.PORT || 5000;
+const port = 5000;
 app.listen(port, () => console.log(`Server now running on port ${port}!`));
 //# sourceMappingURL=server.js.map
