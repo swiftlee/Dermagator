@@ -5,11 +5,12 @@ import NotFound from "./views/NotFound"
 import AdminPanel from "./views/AdminPanel/AdminPanel"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import WhitePaper from './views/WhitePaperPage/WhitePaper';
+import ProductPage from './views/ProductPage/ProductPage';
 import About from './views/About/About';
 
 const App = () => {
     return (
-        <div style={{width: "90%"}} className='m-auto' id='top'>
+    <div style={{display: "flex", flexDirection: "row", width:"90%"}}  className='m-auto' id='top'>
             <Link to={'/home'}>
                 <img src='/favicon.ico' className='static-logo position-static ml-0'
                      alt='This is replacement text if an image does not display.'/>
@@ -21,10 +22,11 @@ const App = () => {
                 </Route>
                 <Route exact path="/login" component={AdminPanel} pattern="/login"/>
                 <Route path="/whitepages" component={WhitePaper}/>
+                <Route path="/productpage" component={ProductPage}/>
                 <Route path="/about" component={About}/>
                 <Route component={NotFound}/>
             </Switch>
-        </div>
+    </div>
     );
 };
 

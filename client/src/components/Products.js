@@ -1,10 +1,12 @@
 import React from 'react';
+import ProductsPage from "../views/ProductPage/ProductPage";
 import PDFViewer from '../components/PDFViewer';
 
 const ProductsInfo = () => {
+    
     return (
         <div>
-            <h1>We Produce the Following Products</h1>
+            <h1>Our Products</h1>
             <div>
                 <h2>Product 1</h2>
                 <div className='position-relative'>
@@ -13,7 +15,8 @@ const ProductsInfo = () => {
                 <p>
                     Information on product
                 </p>
-                <a href="">Link to Ordering </a>
+                
+                <a href="/ProductPage">Order Now </a>
             </div>
         </div>
     );
