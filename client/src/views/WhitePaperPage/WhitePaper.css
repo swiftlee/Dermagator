@@ -4,6 +4,7 @@
     /*box-shadow: 0 0 6px rgba(35, 173, 278, 1);*/
     overflow: hidden;
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
