@@ -8,7 +8,7 @@ import WhitePaper from './views/WhitePaperPage/WhitePaper';
 
 const App = () => {
     return (
-        <div style={{width: "90%"}} className='m-auto' id='top'>
+    <div style={{display: "flex", flexDirection: "row", width:"90%"}}  className='m-auto' id='top'>
             <Link to={'/home'}>
                 <img src='/favicon.ico' className='static-logo position-static ml-0'
                      alt='This is replacement text if an image does not display.'/>
@@ -22,7 +22,7 @@ const App = () => {
                 <Route path="/whitepages" component={WhitePaper}/>
                 <Route component={NotFound}/>
             </Switch>
-        </div>
+    </div>
     );
 };
 
