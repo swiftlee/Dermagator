@@ -35,7 +35,7 @@ function Home() {
             <div id='product' className='mb-5' data-aos="fade" data-aos-duration='1000'>
                 <ProductInfo/>
             </div>
-            <div id='contact' className='mb-5'> {/*REMOVE STYLE WHEN DONE TESTING*/}
+            <div id='contact' className='mb-5'>
                 <ContactUs/>
             </div>
         </div>

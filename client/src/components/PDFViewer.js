@@ -1,5 +1,5 @@
-import React, { Component, useState, useEffect } from 'react';
-import { Document, Page, pdfjs } from 'react-pdf';
+import React, {Component, useState, useEffect} from 'react';
+import {Document, Page, pdfjs} from 'react-pdf';
 
 const PDFViewer = () => {
     const [numPages, setNumPages] = useState(null);
@@ -8,26 +8,23 @@ const PDFViewer = () => {
 
     const onDocumentLoadSuccess = ({numPages}) => {
         setNumPages(numPages);
-    }
+    };
     const goToPrevPage = () => {
-        if (pageNum != 1)
+        if (pageNum !== 1)
             setPageNum(pageNum - 1);
-    }
+    };
     const goToNextPage = () => {
-        if (pageNum != numPages)
+        if (pageNum !== numPages)
             setPageNum(pageNum + 1);
-    }
+    };
 
-    return(
-        <div>
-            <div style={{ width: 925 }}>
-                <Document
-                    file="/cream_article.pdf"
-                    onLoadSuccess={onDocumentLoadSuccess}
-                >
-                    <Page pageNumber={pageNum} width={925} />
-                </Document>
-            </div>
+    return (
+        <div className='pdf'>
+            <Document
+                file="/cream_article.pdf"
+                onLoadSuccess={onDocumentLoadSuccess}>
+                    <Page pageNumber={pageNum}/>
+            </Document>
             <nav>
                 <button onClick={goToPrevPage}>
                     Prev
@@ -41,6 +38,6 @@ const PDFViewer = () => {
             </p>
         </div>
     )
-}
+};
 
 export default PDFViewer;
