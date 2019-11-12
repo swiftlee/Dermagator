@@ -19,7 +19,7 @@ function Home() {
             <div className='sticky-top mb-3'>
                 <NavBar/>
             </div>
-            <div className='row' data-aos="fade" data-aos-duration='1000' data-aos-easing="ease-in-out"
+            <div className='infocards' data-aos="fade" data-aos-duration='1000' data-aos-easing="ease-in-out"
                  data-aos-mirror="true">
                 <InfoCard title='STANDARD' subtitle='DermAssure 101' info='Detailed treatment conditions'
                           data-aos-offset='100'/>
