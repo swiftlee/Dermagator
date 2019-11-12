@@ -8,7 +8,7 @@ const NavBar = () => {
         <div>
         <nav className='container'>
             <div className='navbar navbar-expand navbar-light bg-light justify-content-center'>
-                <Link className="navbar-brand navbar-item" activeClass="active" to='/home#Welcome' spy={true} smooth={true}
+                <Link className="navbar-brand navbar-item" activeClass="active" to='/home#top' spy={true} smooth={true}
                       offset={-60}
                       duration={500}>Home</Link>
                 <Link className='navbar-brand navbar-item' activeClass='active' to='/home#about' spy={true} smooth={true}

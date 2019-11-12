@@ -12,6 +12,6 @@ const ContactUs = () => {
             </p>
         </div>
     );
-}
+};
 
 export default ContactUs;

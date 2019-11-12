@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 const useAdminPanel=()=>{
-    const [inputs, setInputs]=useState({});
+    const [inputs, setInputs] = useState({});
     const handleSubmit=(event)=>{
         if(event){
             event.preventDefault();

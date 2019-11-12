@@ -8,15 +8,16 @@
     align-items: center;
     flex-direction: column;
     font-family: sans-serif;
-    background-color: lightblue;
-    
+
 }
-.first-page{
+
+.first-page {
     text-align: center;
     position: relative;
 
 }
-.second-page{
+
+.second-page {
     text-align: center;
     position: relative;
 }
