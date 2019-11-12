@@ -1,5 +1,6 @@
 import React from 'react';
 import './Home.css';
+import "react-pdf/dist/Page/AnnotationLayer.css";
 import ProofOfConcepts from "../../components/ProofOfConcepts";
 import ContactUs from "../../components/ContactUs";
 import AboutUs from "../../components/AboutUs";
