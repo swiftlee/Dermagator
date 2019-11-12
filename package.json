@@ -10,12 +10,6 @@
     "start": "concurrently --kill-others-on-fail \"yarn server\"  \"yarn client\""
   },
   "dependencies": {
-<<<<<<< HEAD
-    "aos": "^3.0.0-beta.6",
-    "concurrently": "^5.0.0",
-    "react-router-hash-link": "^1.2.2"
-=======
     "concurrently": "^5.0.0"
->>>>>>> b28a9cb34d73b38c002c94e809286fedd087e729
   }
 }
