@@ -14,9 +14,9 @@
     "test": "mocha src/tests",
     "watch": "concurrently \"tsc -w\" \"nodemon dist/server.js\"",
     "build": "tsc",
-    "start": "npm run serve",
+    "start": "yarn serve",
     "serve": "node dist/server.js",
-    "postinstall": "npm run build"
+    "postinstall": "yarn add typescript && yarn build"
   },
   "engines": {
     "node": "^12.12.7"
@@ -35,7 +35,8 @@
     "mongoose": "^5.7.1",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
-    "passport-jwt": "^4.0.0"
+    "passport-jwt": "^4.0.0",
+    "typescript": "^3.7.2"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
