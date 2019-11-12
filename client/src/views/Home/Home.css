@@ -2,6 +2,133 @@
     text-align: center;
 }
 
+.pdf {
+    display: inline-block;
+    text-align: center;
+}
+
+.react-pdf__Page canvas {
+    width: 100% !important;
+}
+
+.static-logo {
+    transform: translateY(50px);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.static-logo:hover {
+    box-shadow: 0 3px 6px rgba(9,211,172,0.16), 0 3px 6px rgba(9,211,172,0.23);
+}
+
+.grid-container {
+    display: grid;
+}
+
+.page-element {
+    background: white;
+    border: 0.75rem;
+    justify-content: flex-start;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.slide {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 3px 3px 3px 3px;
+}
+
+.carousel .slide .legend {
+    -webkit-transition: all .5s ease-in-out !important;
+    -moz-transition: all .5s ease-in-out !important;
+    -ms-transition: all .5s ease-in-out !important;
+    -o-transition: all .5s ease-in-out !important;
+    transition: all .5s ease-in-out !important;
+    position: absolute !important;
+    display: flex;
+    justify-content: center;
+    transform: translateY(200%);
+    bottom: 40px !important;
+    left: 50% !important;
+    margin-left: -45% !important;
+    width: 90% !important;
+    border-radius: 10px !important;
+    background: #fff !important;
+    color: #000 !important;
+    padding: 10px !important;
+    font-size: 12px !important;
+    text-align: center !important;
+    opacity: .25 !important;
+    -webkit-transition: opacity .35s ease-in-out !important;
+    -moz-transition: opacity .35s ease-in-out !important;
+    -ms-transition: opacity .35s ease-in-out !important;
+    -o-transition: opacity .35s ease-in-out !important;
+    transition: opacity .35s ease-in-out !important;
+}
+
+.carousel:hover .slide .legend {
+    opacity: 1 !important;
+}
+
+.arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0px 0px 3px;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 0px 3px 3px 0px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 8px;
+    width: 8px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
 .App-logo {
     height: 40vmin;
 }
@@ -19,4 +146,39 @@
 
 .App-link {
     color: #09d3ac;
+}
+
+.navbar-item {
+    transition: 400ms !important;
+}
+
+.navbar-item:hover {
+    color: #09d3ac !important;
+    transition: color 250ms ease !important;
+    cursor: pointer;
+}
+
+.mb-5 {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    margin: 60px auto auto;
+    max-width: 75%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    background-color: #d9d9d9
+}
+
+.mb-5:hover {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.Welcome {
+    font-size: 50px;
+}
+
+.infocards {
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
 }

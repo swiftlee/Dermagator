@@ -1,0 +1,21 @@
+.main {
+    position: relative;
+    padding: 0 20px 20px 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+    width: 90%;
+}
+
+.first-page {
+    text-align: center;
+    position: relative;
+}
+
+.second-page {
+    text-align: center;
+    position: relative;
+}
