@@ -14,8 +14,7 @@
     "test": "mocha src/tests",
     "watch": "concurrently \"tsc -w\" \"nodemon dist/server.js\"",
     "build": "tsc",
-    "start": "node dist/server.js",
-    "dev": "nodemon src/server.ts"
+    "start": "node dist/server.js"
   },
   "repository": {
     "type": "git",
