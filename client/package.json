@@ -3,10 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "aos": "^3.0.0-beta.6",
     "bootstrap": "^4.3.1",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
+<<<<<<< HEAD
     "react-pdf": "^4.1.0",
+=======
+    "react-responsive-carousel": "^3.1.51",
+>>>>>>> 218155139fe5f589f565f2be41d12f56582c6729
     "react-router-dom": "^5.1.2",
     "react-router-hash-link": "^1.2.2",
     "react-scripts": "3.1.2",
