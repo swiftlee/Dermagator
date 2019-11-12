@@ -1,6 +1,8 @@
 import React from 'react';
 import './About.css';
 import NavBar from '../../components/Header/NavBar';
+import InfoCard from "../../components/Home/Cards/InfoCard";
+
 
 const About=()=>{
     return(
@@ -32,6 +34,10 @@ const About=()=>{
                 <div className='row mb-5' data-aos="fade" data-aos-duration='1000' data-aos-easing="ease-in-out"
                  data-aos-mirror="true">
                 <h1>TEAM TEXT</h1>
+                <div style={{display: 'flex', flexDirection: 'row'}} className = "text-center">
+                <InfoCard title='Guy 1' subtitle='' info='info1' data-aos-offset='0' style={{flex: 1}}/>
+                <InfoCard title='Guy 2' subtitle='' info='info2' data-aos-offset='0' style={{flex: 1}}/>
+                </div>
                 </div>
         </div>
     );
