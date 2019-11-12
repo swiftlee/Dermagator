@@ -7,9 +7,11 @@ const ProductsInfo = () => {
             <h1>We Produce the Following Products</h1>
             <div>
                 <h2>Product 1</h2>
-                <PDFViewer/>
+                <div className='position-relative'>
+                    <PDFViewer/>
+                </div>
                 <p>
-                Information on product
+                    Information on product
                 </p>
                 <a href="">Link to Ordering </a>
             </div>
