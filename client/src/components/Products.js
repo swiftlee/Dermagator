@@ -1,4 +1,5 @@
 import React from 'react';
+import PDFViewer from '../components/PDFViewer';
 
 const ProductsInfo = () => {
     return (
@@ -6,13 +7,12 @@ const ProductsInfo = () => {
             <h1>We Produce the Following Products</h1>
             <div>
                 <h2>Product 1</h2>
-                <img src='/logo192.png' alt='This is replacement text if an image does not display.'/>
+                <PDFViewer/>
                 <p>
                 Information on product
                 </p>
                 <a href="">Link to Ordering </a>
             </div>
-           
         </div>
     );
 };

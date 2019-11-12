@@ -3,69 +3,33 @@
 import React, { Component, useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 
-export default class PDFViewer extends Component {
-    state = { numPages: null, pageNumber: 1 };
-  
-    onDocumentLoadSuccess = ({ numPages }) => {
-      this.setState({ numPages });
-    };
-  
-    goToPrevPage = () => {
-        if (this.state.pageNumber != 1)
-            this.setState(state => ({ pageNumber: state.pageNumber - 1 }));
-    }
-    goToNextPage = () => {
-        if (this.state.pageNumber != this.state.numPages)
-            this.setState(state => ({ pageNumber: state.pageNumber + 1 }));
-    }
-    render() {
-      const { pageNumber, numPages } = this.state;
-    
-    
-      return (
-        <div>
-          <nav>
-            <button onClick={this.goToPrevPage}>Prev</button>
-            <button onClick={this.goToNextPage}>Next</button>
-          </nav>
-  
-          <div style={{ width: 600 }}>
-            <Document
-              file="/cream_article.pdf"
-              onLoadSuccess={this.onDocumentLoadSuccess}
-            >
-              <Page pageNumber={pageNumber} width={600} />
-            </Document>
-          </div>
-  
-          <p>
-            Page {pageNumber} of {numPages}
-          </p>
-        </div>
-      );
-    }
-  }
-
-/*
 const PDFViewer = () => {
     const [numPages, setNumPages] = useState(null);
     const [pageNum, setPageNum] = useState(1);
 
 
-    const onDocumentLoadSuccess = (numPages) => {
+    const onDocumentLoadSuccess = ({numPages}) => {
         setNumPages(numPages);
     }
     const goToPrevPage = () => {
-        setPageNumber(pageNumber - 1);
+        if (pageNum != 1)
+            setPageNum(pageNum - 1);
     }
     const goToNextPage = () => {
-        setPageNumber(pageNumber + 1);
+        if (pageNum != numPages)
+            setPageNum(pageNum + 1);
     }
-
-
 
     return(
         <div>
+            <div style={{ width: 600 }}>
+                <Document
+                    file="/cream_article.pdf"
+                    onLoadSuccess={onDocumentLoadSuccess}
+                >
+                    <Page pageNumber={pageNum} width={925} />
+                </Document>
+            </div>
             <nav>
                 <button onClick={goToPrevPage}>
                     Prev
@@ -74,14 +38,6 @@ const PDFViewer = () => {
                     Next
                 </button>
             </nav>
-            <div style={{ width: 600 }}>
-                <Document
-                    file="/cream_article.pdf"
-                    onLoadSuccess={onDocumentLoadSuccess}
-                >
-                    <Page pageNum={pageNum} width={600} />
-                </Document>
-            </div>
             <p>
                 Page {pageNum} of {numPages}
             </p>
@@ -90,7 +46,7 @@ const PDFViewer = () => {
 }
 
 export default PDFViewer;
-*/
+
 /*
 export default class PDFViewer extends React.Component {
     constructor(props) {
@@ -114,8 +70,6 @@ export default class PDFViewer extends React.Component {
         )
     }
 }
-*/
-/*
 const PDFViewer = (props) => {
     const viewerRef = React.createRef();
     const backend = new props.backend();

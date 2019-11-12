@@ -2,8 +2,6 @@ import React from 'react';
 import './Home.css';
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import ProofOfConcepts from "../../components/ProofOfConcepts";
-import PDFViewer from '../../components/PDFViewer';
-import PDFJSBackend from '../../backends/pdfjs';
 import ContactUs from "../../components/ContactUs";
 import AboutUs from "../../components/AboutUs";
 import ProductInfo from "../../components/Products"
@@ -34,14 +32,7 @@ function Home() {
             <div id='proof-of-concept' className='mb-5' data-aos="fade" data-aos-duration='1000'>
                 <ProofOfConcepts/>
             </div>
-<<<<<<< HEAD
-            <div id='pdf-viewer' className='mb-5'>
-                <PDFViewer/>
-            </div>
-            <div id='product' className='mb-5'>
-=======
             <div id='product' className='mb-5' data-aos="fade" data-aos-duration='1000'>
->>>>>>> 218155139fe5f589f565f2be41d12f56582c6729
                 <ProductInfo/>
             </div>
             <div id='contact' className='mb-5'> {/*REMOVE STYLE WHEN DONE TESTING*/}
