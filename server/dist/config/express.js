@@ -22,6 +22,7 @@ const app = express_1.default();
 app.use(morgan_1.default('dev'));
 // body parsing middleware
 app.use(body_parser_1.default.json());
+// test
 if (process.env.NODE_ENV === 'production') {
     // Serve any static files
     app.use(express_1.default.static(path_1.default.join(__dirname, '../../client/build')));
