@@ -1,5 +1,5 @@
 export default {
     db: {
-        uri: 'http://localhost:27017', // mongo URI
+        uri: 'mongodb://127.0.0.1:27017/dermagator', // mongo URI
     }
 }
