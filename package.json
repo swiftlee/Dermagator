@@ -15,6 +15,6 @@
     "yarn": "^1.19.1"
   },
   "comments": {
-	"start": "concurrently --kill-others-on-fail \"yarn client\" \"yarn server\"",
+	"start": "concurrently --kill-others-on-fail \"yarn client\" \"yarn server\""
   }
 }
