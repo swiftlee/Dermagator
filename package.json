@@ -7,7 +7,7 @@
   "scripts": {
     "client": "yarn workspace client start",
     "server": "yarn workspace server start",
-    "start": "--kill-others-on-fail && yarn client", 
+    "start": "concurrently --kill-others-on-fail \"yarn client\"", 
     "heroku-postbuild": "yarn && yarn workspace server build && yarn workspace client build"
   },
   "dependencies": {
