@@ -11,10 +11,8 @@
     }
   ],
   "scripts": {
-    "test": "mocha src/tests",
-    "watch": "concurrently \"tsc -w\" \"nodemon dist/server.js\"",
-    "build": "tsc",
-    "start": "node dist/server.js"
+    "test": "mocha tests",
+    "start": "concurrently \"tsc -w\" \"nodemon dist/server.js\""
   },
   "repository": {
     "type": "git",
@@ -30,25 +28,24 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "morgan": "^1.9.1",
-    "dotenv": "^8.2.0",
-    "node": "^13.1.0",
-    "@types/node": "^12.12.7"
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.18.10",
-    "should": "^13.2.3",
-    "supertest": "^4.0.2",
-    "mocha": "^6.2.1",
     "@types/node": "^12.12.7",
     "@types/express": "^4.17.2",
     "@types/mongoose": "^5.5.30",
+    "@types/morgan": "^1.7.37",
     "@types/mongodb": "^3.3.10",
     "@types/jsonwebtoken": "^8.3.5",
     "@types/passport": "^1.0.1",
     "@types/passport-jwt": "^3.0.3",
     "@types/bcrypt": "^3.0.0",
     "@types/bcryptjs": "^2.4.2",
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.10",
+    "should": "^13.2.3",
+    "supertest": "^4.0.2",
+    "mocha": "^6.2.1",
     "tslint": "^5.20.1",
     "typescript": "^3.7.2"
   },
