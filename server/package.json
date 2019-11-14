@@ -31,7 +31,8 @@
     "passport-jwt": "^4.0.0",
     "morgan": "^1.9.1",
     "dotenv": "^8.2.0",
-    "node": "^13.1.0"
+    "node": "^13.1.0",
+    "@types/node": "^12.12.7"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",
