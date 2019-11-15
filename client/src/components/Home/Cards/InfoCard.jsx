@@ -13,7 +13,6 @@ const InfoCard = ({title, subtitle, info}) => {
             </div>
         </div>
     )
-
 };
 
 export default InfoCard;
