@@ -7,16 +7,10 @@
   "scripts": {
     "client": "yarn workspace client start",
     "server": "yarn workspace server start",
-    "start": "concurrently --kill-others-on-fail \"yarn client\" \"yarn server\"",
-    "heroku-postbuild": "cd server && yarn add typescript && cd ../ && yarn install && yarn workspace server build && yarn workspace client build"
+    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "heroku-postbuild": "yarn workspace client build"
   },
   "dependencies": {
-    "concurrently": "^5.0.0",
-    "yarn": "^1.19.1"
-  },
-
-  "engines": {
-    "node": "^12.12.7",
-    "yarn": "^1.19.1"
+    "concurrently": "^5.0.0"
   }
 }
