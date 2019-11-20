@@ -60,5 +60,4 @@ adminRouter.post('login', async (req: express.Request, res: express.Response) =>
 		});
 	});
 });
-
 export default adminRouter;
