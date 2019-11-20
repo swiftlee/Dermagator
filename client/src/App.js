@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, Switch, Redirect, NavLink} from 'react-router-dom';
 import Home from "./views/Home/Home"
 import NotFound from "./views/NotFound"
-import AdminPanel from "./views/AdminPanel/AdminPanel"
+import Login from "./views/Login/Login"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import WhitePaper from './views/WhitePaperPage/WhitePaper';
 import About from './views/About/About';
@@ -20,7 +20,7 @@ const App = () => {
                 <Route exact path="/">
                     <Redirect to="/Home"/>
                 </Route>
-                <Route exact path="/login" component={AdminPanel} pattern="/login"/>
+                <Route exact path="/login" component={Login} pattern="/login"/>
                 <Route path="/whitepages" component={WhitePaper}/>
                 <Route path="/productpage" component={ProductPage}/>
                 <Route path="/about" component={About}/>
