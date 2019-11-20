@@ -1,14 +1,10 @@
 import * as bcrypt from 'bcryptjs';
-import { async } from 'q';
 
-export const hashString =function (toHash : string):string {
+export const hashString = async (toHash : string) : Promise<string> => {
     let hashedStr : string = '';
-    bcrypt.genSalt(10,function(err, salt) {
-        bcrypt.hash(toHash, salt, function(err, hash) {
-            if (err) { throw err }
-            hashedStr = hash;
-        })
-    });
+    // Hash password before saving in database
+    const salt = await bcrypt.genSalt(10);
+    hashedStr = await bcrypt.hash(toHash, salt);
 
-    return hashedStr;
+    return new Promise<string>((resolve, reject) => resolve(hashedStr));
 };
