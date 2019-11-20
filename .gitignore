@@ -59,3 +59,8 @@ yarn-error.log*
 server/dist/
 server/dist/*
 server/.env
+**/server/dist/
+./server/dist
+./server/dist/**
+./server/dist/*
+

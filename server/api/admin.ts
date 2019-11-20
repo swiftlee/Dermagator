@@ -1,4 +1,5 @@
 import express, {Router} from 'express';
+import config from '../config/config';
 import {User} from '../models/User';
 import * as bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
@@ -6,15 +7,15 @@ import validateUser from '../validation/validateUser';
 
 const adminRouter = Router();
 
-adminRouter.post('create', (req: express.Request, res: express.Response) => {
+adminRouter.post('/create', (req: express.Request, res: express.Response) => {
 
 });
 
-adminRouter.post('login', async (req: express.Request, res: express.Response) => {
+adminRouter.post('/login', (req: express.Request, res: express.Response) => {
 	//validating login
 
 	const {errors, isValid} = validateUser(req.body);
-	if (isValid) {
+	if (!isValid) {
 		return res.status(400).json(errors);
 	}
 
@@ -41,14 +42,16 @@ adminRouter.post('login', async (req: express.Request, res: express.Response) =>
 				// sign token
 				jwt.sign(
 					payload,
-					process.env.SECRET_KEY,
+					process.env.SECRET_KEY || config.jwt.SECRET_KEY,
 					{
 						expiresIn: 31556926 // 1 year in seconds
 					},
 					(err, token) => {
-						res.json({
+						const jwtAuth = 'Bearer ' + token;
+						res.setHeader('Authorization', jwtAuth);
+						req.headers['Authorization'] = jwtAuth;
+						res.status(200).json({
 							success: true,
-							token: 'Bearer ' + token
 						});
 					}
 				);

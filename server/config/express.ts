@@ -22,10 +22,13 @@ const app = express();
 // enable request logging for development debugging
 app.use(morgan('dev'));
 
-// body parsing middleware
+// body parser middleware
+app.use(
+    bodyParser.urlencoded({
+        extended: false
+    })
+);
 app.use(bodyParser.json());
-
-app.use('/api/admin', adminRouter);
 
 // test
 if (process.env.NODE_ENV === 'production') {
@@ -40,5 +43,8 @@ if (process.env.NODE_ENV === 'production') {
 
 // create default administrator
 createDefaultAdmin();
+
+// routes
+app.use('/api/admin', adminRouter);
 
 export default app;
