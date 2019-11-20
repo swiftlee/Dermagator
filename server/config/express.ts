@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import path from 'path';
 import config from './config';
 import {createDefaultAdmin} from "../utils/userUtils";
+import adminRouter from '../api/admin';
 
 console.log(`${process.env.DB_URI} and ${config.db.uri}`);
 
@@ -24,7 +25,7 @@ app.use(morgan('dev'));
 // body parsing middleware
 app.use(bodyParser.json());
 
-app.use();
+app.use('/api/admin', adminRouter);
 
 // test
 if (process.env.NODE_ENV === 'production') {

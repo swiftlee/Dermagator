@@ -31,7 +31,8 @@
     "dotenv": "^8.2.0",
     "nodemon": "^1.18.10",
     "validator": "^12.0.0",
-    "is-empty": "^1.2.0"
+    "is-empty": "^1.2.0",
+    "bcryptjs": "^2.4.3"
   },
   "devDependencies": {
     "@types/node": "^12.12.7",
@@ -42,8 +43,9 @@
     "@types/jsonwebtoken": "^8.3.5",
     "@types/passport": "^1.0.1",
     "@types/passport-jwt": "^3.0.3",
-    "@types/bcrypt": "^3.0.0",
     "@types/bcryptjs": "^2.4.2",
+    "@types/is-empty": "^1.2.0",
+    "@types/validator": "^12.0.0",
     "concurrently": "^4.1.0",
     "should": "^13.2.3",
     "supertest": "^4.0.2",
