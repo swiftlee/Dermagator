@@ -4,7 +4,8 @@ import mongoose from 'mongoose';
 import morgan from 'morgan';
 import path from 'path';
 import config from './config';
-import {preprocessDirectives} from "tslint/lib/verify/parse";
+import {createDefaultAdmin} from "../utils/userUtils";
+import adminRouter from '../api/admin';
 
 console.log(`${process.env.DB_URI} and ${config.db.uri}`);
 
@@ -24,6 +25,8 @@ app.use(morgan('dev'));
 // body parsing middleware
 app.use(bodyParser.json());
 
+app.use('/api/admin', adminRouter);
+
 // test
 if (process.env.NODE_ENV === 'production') {
     // Serve any static files
@@ -34,5 +37,8 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.join(__dirname, '../../../client/build', 'index.html'));
     });
 }
+
+// create default administrator
+createDefaultAdmin();
 
 export default app;
