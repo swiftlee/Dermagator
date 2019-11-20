@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch, Redirect, Link} from 'react-router-dom';
+import {Route, Switch, Redirect, NavLink} from 'react-router-dom';
 import Home from "./views/Home/Home"
 import NotFound from "./views/NotFound"
 import AdminPanel from "./views/AdminPanel/AdminPanel"
@@ -11,10 +11,10 @@ import ProductPage from './views/ProductPage/ProductPage';
 const App = () => {
     return (
     <div style={{display: "flex", flexDirection: "row", width:"90%"}}  className='m-auto' id='top'>
-            <Link to={'/home'}>
+            <a href={'/home'}>
                 <img src='/favicon.ico' className='static-logo position-static ml-0'
                      alt='This is replacement text if an image does not display.'/>
-            </Link>
+            </a>
             <Switch>
                 <Route exact path="/Home" component={Home}/>
                 <Route exact path="/">
