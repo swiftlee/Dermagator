@@ -22,7 +22,6 @@ jobs:
       - name: frontend test
         run: |
           yarn workspace client build
-          yarn workspace client postinstall
           yarn workspace client test
         env:
           CI: false
