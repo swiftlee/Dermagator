@@ -22,9 +22,8 @@ jobs:
       - name: frontend test
         run: |
           yarn workspace client build
-          yarn workspace client test
         env:
-          CI: true
+          CI: false
       - name: backend test
         run: |
           yarn workspace server test

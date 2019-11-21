@@ -23,7 +23,7 @@ const Login = () => {
                 <div>
                     <button 
                     onClick={handleSubmit}
-                    class='general_btn'>
+                    className='general_btn'>
                         Sign in
                     </button>
                 </div>
