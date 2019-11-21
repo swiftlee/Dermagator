@@ -22,9 +22,11 @@ mongoose_1.default.set('useFindAndModify', false);
 const app = express_1.default();
 // enable request logging for development debugging
 app.use(morgan_1.default('dev'));
-// body parsing middleware
+// body parser middleware
+app.use(body_parser_1.default.urlencoded({
+    extended: false
+}));
 app.use(body_parser_1.default.json());
-app.use('/api/admin', admin_1.default);
 // test
 if (process.env.NODE_ENV === 'production') {
     // Serve any static files
@@ -36,5 +38,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 // create default administrator
 userUtils_1.createDefaultAdmin();
+// routes
+app.use('/api/admin', admin_1.default);
 exports.default = app;
 //# sourceMappingURL=express.js.map

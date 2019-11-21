@@ -9,7 +9,7 @@ const Login = () => {
             <div className='login-form' onSubmit={handleSubmit}>
                 <h2 className='login-header'>Welcome, sign in below</h2>
                 <div className='section' style={{marginTop: '75%'}}>
-                    <input type="email" name="username" onChange={handleInputChange} value={inputs.username}
+                    <input type="email" name="email" onChange={handleInputChange} value={inputs.email}
                            required/>
                     <label className='login-label' htmlFor="username"><span
                         className='login-label-content'>Username</span></label>
@@ -22,6 +22,7 @@ const Login = () => {
                 </div>
                 <div>
                     <button 
+                    onClick={handleSubmit}
                     class='general_btn'>
                         Sign in
                     </button>

@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import WhitePaper from './views/WhitePaperPage/WhitePaper';
 import About from './views/About/About';
 import ProductPage from './views/ProductPage/ProductPage';
+import AdminPanel from './views/AdminPanel/AdminPanel';
 
 const App = () => {
     return (

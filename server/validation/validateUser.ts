@@ -3,11 +3,10 @@ import Validator from 'validator';
 
 const validateUser = (data: any) : any => {
 	const errors: any = {};
-
+	console.log(data.email);
 	data.email = !isEmpty(data.email) ? data.email : '';
 	data.password = !isEmpty(data.password) ? data.password : '';
 
-	console.log(data.email);
 
 	if (Validator.isEmpty(data.email)) {
 		errors.email = 'Email field is required.';
@@ -18,7 +17,6 @@ const validateUser = (data: any) : any => {
 	if (Validator.isEmpty(data.password)) {
 		errors.password = 'Password field is required.';
 	}
-
 	return {
 		errors,
 		isValid: isEmpty(errors)
