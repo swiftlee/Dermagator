@@ -22,7 +22,7 @@ const Login = () => {
                 </div>
                 <div>
                     <button 
-                    class='general_btn'>
+                    className='general_btn'>
                         Sign in
                     </button>
                 </div>

@@ -88,10 +88,10 @@
     bottom: 0px;
     cursor: pointer;
     background: #5692ca;
-    box-shadow: rbga(255, 163, 148, 0.1) 0px 5px 10px;
+    box-shadow: 0px 5px 10px rgba(255, 163, 148, 0.1);
     border: none;
     border-radius: 5px;
-    font-family: Alegreya;
+    font-family: Alegreya, sans-serif;
     font-weight: 700;
     font-size: 1.25rem;
     text-align: center;
