@@ -29,7 +29,7 @@ const PDFViewer = () => {
                 <button onClick={goToPrevPage}>
                     Prev
                 </button>
-                <button onClick={goToNextPage}>
+                <button onClick={goToNextPage}>e
                     Next
                 </button>
             </nav>

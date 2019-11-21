@@ -1,16 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {Carousel} from 'react-responsive-carousel';
-import jsonSlides from "../config/slides";
+import slides from "../config/slides";
 
-const Slideshow = (props) => {
+const Slideshow = () => {
 
-    const slides = JSON.parse(jsonSlides);
-    const [setSlideIndex, slideIndex] = useState(0);
-
-    useEffect(() => {
-        onChange(slideIndex);
-    }, []);
+    const [slideIndex, setSlideIndex] = useState(0);
 
     const onChangeCarouselIndex = index => {
         if (slideIndex !== index)
@@ -25,6 +20,11 @@ const Slideshow = (props) => {
     const updateLegend = () => {
         return <p>{slides[slideIndex].text}</p>
     };
+
+
+    useEffect(() => {
+        onChange(slideIndex);
+    }, []);
 
     return (
         <div className="app">
