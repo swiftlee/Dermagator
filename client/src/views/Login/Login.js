@@ -2,11 +2,14 @@ import React from 'react';
 import useLogin from './useLogin';
 import './Login.css';
 
-const Login = () => {
-    const {inputs, handleInputChange, handleSubmit} = useLogin();
+const Login = (props) => {
+    const {inputs, user, isAuthenticated, handleInputChange, handleSubmit} = useLogin();
     return (
         <div className='login-container'>
-            <div className='login-form' onSubmit={handleSubmit}>
+            {
+                isAuthenticated ? props.history.push('/') : null
+            }
+            <div className='login-form'>
                 <h2 className='login-header'>Welcome, sign in below</h2>
                 <div className='section' style={{marginTop: '75%'}}>
                     <input type="email" name="email" onChange={handleInputChange} value={inputs.email}

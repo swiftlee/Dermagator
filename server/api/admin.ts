@@ -24,27 +24,24 @@ adminRouter.post('/login', (req: express.Request, res: express.Response) => {
 
 	const email : string = req.body.email;
 	const password : string = req.body.password;
-	console.log("Searching Database")
 	// find user by email
 	User.findOne({ email: email }).then((user) => {
 		// check if user exists
 		if (!user) {
 			return res.status(404).json({ emailnotfound: 'Email not found.' });
 		}
-		console.log("User exists")
 		// check password
 		bcrypt.compare(password, user.password).then((isMatch) => {
 			if (isMatch) {
 				// user matched
 				// create JWT Payload
-				console.log("Making payload")
 				const payload = {
 					id: user.id,
-					name: user.name
+					name: user.name,
+					permissions: user.permissions
 				};
 
 				// sign token
-				console.log("signing token")
 				jwt.sign(
 					payload,
 					process.env.SECRET_KEY || config.jwt.SECRET_KEY,
