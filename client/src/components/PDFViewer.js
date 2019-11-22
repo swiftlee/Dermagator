@@ -1,5 +1,5 @@
-import React, {Component, useState, useEffect} from 'react';
-import {Document, Page, pdfjs} from 'react-pdf';
+import React, {useState} from 'react';
+import {Document, Page} from 'react-pdf';
 
 const PDFViewer = () => {
     const [numPages, setNumPages] = useState(null);
@@ -23,13 +23,13 @@ const PDFViewer = () => {
             <Document
                 file="/cream_article.pdf"
                 onLoadSuccess={onDocumentLoadSuccess}>
-                    <Page pageNumber={pageNum}/>
+                <Page pageNumber={pageNum}/>
             </Document>
             <nav>
                 <button onClick={goToPrevPage}>
                     Prev
                 </button>
-                <button onClick={goToNextPage}>
+                <button onClick={goToNextPage}>e
                     Next
                 </button>
             </nav>

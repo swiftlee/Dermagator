@@ -9,16 +9,14 @@ import NavBar from "../../components/Header/NavBar";
 import Slideshow from "../../components/Slideshow";
 import InfoCard from "../../components/Home/Cards/InfoCard";
 
-function Home() {
+const Home = () => {
     return (
         <div className="text-center m-auto">
             <header id="welcome" className="Welcome">Welcome to DermaGator</header>
             <div className="page-element m-auto" style={{"padding": "0px",}}>
                 <Slideshow/>
             </div>
-            <div className='sticky-top mb-3'>
-                <NavBar/>
-            </div>
+            <NavBar/>
             <div className='infocards' data-aos="fade" data-aos-duration='1000' data-aos-easing="ease-in-out"
                  data-aos-mirror="true">
                 <InfoCard title='STANDARD' subtitle='DermAssure 101' info='Detailed treatment conditions'

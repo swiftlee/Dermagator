@@ -1,15 +1,18 @@
 import React from 'react';
-import useAdminPanel from './useAdminPanel';
-import './AdminPanel.css';
+import useLogin from './useLogin';
+import './Login.css';
 
-const AdminPanel = () => {
-    const {inputs, handleInputChange, handleSubmit} = useAdminPanel();
+const Login = (props) => {
+    const {inputs, user, isAuthenticated, handleInputChange, handleSubmit} = useLogin();
     return (
         <div className='login-container'>
-            <div className='login-form' onSubmit={handleSubmit}>
+            {
+                isAuthenticated ? props.history.push('/') : null
+            }
+            <div className='login-form'>
                 <h2 className='login-header'>Welcome, sign in below</h2>
-                <div className='section' style={{marginTop: '50%'}}>
-                    <input type="email" name="username" onChange={handleInputChange} value={inputs.username}
+                <div className='section' style={{marginTop: '75%'}}>
+                    <input type="email" name="email" onChange={handleInputChange} value={inputs.email}
                            required/>
                     <label className='login-label' htmlFor="username"><span
                         className='login-label-content'>Username</span></label>
@@ -20,9 +23,17 @@ const AdminPanel = () => {
                     <label className='login-label' htmlFor="password"><span
                         className='login-label-content'>Password</span></label>
                 </div>
+                <div>
+                    <button 
+                    onClick={handleSubmit}
+                    className='general_btn'>
+                        Sign in
+                    </button>
+                </div>
+                
             </div>
         </div>
     );
 };
 
-export default AdminPanel;
+export default Login;

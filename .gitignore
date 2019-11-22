@@ -12,6 +12,9 @@
 # production
 /build
 client/build
+server/dist
+
+package-lock.json
 
 # misc
 .DS_Store
@@ -54,3 +57,12 @@ yarn-error.log*
 
 # User-specific stuff
 .idea/*
+
+server/dist/
+server/dist/*
+server/.env
+**/server/dist/
+./server/dist
+./server/dist/**
+./server/dist/*
+

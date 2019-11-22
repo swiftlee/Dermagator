@@ -1,28 +1,31 @@
 import React from 'react';
-import {Route, Switch, Redirect, Link} from 'react-router-dom';
+import {Route, Switch, Redirect} from 'react-router-dom';
 import Home from "./views/Home/Home"
 import NotFound from "./views/NotFound"
-import AdminPanel from "./views/AdminPanel/AdminPanel"
+import Login from "./views/Login/Login"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import WhitePaper from './views/WhitePaperPage/WhitePaper';
 import About from './views/About/About';
 import ProductPage from './views/ProductPage/ProductPage';
 
 const App = () => {
+
+    const homeLogo = <a href={'/home'}>
+        <img src='/favicon.ico' className='static-logo position-static ml-0'
+             alt='This is replacement text if an image does not display.'/>
+    </a>;
+
     return (
     <div style={{display: "flex", flexDirection: "row", width:"90%"}}  className='m-auto' id='top'>
-            <Link to={'/home'}>
-                <img src='/favicon.ico' className='static-logo position-static ml-0'
-                     alt='This is replacement text if an image does not display.'/>
-            </Link>
+        {window.location.pathname !== '/home' ? homeLogo : null}
             <Switch>
-                <Route exact path="/Home" component={Home}/>
+                <Route exact path="/home" component={Home}/>
                 <Route exact path="/">
-                    <Redirect to="/Home"/>
+                    <Redirect to="/home"/>
                 </Route>
-                <Route exact path="/login" component={AdminPanel} pattern="/login"/>
+                <Route path="/login" component={Login}/>
                 <Route path="/whitepages" component={WhitePaper}/>
-                <Route path="/productpage" component={ProductPage}/>
+                <Route path="/product" component={ProductPage}/>
                 <Route path="/about" component={About}/>
                 <Route component={NotFound}/>
             </Switch>
