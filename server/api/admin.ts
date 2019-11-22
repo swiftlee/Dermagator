@@ -8,7 +8,29 @@ var bodyParser = require('body-parser');
 
 
 const adminRouter = Router();
-
+adminRouter.get('/verify', (req:express.Request,res:express.Response)=>{
+	if(req.isAuthenticated()){
+		const ClientUser={
+			user:req.user,
+			loggedIn:true
+		};
+		return res.send({
+			success:true,
+			message:"Valid session",
+			user:ClientUser
+		});
+	}else{
+		const emptyUser={
+			user:"",
+			loggedIn:false
+		}
+		return res.send({
+			success:false,
+			message:"Couldn't find session",
+			user:emptyUser
+		})
+	}
+})
 adminRouter.post('/create', (req: express.Request, res: express.Response) => {
 
 });

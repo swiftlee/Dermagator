@@ -7,7 +7,7 @@ const Login = (props) => {
     return (
         <div className='login-container'>
             {
-                isAuthenticated ? props.history.push('/') : null
+                isAuthenticated ? props.history.push('/dashboard') : console.log("Leave Us")
             }
             <div className='login-form'>
                 <h2 className='login-header'>Welcome, sign in below</h2>

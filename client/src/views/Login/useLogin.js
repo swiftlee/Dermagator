@@ -23,7 +23,7 @@ const useLogin = () => {
         const userData = {
             email: inputs.email,
             password: inputs.password
-    };
+        };
         axios.post("/api/admin/login", userData)
             .then(res => {
                 // save tkn locally
@@ -38,6 +38,9 @@ const useLogin = () => {
                 setUser(decoded);
                 console.log(`${JSON.stringify(decoded)}: has signed in!`)
             });
+        //clearing the variables after submitting
+        //inputs.email="";
+        //inputs.password="";
     };
 
 
@@ -59,8 +62,10 @@ const useLogin = () => {
         handleSubmit,
         handleInputChange,
         isAuthenticated,
+        setAuthenticated,
         user,
-        inputs
+        inputs,
+        logout
     };
 };
 export default useLogin;
