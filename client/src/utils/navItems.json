@@ -1,0 +1,102 @@
+{
+  "home-bar": [
+    {
+      "id": "#top",
+      "label": "Home"
+    },
+    {
+      "id": "#about",
+      "label": "About",
+      "dropdowns": [
+        {
+          "route": "/about#mission",
+          "label": "Mission"
+        },
+        {
+          "route": "/about#ourstory",
+          "label": "Our Story"
+        },
+        {
+          "route": "/about#partners",
+          "label": "Partners"
+        },
+        {
+          "route": "/about#team",
+          "label": "Team"
+        }
+      ]
+    },
+    {
+      "id": "#proof-of-concept",
+      "label": "Proof of Concept"
+    },
+    {
+      "id": "#product",
+      "label": "Product Info",
+      "dropdowns": [
+        {
+          "route": "/product#standard",
+          "label": "Standard"
+        },
+        {
+          "route": "/product#aa_me",
+          "label": "A.A. & M.E."
+        },
+        {
+          "route": "/product#ss",
+          "label": "S.S."
+        },
+        {
+          "route": "/product#order",
+          "label": "Order"
+        }
+      ]
+    },
+    {
+      "id": "#contact",
+      "label": "Contact",
+      "dropdowns": [
+        {
+          "route": "/contact#emailform",
+          "label": "Email us"
+        }
+      ]
+    }
+  ],
+  "about-bar": [
+    {
+      "id": "#mission",
+      "label": "Mission"
+    },
+    {
+      "id": "#ourstory",
+      "label": "Our Story"
+    },
+    {
+      "id": "#partners",
+      "label": "Partners"
+    },
+    {
+      "id": "#team",
+      "label": "Team"
+    }
+  ],
+  "product-bar": [
+    {
+      "id": "#standard",
+      "label": "Standard"
+    },
+    {
+      "id": "#aa_me",
+      "label": "A.A. & M.E."
+    },
+    {
+      "id": "#ss",
+      "label": "S.S."
+    },
+    {
+      "id": "#order",
+      "label": "Order"
+    }
+  ]
+}
