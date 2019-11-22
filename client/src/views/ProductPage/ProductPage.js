@@ -1,9 +1,9 @@
 import React from "react"
-import ProdNavBar from "../../components/Header/ProdNavBar";
 import Standard from "../../components/Product/Standard";
 import AA_ME from "../../components/Product/AA_ME";
 import SS from "../../components/Product/SS";
-import Order from "../../components/Product/Order";
+import NavBar from "../../components/Header/NavBar";
+import navItems from "../../utils/navItems";
 
 function ProductPage() {
   return (
@@ -12,7 +12,7 @@ function ProductPage() {
     <header id="welcome" className="Welcome">Products</header>
     <div className="page-element m-auto" style={{"padding": "0px",}}></div>
     <div className='sticky-top mb-3'>
-        <ProdNavBar/>
+        <NavBar items={navItems['product-bar']}/>
     </div>
     <div id='standard' className='mb-5'>
         <Standard/>

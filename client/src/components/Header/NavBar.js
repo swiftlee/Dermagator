@@ -1,34 +1,50 @@
 import React from 'react';
 import {HashLink as Link} from 'react-router-hash-link'
+import './Navbar.css';
 
-const NavBar = () => {
+const NavBar = (props) => {
+
+    const sections = [...props.items];
+    {/*items: {id: '#id', label: 'Label', dropdowns: []} */
+    }
 
     return (
         <nav className='sticky-top container-fluid sticky-top mb-3 border-bottom border-info shadow-sm'>
-            <div className='navbar navbar-expand navbar-light bg-light justify-content-center'>
-                <a className="navbar-brand nav-item" href="#top">
+            <div className='navbar navbar-expand navbar-light bg-white justify-content-center'>
+                <a className="navbar-brand nav-item" href="/home">
                     <img src="/logo192.png" width="30" height="30" alt=""/>
                 </a>
-                <Link className="navbar-brand navbar-item" activeclass="active" to='#top' spy={'true'}
-                      smooth={true}
-                      offset={-60}
-                      duration={500}>Home</Link>
-                <Link className='navbar-brand navbar-item navbar-link' activeclass='active' to='#about'
-                      spy='true' smooth={true}
-                      offset={-60}
-                      duration={500}>About</Link>
-                <Link className='navbar-brand navbar-item' activeclass='active' to='#proof-of-concept'
-                      spy={'true'} smooth={true}
-                      offset={-60}
-                      duration={500}>Proof of Concept</Link>
-                <Link className='navbar-brand navbar-item' activeclass='active' to='#product' spy={'true'}
-                      smooth={true}
-                      offset={-60}
-                      duration={500}>Product Info</Link>
-                <Link className='navbar-brand navbar-item' activeclass='active' to='#contact' spy={'true'}
-                      smooth={true}
-                      offset={-60}
-                      duration={500}>Contact</Link>
+                {sections.map((section) => {
+                    console.log(section.dropdowns);
+                    const className = section.dropdowns ? 'navbar-brand navbar-item dropdown' : 'navbar-brand navbar-item';
+                    const linkClassName = section.dropdowns ? 'nav-link dropdown-toggle' : '';
+                    const dataToggle = section.dropdowns ? 'dropdown' : '';
+                    const id = section.dropdowns ? 'navbarDropdown' : '';
+
+                    return (
+                        <div className={className}>
+                            <Link key={section.id} id={id} className={linkClassName} activeclass='active' to={section.id} spy='true'
+                                  smooth={true}
+                                  data-toggle={dataToggle}
+                                  offset={-60}
+                                  duration={500}>{section.label}</Link>
+                            {section.dropdowns ?
+                                <div className='dropdown-content'>
+                                    {
+                                        section.dropdowns.map(item => {
+                                            return <Link key={item.route}
+                                                         to={item.route}
+                                                         spy='true'
+                                                         smooth={true}
+                                                         data-toggle={dataToggle}
+                                                         offset={-60}
+                                                         duration={500} className='dropdown-item'>{item.label}</Link>
+                                        })
+                                    }
+                                </div>
+                                : null}
+                        </div>);
+                })}
             </div>
         </nav>
     )
