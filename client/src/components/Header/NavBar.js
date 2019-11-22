@@ -22,7 +22,7 @@ const NavBar = (props) => {
                     const id = section.dropdowns ? 'navbarDropdown' : '';
 
                     return (
-                        <div className={className}>
+                        <div key={section.id} className={className}>
                             <Link key={section.id} id={id} className={linkClassName} activeclass='active' to={section.id} spy='true'
                                   smooth={true}
                                   data-toggle={dataToggle}
