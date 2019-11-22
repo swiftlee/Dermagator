@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import WhitePaper from './views/WhitePaperPage/WhitePaper';
 import About from './views/About/About';
 import ProductPage from './views/ProductPage/ProductPage';
-
+import DashBoard from './views/AdminDashboard/DashBoard'
 const App = () => {
 
     const homeLogo = <a href={'/home'}>
@@ -27,6 +27,7 @@ const App = () => {
                 <Route path="/whitepages" component={WhitePaper}/>
                 <Route path="/product" component={ProductPage}/>
                 <Route path="/about" component={About}/>
+                <Route path="/dashboard" component={DashBoard}/>
                 <Route component={NotFound}/>
             </Switch>
     </div>
