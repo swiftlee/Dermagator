@@ -3,7 +3,6 @@ import React from 'react';
 const style = {
     backgroundColor: '#009688',
     borderTop: '1px solid #E7E7E7',
-    textAlign: 'center',
     padding: '20px',
     left: '0',
     bottom: '0',
@@ -39,10 +38,14 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='text-center py-3' style={{backgroundColor: 'rgba(0, 0, 0, 0.2)', width: 'auto', color: 'rgba(255,255,255,0.6)'}}>© 2019 Copyright:
-                        <a className='text-white' href='https://dermagator.com/'> dermagator.com</a>
-                    </div>
                 </footer>
+            </div>
+            <div style={{backgroundColor: 'rgb(0,150,136)'}}>
+                <div className='text-center py-3'
+                     style={{backgroundColor: 'rgba(0, 0, 0, 0.2)', color: 'rgba(255,255,255,0.6)'}}>©
+                    2019 Copyright:
+                    <a className='text-white' href='https://dermagator.com/'> dermagator.com</a>
+                </div>
             </div>
         </div>
     )

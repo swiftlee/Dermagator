@@ -4,11 +4,9 @@ import AA_ME from "../../components/Product/AA_ME";
 import SS from "../../components/Product/SS";
 import NavBar from "../../components/Header/NavBar";
 import navItems from "../../utils/navItems";
-import Footer from "../../components/Footer/Footer";
 
 function ProductPage() {
     return (
-
         <div className="text-center m-auto">
             <header id="welcome" className="Welcome">Products</header>
             <div className="page-element m-auto" style={{"padding": "0px",}}></div>
@@ -27,7 +25,6 @@ function ProductPage() {
             <div id='order' className='mb-5'>
                 {/* <Order/> */}
             </div>
-            <Footer/>
         </div>
     );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import './WhitePaper.css';
 import NavBar from '../../components/Header/NavBar';
-import Footer from "../../components/Footer/Footer";
+
 const WhitePaper=()=>{
     return(
         <div className="main">
@@ -19,7 +19,6 @@ const WhitePaper=()=>{
                 </p>
                 <img src='/logo192.png' alt='This is replacement text if this does not display.'/>
             </div>
-            <Footer/>
         </div>
     );
 
