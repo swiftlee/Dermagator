@@ -26,10 +26,10 @@ const PDFViewer = () => {
                 <Page pageNumber={pageNum}/>
             </Document>
             <nav>
-                <button onClick={goToPrevPage}>
+                <button onClick={goToPrevPage} className='mr-3'>
                     Prev
                 </button>
-                <button onClick={goToNextPage}>e
+                <button onClick={goToNextPage}>
                     Next
                 </button>
             </nav>
