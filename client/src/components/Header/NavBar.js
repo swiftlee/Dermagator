@@ -27,7 +27,7 @@ const NavBar = (props) => {
                                   smooth={true}
                                   data-toggle={dataToggle}
                                   offset={-60}
-                                  duration={500}>{section.label}</Link>
+                                  duration={500}><span style={{color: 'black'}}>{section.label}</span></Link>
                             {section.dropdowns ?
                                 <div className='dropdown-content'>
                                     {
