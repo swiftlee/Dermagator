@@ -1,0 +1,35 @@
+.send-button {
+    margin-top: 2vh;
+    height: 3.5vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+}
+
+textarea:focus {
+    outline: none !important;
+    -webkit-appearance: none;
+    box-shadow: none !important;
+}
+
+._button {
+    width: 100%;
+    transition: all .2s ease-in-out;
+}
+
+.send-text {
+    display: block;
+    margin-top: 2px;
+    font: 300 14px 'Poppins', sans-serif;
+    letter-spacing: 2px;
+}
+
+._button:hover {
+    transform: translate3d(0px, -26px, 0px);
+}
+
+@media screen and (max-width: 410px) {
+    .send-button {
+        width: 99%;
+    }
+}

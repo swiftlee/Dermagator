@@ -8,6 +8,7 @@ import ProductInfo from "../../components/Products"
 import NavBar from "../../components/Header/NavBar";
 import Slideshow from "../../components/Slideshow";
 import InfoCard from "../../components/Home/Cards/InfoCard";
+import navItems from "../../utils/navItems";
 
 const Home = () => {
     return (
@@ -16,7 +17,7 @@ const Home = () => {
             <div className="page-element m-auto" style={{"padding": "0px",}}>
                 <Slideshow/>
             </div>
-            <NavBar/>
+            <NavBar items={navItems["home-bar"]}/>
             <div className='infocards' data-aos="fade" data-aos-duration='1000' data-aos-easing="ease-in-out"
                  data-aos-mirror="true">
                 <InfoCard title='STANDARD' subtitle='DermAssure 101' info='Detailed treatment conditions'
