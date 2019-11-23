@@ -1,19 +1,26 @@
-import React from 'react';
+import React,{useState} from 'react';
 import useLogin from "../Login/useLogin"
 import {Route, Switch, Redirect} from 'react-router-dom';
 import axios from 'axios';
 const jwt=require('jsonwebtoken');
 
 const DashBoard=()=>{
-    const {user, isAuthenticated,setAuthenticated,logout} = useLogin();
+    const {user, isAuthenticated,setAuthenticated,setUser,logout,setAuthToken} = useLogin();
+    
     //trying to get the token
     const token=localStorage.getItem("jwtToken");
     console.log(token);
     var decoded;
     if(token){
-        decoded = jwt.decode(token.substring(7, token.length).trim());;
+        decoded=jwt.decode(token.substring(7, token.length).trim());
     }
-    if(decoded){
+    else{
+        return(
+            <Redirect to="/login"/>
+        )
+    }
+    const time=Date.now()/1000;
+    if(decoded.exp>time){
         
         return(
             <div>
@@ -23,6 +30,7 @@ const DashBoard=()=>{
         );
     }
     else{
+        logout();
         return(
             <Redirect to="/login" />
         );
