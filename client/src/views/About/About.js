@@ -3,6 +3,7 @@ import './About.css';
 import NavBar from '../../components/Header/NavBar';
 import InfoCard from "../../components/Home/Cards/InfoCard";
 import navItems from "../../utils/navItems";
+import Footer from "../../components/Footer/Footer";
 
 
 const About = () => {
@@ -40,6 +41,7 @@ const About = () => {
                               className='row mb-5'/>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 

@@ -9,6 +9,7 @@ import NavBar from "../../components/Header/NavBar";
 import Slideshow from "../../components/Slideshow";
 import InfoCard from "../../components/Home/Cards/InfoCard";
 import navItems from "../../utils/navItems";
+import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
     return (
@@ -37,6 +38,7 @@ const Home = () => {
             <div id='contact' className='mb-5'>
                 <ContactUs/>
             </div>
+            <Footer/>
         </div>
     );
 }

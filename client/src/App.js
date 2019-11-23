@@ -8,6 +8,7 @@ import WhitePaper from './views/WhitePaperPage/WhitePaper';
 import About from './views/About/About';
 import ProductPage from './views/ProductPage/ProductPage';
 import Contact from "./views/Contact/Contact";
+import Footer from './components/Footer/Footer';
 import {HashLink as Link} from "react-router-hash-link";
 
 const RoutedApp = withRouter(props => <App {...props}/>);
