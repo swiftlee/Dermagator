@@ -38,7 +38,6 @@ const Home = () => {
             <div id='contact' className='mb-5'>
                 <ContactUs/>
             </div>
-            <Footer/>
         </div>
     );
 }

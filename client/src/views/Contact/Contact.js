@@ -2,7 +2,6 @@ import React from 'react';
 import useContact from "./useContact";
 import '../Login/Login.css';
 import './Contact.css';
-import Footer from "../../components/Footer/Footer";
 
 const Contact = (props) => {
     const {inputs, errors, isValid, hasSubmitted, handleInputChange, handleSubmit} = useContact();
@@ -47,7 +46,6 @@ const Contact = (props) => {
                     </button>
                 </div>
             </div>
-            <Footer/>
         </div>
     );
 };
