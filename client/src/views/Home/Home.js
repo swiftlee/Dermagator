@@ -26,16 +26,16 @@ const Home = () => {
                 <InfoCard title='A.A. & M.C.' subtitle='Placeholder' info='FC.' data-aos-offset='200'/>
                 <InfoCard title='STANDARD' subtitle='Placeholder' info='TC' data-aos-offset='300'/>
             </div>
-            <div id='about' className='mb-5'>
+            <div id='about' className='mb-5 section-bg'>
                 <AboutUs/>
             </div>
-            <div id='proof-of-concept' className='mb-5' data-aos="fade" data-aos-duration='1000'>
+            <div id='proof-of-concept' className='mb-5 section-bg' data-aos="fade" data-aos-duration='1000'>
                 <ProofOfConcepts/>
             </div>
-            <div id='product' className='mb-5' data-aos="fade" data-aos-duration='1000'>
+            <div id='product' className='mb-5 section-bg' data-aos="fade" data-aos-duration='1000'>
                 <ProductInfo/>
             </div>
-            <div id='contact' className='mb-5'>
+            <div id='contact' className='mb-5 section-bg'>
                 <ContactUs/>
             </div>
         </div>
