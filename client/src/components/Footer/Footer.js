@@ -40,7 +40,7 @@ const Footer = () => {
                 </footer>
             </div>
             <div>
-                <div className='text-center py-3 primary-bg'
+                <div className='text-center py-3 foot2'
                      style={{color: 'rgba(255,255,255,0.6)'}}>©
                     2019 Copyright:
                     <a className='text-white' href='https://dermagator.com/'> dermagator.com</a>
