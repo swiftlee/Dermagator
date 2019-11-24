@@ -21,8 +21,8 @@ const App = (props) => {
     </Link>;
     return (
         <div>
-            <div style={{display: "flex", flexDirection: "row", width: "90%"}} className='m-auto' id='top'>
-                {pathname !== '/home' ? homeLogo : null}
+            <div style={{display: "flex", flexDirection: "row", width: "100%"}} className='m-auto' id='top'>
+                {pathname == '/contact' ? homeLogo : null}
                 <Switch>
                     <Route exact path="/home" component={Home}/>
                     <Route exact path="/">
