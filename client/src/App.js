@@ -10,7 +10,7 @@ import ProductPage from './views/ProductPage/ProductPage';
 import Contact from "./views/Contact/Contact";
 import Footer from './components/Footer/Footer';
 import {HashLink as Link} from "react-router-hash-link";
-
+import DashBoard from './views/AdminDashboard/DashBoard'
 const RoutedApp = withRouter(props => <App {...props}/>);
 
 const App = (props) => {
@@ -33,6 +33,7 @@ const App = (props) => {
                     <Route exact path="/product" component={ProductPage}/>
                     <Route exact path="/about" component={About}/>
                     <Route exact path="/contact" component={Contact}/>
+                    <Route exact path="/dashboard" component={DashBoard}/>
                     <Route component={NotFound}/>
                 </Switch>
             </div>
