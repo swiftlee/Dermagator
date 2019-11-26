@@ -11,7 +11,16 @@ import InfoCard from "../../components/Home/Cards/InfoCard";
 import navItems from "../../utils/navItems";
 import Footer from "../../components/Footer/Footer";
 
-const Home = () => {
+const Home = (props) => {
+    const ContactRedirect=()=>{
+        props.history.push('/contact');
+    }
+    const AboutRedirect=()=>{
+        props.history.push('/about');
+    }
+    const ProductRedirect=()=>{
+        props.history.push('/product');
+    }
     return (
         <div className="text-center m-auto">
             <header id="welcome" className="Welcome">Welcome to DermaGator</header>
@@ -26,17 +35,17 @@ const Home = () => {
                 <InfoCard title='A.A. & M.C.' subtitle='Placeholder' info='FC.' data-aos-offset='200'/>
                 <InfoCard title='STANDARD' subtitle='Placeholder' info='TC' data-aos-offset='300'/>
             </div>
-            <div id='about' className='mb-5'>
+            <div id='about' className='mb-5' onClick={AboutRedirect}>
                 <AboutUs/>
             </div>
             <div id='proof-of-concept' className='mb-5' data-aos="fade" data-aos-duration='1000'>
                 <ProofOfConcepts/>
             </div>
-            <div id='product' className='mb-5' data-aos="fade" data-aos-duration='1000'>
+            <div id='product' className='mb-5' data-aos="fade" data-aos-duration='1000' onClick={ProductRedirect}>
                 <ProductInfo/>
             </div>
-            <div id='contact' className='mb-5'>
-                <ContactUs/>
+            <div id='contact' className='mb-5' onClick={ContactRedirect}>
+                <ContactUs />
             </div>
         </div>
     );

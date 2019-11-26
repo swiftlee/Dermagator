@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken'
 const useLogin = () => {
     const [inputs, setInputs] = useState({email: "", password: ""});
     const [isAuthenticated, setAuthenticated] = useState(false);
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState({id:"",name:"",permissions:""});
 
     const setAuthToken = token => {
         if (token) {
@@ -44,7 +44,7 @@ const useLogin = () => {
     };
 
 
-    const logout = () => dispatch => {
+    const logout = () => {
         // remove token from local storage
         localStorage.removeItem("jwtToken");
         // remove auth header for future requests

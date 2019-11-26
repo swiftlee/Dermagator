@@ -21,10 +21,9 @@ const DashBoard=()=>{
     }
     const time=Date.now()/1000;
     if(decoded.exp>time){
-        
         return(
             <div>
-                <p>Hello is not welcome here</p>
+                <p>Hello {decoded.name} is welcome here</p>
                 <button onClick={logout}>Log out</button>
             </div>
         );

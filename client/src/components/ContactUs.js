@@ -1,14 +1,14 @@
 import React from 'react';
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import data from "../data/ContactUsHomepage";
 AOS.init();
 const ContactUs = () => {
     return (
         <div data-aos="fade-left" data-aos-duration='1000'>
-            <h1>Contact Us </h1>
+            <h1>{data.title}</h1>
             <p>
-                This is a placeholder for the information for the employees sections and
-                specific employees contact information
+                {data.text}
             </p>
         </div>
     );
