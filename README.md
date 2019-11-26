@@ -33,7 +33,7 @@ This app can be deployed directly to heroku since there is a script defined in p
 - #### `models` - This holds all of our data models
 - #### `routes` - This holds all of our HTTP to URL path associations for each unique url
 - #### `tests` - This holds all of our server tests that we have defined
-- #### `server.js` - Defines yarn behaviors and packages for the client
+- #### `server.ts` - Defines yarn behaviors and packages for the client
 - #### `package.json` - Defines yarn behaviors like the scripts defined in the next section of the README
 - #### `package.json` - Defines the workspaces for client and server and concurrently support to run both client and server 'concurrently'.
 #### `.gitignore` - Tells git which files to ignore

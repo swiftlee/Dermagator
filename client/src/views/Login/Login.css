@@ -15,7 +15,6 @@
     font-family: sans-serif;
 }
 
-
 .login-form .section {
     width: 500px;
     height: 75px;
@@ -79,3 +78,22 @@
 .login-form input:focus + .login-label::after, .login-form input[value]:not([value='']) + .login-label::after {
     transform: translateX(0%);
 }
+
+.general_btn {
+    width: 200px;
+    height: 50px;
+    position: relative;
+    top: 0px;
+    bottom: 0px;
+    cursor: pointer;
+    background: #5692ca;
+    box-shadow: 0px 5px 10px rgba(255, 163, 148, 0.1);
+    border: none;
+    border-radius: 5px;
+    font-family: Alegreya, sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-align: center;
+    color: #ffffff;
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }

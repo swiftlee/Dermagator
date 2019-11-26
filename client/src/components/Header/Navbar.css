@@ -1,0 +1,48 @@
+.dropdown {
+  float: left;
+}
+
+.dropdown-toggle::after {
+  color: black;
+  transition: linear 0.1s;
+}
+
+.dropdown-toggle:hover:after {
+  color: #09d3ac;
+  transition: linear 0.1s;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.dropdown-content .dropdown-item {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  border-radius: 5px;
+  border: #282c34;
+  transition: ease-in-out 0.1s;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content .dropdown-item:hover {
+  color: white;
+  background-color: #09d3ac;
+  border-radius: 5px;
+  transition: ease-in-out 0.1s;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
