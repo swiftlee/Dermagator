@@ -36,9 +36,7 @@ const Home = (props) => {
                 <ProofOfConcepts/>
             </div>
             <div id='product' className='mb-5' data-aos="fade" data-aos-duration='1000'>
-                <Link className='' to="/product#top" style={{ textDecoration: 'none',color:"black" }}>
-                    <ProductInfo/>
-                </Link>
+                <ProductInfo/>
             </div>
             <div id='contact' className='mb-5' >
                 <Link className='' to="/contact#top" style={{ textDecoration: 'none',color:"black" }}>
