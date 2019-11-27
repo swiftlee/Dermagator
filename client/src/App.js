@@ -12,17 +12,19 @@ import Footer from './components/Footer/Footer';
 import {HashLink as Link} from "react-router-hash-link";
 import {loadReCaptcha} from 'react-recaptcha-v3'
 import config from './config/config';
-
 import DashBoard from './views/AdminDashboard/DashBoard'
+import './styles.css'
+import leftPad from 'left-pad';
 
 const RoutedApp = withRouter(props => <App {...props}/>);
 
 const App = (props) => {
     const {pathname} = props.location;
     const homeLogo = <Link to={'/home'}>
-        <img src='/favicon.ico' className='static-logo position-static ml-0'
-             alt='This is replacement text if an image does not display.'/>
-    </Link>;
+    <img src='/assets/back.png' className='ml-0 home position-static'
+         alt='This is replacement text if an image does not display.'/>
+</Link>;
+
     return (
         <div>
             {loadReCaptcha(config.captcha.sitekey)}
