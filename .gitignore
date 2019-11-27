@@ -68,6 +68,4 @@ server/.env
 dist/
 dist/*
 
-client/public/*
-
 
