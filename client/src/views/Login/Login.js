@@ -8,7 +8,7 @@ const Login = (props) => {
     return (
         <div className='login-container text-center m-auto' style={{transform: 'translateY(-10%)'}}>
             {
-                returnAuth ? props.history.push('/dashboard') : console.log("Not getting redirected")
+                returnAuth() ? props.history.push('/dashboard') : console.log("Not getting redirected")
             }
             <div className='login-form'>
                 <h2 className='login-header'>Welcome, sign in below</h2>

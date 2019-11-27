@@ -8,9 +8,14 @@ import AboutUpdate from '../../components/About/UpdateForm'
 const jwt=require('jsonwebtoken');
 
 const DashBoard=()=>{
-    const {logout} = useLogin();
-    let {inputs,handleSubmit,setText}=useAboutPage();
+    const {logout,returnAuth} = useLogin();
     //trying to get the token
+    if(returnAuth()){
+        console.log(returnAuth())
+        return(
+            <Redirect to="/login"/>
+        )
+    }
     const token=localStorage.getItem("jwtToken");
     console.log(token);
     var decoded;
@@ -23,7 +28,6 @@ const DashBoard=()=>{
         )
     }
     const time=Date.now()/1000;
-    let temp=inputs.data[0].text;
     if(decoded.exp>time){
         return(
             <div>
