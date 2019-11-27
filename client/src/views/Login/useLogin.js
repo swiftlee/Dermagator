@@ -72,7 +72,6 @@ const useLogin = () => {
         setAuthenticated,
         user,
         inputs,
-        logout,
         setUser,
         setAuthToken,
         logout,
