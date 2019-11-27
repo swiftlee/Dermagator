@@ -4,6 +4,7 @@ import '../Login/Login.css';
 import './Contact.css';
 import isEmpty from "is-empty";
 import { ReCaptcha } from 'react-recaptcha-v3';
+import config from '../../config/config';
 
 
 const Contact = () => {
@@ -15,10 +16,10 @@ const Contact = () => {
     const checkMark = () => {
         return (
             <svg className="checkMark" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
-                <circle className="path circle" fill="none" stroke="#73AF55" stroke-width="6"
-                        stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
-                <polyline className="path check" fill="none" stroke="#73AF55" stroke-width="6"
-                          stroke-linecap="round" stroke-miterlimit="10"
+                <circle className="path circle" fill="none" stroke="#73AF55" strokeWidth="6"
+                        strokeMiterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+                <polyline className="path check" fill="none" stroke="#73AF55" strokeWidth="6"
+                          strokeLinecap="round" strokeMiterlimit="10"
                           points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
             </svg>
         )
@@ -27,12 +28,25 @@ const Contact = () => {
     return (
         <div className='text-center m-auto'>
             <div className='login-container' style={{transform: 'translateY(-10%)'}}>
-                {
-                    !isValid && errors.captcha ? errors.captcha : null
-                }
                 <h2 style={{top: '35%', position: 'absolute'}}>Email Us</h2>
                 {
                     success ? checkMark() : null
+                }
+                {
+                    !isEmpty(errors.success) ? <span style={{
+                        position: 'absolute',
+                        top: '40%',
+                        fontSize: '10pt',
+                        color: 'red',
+                    }}>{errors.success}</span> : null
+                }
+                {
+                    !isEmpty(errors.captcha) && !isValid ? <span style={{
+                        position: 'absolute',
+                        top: '40%',
+                        fontSize: '10pt',
+                        color: 'red',
+                    }}>{errors.captcha}</span> : null
                 }
                 <link rel='stylesheet'
                       href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'/>
@@ -89,7 +103,7 @@ const Contact = () => {
                         </div>
                     </button>
                     <ReCaptcha
-                        sitekey='6Ld4ZcQUAAAAAEIUX7cqQQHXWdLDAmDZyzhJVzw8'
+                        sitekey={config.captcha.sitekey}
                         action='social'
                         verifyCallback={verifyCallback}
                     />

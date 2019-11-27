@@ -10,6 +10,8 @@ import ProductPage from './views/ProductPage/ProductPage';
 import Contact from "./views/Contact/Contact";
 import Footer from './components/Footer/Footer';
 import {HashLink as Link} from "react-router-hash-link";
+import {loadReCaptcha} from 'react-recaptcha-v3'
+import config from './config/config';
 
 const RoutedApp = withRouter(props => <App {...props}/>);
 
@@ -21,6 +23,7 @@ const App = (props) => {
     </Link>;
     return (
         <div>
+            {loadReCaptcha(config.captcha.sitekey)}
             <div style={{display: "flex", flexDirection: "row", width: "90%"}} className='m-auto' id='top'>
                 {pathname !== '/home' ? homeLogo : null}
                 <Switch>
