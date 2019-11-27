@@ -1,15 +1,14 @@
 import React from 'react';
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import data from "../data/AboutUsHomepage";
 AOS.init();
 const AboutUs = () => {
     return (
         <div data-aos='fade-right' data-aos-duration="1000" className='AboutUs' id='home'>
-            <h1>About the Company</h1>
+            <h1>{data.title}</h1>
             <p>
-                This is a placeholder for the information for the company this might gain some links to the employees
-                sections and more directly to
-                specific employees and may products if they want us to mention them here.
+                {data.text}
             </p>
         </div>
     );

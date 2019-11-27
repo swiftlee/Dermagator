@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken'
 const useLogin = () => {
     const [inputs, setInputs] = useState({email: "", password: ""});
     const [isAuthenticated, setAuthenticated] = useState(false);
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState({id:"",name:"",permissions:""});
 
     const setAuthToken = token => {
         if (token) {
@@ -23,7 +23,7 @@ const useLogin = () => {
         const userData = {
             email: inputs.email,
             password: inputs.password
-    };
+        };
         axios.post("/api/admin/login", userData)
             .then(res => {
                 // save tkn locally
@@ -38,10 +38,13 @@ const useLogin = () => {
                 setUser(decoded);
                 console.log(`${JSON.stringify(decoded)}: has signed in!`)
             });
+        //clearing the variables after submitting
+        //inputs.email="";
+        //inputs.password="";
     };
 
 
-    const logout = () => dispatch => {
+    const logout = () => {
         // remove token from local storage
         localStorage.removeItem("jwtToken");
         // remove auth header for future requests
@@ -59,8 +62,13 @@ const useLogin = () => {
         handleSubmit,
         handleInputChange,
         isAuthenticated,
+        setAuthenticated,
         user,
-        inputs
+        inputs,
+        logout,
+        setUser,
+        setAuthToken,
+        logout
     };
 };
 export default useLogin;

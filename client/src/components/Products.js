@@ -9,7 +9,9 @@ const ProductsInfo = () => {
 
     return (
         <div>
-            <h1>Our Products</h1>
+            <Link className='' to="/product#top" style={{ textDecoration: 'none',color:"black" }}>
+                <h1>Our Products</h1>
+            </Link>
             <div>
                 <h2>Product 1</h2>
                 <div className='position-relative'>
@@ -27,6 +29,11 @@ const ProductsInfo = () => {
                         <Link to="/product">Order Now </Link>
                     </p>
                 </div>
+                <p>
+                    Information on product
+                </p>
+                
+                <a href="/product#standard">Order Now </a>
             </div>
         </div>
     );
