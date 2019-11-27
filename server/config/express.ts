@@ -7,6 +7,7 @@ import config from './config';
 import {createDefaultAdmin} from "../utils/userUtils";
 import adminRouter from '../api/admin';
 import contactRouter from '../api/contact';
+import AboutUpdate from '../api/AboutUpdate';
 
 console.log(`${process.env.DB_URI} and ${config.db.uri}`);
 
@@ -48,5 +49,6 @@ createDefaultAdmin();
 // routes
 app.use('/api/admin', adminRouter);
 app.use('/api/contact', contactRouter);
+app.use('/api/about', AboutUpdate);
 
 export default app;
