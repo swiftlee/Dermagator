@@ -42,7 +42,14 @@ const useLogin = () => {
         //inputs.email="";
         //inputs.password="";
     };
-
+    const returnAuth=()=>{
+        if(isAuthenticated){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
     const logout = () => {
         // remove token from local storage
@@ -68,7 +75,8 @@ const useLogin = () => {
         logout,
         setUser,
         setAuthToken,
-        logout
+        logout,
+        returnAuth
     };
 };
 export default useLogin;

@@ -37,10 +37,8 @@ adminRouter.post('/create', (req: express.Request, res: express.Response) => {
 
 adminRouter.post('/login', (req: express.Request, res: express.Response) => {
 	//validating login
-	console.log(req.body);
 	const {errors, isValid} = validateUser(req.body);
 	if (!isValid) {
-		console.log("Sup I wonder how you got here")
 		return res.status(400).json(errors);
 	}
 

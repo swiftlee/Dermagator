@@ -2,11 +2,14 @@ import React,{useState} from 'react';
 import useLogin from "../Login/useLogin"
 import {Route, Switch, Redirect} from 'react-router-dom';
 import axios from 'axios';
+import data from "../../data/AboutPage"
+import useAboutPage from './useAboutPage';
+import AboutUpdate from '../../components/About/UpdateForm'
 const jwt=require('jsonwebtoken');
 
 const DashBoard=()=>{
-    const {user, isAuthenticated,setAuthenticated,setUser,logout,setAuthToken} = useLogin();
-    
+    const {logout} = useLogin();
+    let {inputs,handleSubmit,setText}=useAboutPage();
     //trying to get the token
     const token=localStorage.getItem("jwtToken");
     console.log(token);
@@ -20,11 +23,13 @@ const DashBoard=()=>{
         )
     }
     const time=Date.now()/1000;
+    let temp=inputs.data[0].text;
     if(decoded.exp>time){
         return(
             <div>
                 <p>Hello {decoded.name} is welcome here</p>
                 <button onClick={logout}>Log out</button>
+                <AboutUpdate/>
             </div>
         );
     }
