@@ -13,6 +13,8 @@ import {HashLink as Link} from "react-router-hash-link";
 import {loadReCaptcha} from 'react-recaptcha-v3'
 import config from './config/config';
 
+import DashBoard from './views/AdminDashboard/DashBoard'
+
 const RoutedApp = withRouter(props => <App {...props}/>);
 
 const App = (props) => {
@@ -36,6 +38,7 @@ const App = (props) => {
                     <Route exact path="/product" component={ProductPage}/>
                     <Route exact path="/about" component={About}/>
                     <Route exact path="/contact" component={Contact}/>
+                    <Route exact path="/dashboard" component={DashBoard}/>
                     <Route component={NotFound}/>
                 </Switch>
             </div>

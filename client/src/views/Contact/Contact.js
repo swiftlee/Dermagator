@@ -26,7 +26,7 @@ const Contact = () => {
     };
 
     return (
-        <div className='text-center m-auto'>
+        <div className='text-center m-auto' id="top">
             <div className='login-container' style={{transform: 'translateY(-10%)'}}>
                 <h2 style={{top: '35%', position: 'absolute'}}>Email Us</h2>
                 {
