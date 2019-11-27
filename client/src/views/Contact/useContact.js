@@ -16,25 +16,33 @@ const useContact = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (!success) {
-            const inputValidation = validateContact(inputs, token);
+            const inputValidation = validateContact(inputs, token, false);
             setErrors(inputValidation.errors);
             setIsValid(inputValidation.isValid);
             const formData = {
                 email: inputs.email,
                 subject: inputs.subject,
                 text: inputs.text,
-                valid: inputValidation.isValid
+                valid: inputValidation.isValid,
+                token: token
             };
 
             if (inputValidation.isValid) {
                 axios.post("/api/contact/email", formData)
-                    .then(res => setSuccess(true))
+                    .then(res => {
+                        if (res.status === 200)
+                            setSuccess(true);
+                        else
+                            setSuccess(false);
+                    })
                     .catch(err => {
                         setSuccess(false);
                         console.log(err);
                     });
             }
         } else {
+            const inputValidation = validateContact(inputs, token, true);
+            setErrors(inputValidation.errors);
         }
     };
 

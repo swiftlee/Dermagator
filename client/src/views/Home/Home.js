@@ -37,9 +37,7 @@ const Home = (props) => {
                 <ProofOfConcepts/>
             </div>
             <div id='product' className='mb-5 section-bg' data-aos="fade" data-aos-duration='1000'>
-                <Link className='' to="/product#top" style={{ textDecoration: 'none',color:"black" }}>
-                    <ProductInfo/>
-                </Link>
+                <ProductInfo/>
             </div>
             <div id='contact' className='mb-5 section-bg' >
                 <Link className='' to="/contact#top" style={{ textDecoration: 'none',color:"black" }}>
@@ -48,6 +46,6 @@ const Home = (props) => {
             </div>
         </div>
     );
-}
+};
 
 export default Home;

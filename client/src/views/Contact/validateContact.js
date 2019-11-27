@@ -1,7 +1,7 @@
 import Validator from 'validator';
 import isEmpty from "is-empty";
 
-export default (inputs, token) => {
+export default (inputs, token, success) => {
     const errors = {};
     inputs.email = !isEmpty(inputs.email) ? inputs.email : '';
     inputs.subject = !isEmpty(inputs.subject) ? inputs.subject : '';
@@ -26,6 +26,9 @@ export default (inputs, token) => {
     if (isEmpty(token)) {
         errors.captcha = 'Something went wrong when trying to contact reCaptcha. Try again later.'
     }
+
+    if (success)
+        errors.success = 'You\'ve already sent a message!';
 
     return {
         errors: errors,

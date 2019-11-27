@@ -10,21 +10,26 @@ import ProductPage from './views/ProductPage/ProductPage';
 import Contact from "./views/Contact/Contact";
 import Footer from './components/Footer/Footer';
 import {HashLink as Link} from "react-router-hash-link";
+import {loadReCaptcha} from 'react-recaptcha-v3'
+import config from './config/config';
 import DashBoard from './views/AdminDashboard/DashBoard'
 import './styles.css'
 import leftPad from 'left-pad';
+
 const RoutedApp = withRouter(props => <App {...props}/>);
 
 const App = (props) => {
     const {pathname} = props.location;
     const homeLogo = <Link to={'/home'}>
-    <img src='/assets/back.png' className='ml-0 home'
+    <img src='/assets/back.png' className='ml-0 home position-static'
          alt='This is replacement text if an image does not display.'/>
 </Link>;
+
     return (
         <div>
-            <div style={{display: "flex", flexDirection: "row",  width: "90%"}} className='m-auto' id='top'>
-                {pathname == '/contact' ? homeLogo : null}
+            {loadReCaptcha(config.captcha.sitekey)}
+            <div style={{display: "flex", flexDirection: "row", width: "90%"}} className='m-auto' id='top'>
+                {pathname !== '/home' ? homeLogo : null}
                 <Switch>
                     <Route exact path="/home" component={Home}/>
                     <Route exact path="/">

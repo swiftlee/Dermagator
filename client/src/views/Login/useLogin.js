@@ -42,13 +42,20 @@ const useLogin = () => {
         //inputs.email="";
         //inputs.password="";
     };
-
+    const returnAuth=()=>{
+        if(isAuthenticated===true){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
     const logout = () => {
         // remove token from local storage
         localStorage.removeItem("jwtToken");
         // remove auth header for future requests
-        setAuthToken(false);
+        setAuthenticated(false);
         // set current user to empty obj to set isAuthenticated to false
         setUser({});
     };
@@ -65,10 +72,10 @@ const useLogin = () => {
         setAuthenticated,
         user,
         inputs,
-        logout,
         setUser,
         setAuthToken,
-        logout
+        logout,
+        returnAuth
     };
 };
 export default useLogin;
