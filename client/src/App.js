@@ -10,18 +10,20 @@ import ProductPage from './views/ProductPage/ProductPage';
 import Contact from "./views/Contact/Contact";
 import Footer from './components/Footer/Footer';
 import {HashLink as Link} from "react-router-hash-link";
-
+import DashBoard from './views/AdminDashboard/DashBoard'
+import './styles.css'
+import leftPad from 'left-pad';
 const RoutedApp = withRouter(props => <App {...props}/>);
 
 const App = (props) => {
     const {pathname} = props.location;
     const homeLogo = <Link to={'/home'}>
-        <img src='/favicon.ico' className='static-logo position-static ml-0'
-             alt='This is replacement text if an image does not display.'/>
-    </Link>;
+    <img src='/assets/back.png' className='ml-0 home'
+         alt='This is replacement text if an image does not display.'/>
+</Link>;
     return (
         <div>
-            <div style={{display: "flex", flexDirection: "row", width: "100%"}} className='m-auto' id='top'>
+            <div style={{display: "flex", flexDirection: "row",  width: "90%"}} className='m-auto' id='top'>
                 {pathname == '/contact' ? homeLogo : null}
                 <Switch>
                     <Route exact path="/home" component={Home}/>
@@ -33,6 +35,7 @@ const App = (props) => {
                     <Route exact path="/product" component={ProductPage}/>
                     <Route exact path="/about" component={About}/>
                     <Route exact path="/contact" component={Contact}/>
+                    <Route exact path="/dashboard" component={DashBoard}/>
                     <Route component={NotFound}/>
                 </Switch>
             </div>

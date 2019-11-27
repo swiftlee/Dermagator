@@ -1,23 +1,41 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import jwt from 'jsonwebtoken'
 import validateContact from "./validateContact";
 
 const useContact = () => {
-    const [inputs, setInputs] = useState({email: "", subject: "", text: "", captcha: false});
-    const inputValidation = validateContact(inputs);
+    const [inputs, setInputs] = useState({email: '', subject: '', text: ''});
+    const [errors, setErrors] = useState({});
+    const [isValid, setIsValid] = useState(false);
+    const [token, setToken] = useState('');
+    const [success, setSuccess] = useState(false);
 
-    const handleSubmit = async(event) => {
+    const updateToken = tkn => {
+        setToken(tkn);
+    };
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        const formData = {
-          email: inputs.email,
-          subject: inputs.subject,
-          text: inputs.text
-        };
-        axios.post("/api/contact/email", formData)
-            .then(res => {
-                // send success status
-            });
+        if (!success) {
+            const inputValidation = validateContact(inputs, token);
+            setErrors(inputValidation.errors);
+            setIsValid(inputValidation.isValid);
+            const formData = {
+                email: inputs.email,
+                subject: inputs.subject,
+                text: inputs.text,
+                valid: inputValidation.isValid
+            };
+
+            if (inputValidation.isValid) {
+                axios.post("/api/contact/email", formData)
+                    .then(res => setSuccess(true))
+                    .catch(err => {
+                        setSuccess(false);
+                        console.log(err);
+                    });
+            }
+        } else {
+        }
     };
 
     const handleInputChange = (event) => {
@@ -26,11 +44,13 @@ const useContact = () => {
     };
 
     return {
-        errors: inputValidation.errors,
-        isValid: inputValidation.isValid,
         handleSubmit,
         handleInputChange,
-        inputs
+        updateToken,
+        inputs,
+        errors,
+        isValid,
+        success
     };
 };
 export default useContact;

@@ -21,3 +21,12 @@
 .foot2{
     background-color:#868686;
 }
+
+.home{
+    height: 5em;
+    width: 5em;
+}
+
+.home:hover{
+    filter: drop-shadow(5px 5px 5px rgba(97, 97, 97, 0.473)); 
+}
