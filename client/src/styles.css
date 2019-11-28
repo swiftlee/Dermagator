@@ -23,10 +23,10 @@
 }
 
 .home{
-    height: 5em;
-    width: 5em;
+    height: 2.5em;
+    width: 2.5em;
 }
 
 .home:hover{
-    filter: drop-shadow(5px 5px 5px rgba(97, 97, 97, 0.473)); 
+    filter: drop-shadow(2.5px 2.5px 2.5px rgba(170, 170, 170, 0.473)); 
 }

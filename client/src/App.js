@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Switch, Redirect, withRouter} from 'react-router-dom';
 import Home from "./views/Home/Home"
-import NotFound from "./views/NotFound"
+import NotFound from "./views/NotFound/NotFound"
 import Login from "./views/Login/Login"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import WhitePaper from './views/WhitePaperPage/WhitePaper';
@@ -21,7 +21,7 @@ const RoutedApp = withRouter(props => <App {...props}/>);
 const App = (props) => {
     const {pathname} = props.location;
     const homeLogo = <Link to={'/home'}>
-    <img src='/assets/back.png' className='ml-0 home position-static'
+    <img src='/assets/home.png' className='ml-0 home position-static'
          alt='This is replacement text if an image does not display.'/>
 </Link>;
 
@@ -29,7 +29,7 @@ const App = (props) => {
         <div>
             {loadReCaptcha(config.captcha.sitekey)}
             <div style={{display: "flex", flexDirection: "row", width: "90%"}} className='m-auto' id='top'>
-                {pathname !== '/home' ? homeLogo : null}
+                {pathname == '/contact' ? homeLogo : null}
                 <Switch>
                     <Route exact path="/home" component={Home}/>
                     <Route exact path="/">
@@ -44,7 +44,7 @@ const App = (props) => {
                     <Route component={NotFound}/>
                 </Switch>
             </div>
-            <Footer/>
+            {pathname == '/not-found' ? <Footer/> : null}
         </div>
     );
 };
