@@ -25,7 +25,7 @@ const About = () => {
                         return(
                             <div className='mb-5-nobox' data-aos="fade" data-aos-duration='1000' data-aos-easing="ease-in-out"
                                 data-aos-mirror="true" id='team'>
-                                <h1>{data[3].name}</h1>
+                                <h1>{stuff.name}</h1>
                                 <div style={{display: 'flex', flexDirection: 'row'}} className="text-center">
                                     {stuff.team.map(information=>(
                                         <InfoCard title={information.personName} subtitle='' info={information.info} data-aos-offset='0' style={{flex: 1}}

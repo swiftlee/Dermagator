@@ -27,7 +27,6 @@ const Home = (props) => {
                 <InfoCard title='A.A. & M.C.' subtitle='Placeholder' info='FC.' data-aos-offset='200'/>
                 <InfoCard title='STANDARD' subtitle='Placeholder' info='TC' data-aos-offset='300'/>
             </div>
-                <AboutUs/>
             <div id='about' className='mb-5 section-bg'>
                 <Link className='' to="/about#top" style={{ textDecoration: 'none',color:"black" }}>
                     <AboutUs/>
