@@ -2,6 +2,16 @@
   float: left;
 }
 
+.dropdown-toggle::after {
+  color: black;
+  transition: linear 0.1s;
+}
+
+.dropdown-toggle:hover:after {
+  color: #72B9FF;
+  transition: linear 0.1s;
+}
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -21,12 +31,15 @@
   text-align: left;
   border-radius: 5px;
   border: #282c34;
+  transition: ease-in-out 0.1s;
 }
 
 /* Add a grey background color to dropdown links on hover */
 .dropdown-content .dropdown-item:hover {
-  background-color: #09d3ac;
+  color: white;
+  background-color: #72B9FF;
   border-radius: 5px;
+  transition: ease-in-out 0.1s;
 }
 
 /* Show the dropdown menu on hover */

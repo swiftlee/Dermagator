@@ -1,7 +1,7 @@
 import Validator from 'validator';
 import isEmpty from "is-empty";
 
-export default (inputs) => {
+export default (inputs, token, success) => {
     const errors = {};
     inputs.email = !isEmpty(inputs.email) ? inputs.email : '';
     inputs.subject = !isEmpty(inputs.subject) ? inputs.subject : '';
@@ -23,9 +23,12 @@ export default (inputs) => {
         errors.text = 'Your message must be at least 16 characters long.'
     }
 
-    if (!inputs.captcha) {
-        errors.captcha = 'You must complete the captcha to submit this form.'
+    if (isEmpty(token)) {
+        errors.captcha = 'Something went wrong when trying to contact reCaptcha. Try again later.'
     }
+
+    if (success)
+        errors.success = 'You\'ve already sent a message!';
 
     return {
         errors: errors,

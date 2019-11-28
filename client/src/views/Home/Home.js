@@ -9,11 +9,13 @@ import NavBar from "../../components/Header/NavBar";
 import Slideshow from "../../components/Slideshow";
 import InfoCard from "../../components/Home/Cards/InfoCard";
 import navItems from "../../utils/navItems";
+import Footer from "../../components/Footer/Footer";
+import {HashLink as Link} from "react-router-hash-link";
 
-const Home = () => {
+const Home = (props) => {
     return (
         <div className="text-center m-auto">
-            <header id="welcome" className="Welcome">Welcome to DermaGator</header>
+            <header id="top" className="Welcome">Welcome to DermaGator</header>
             <div className="page-element m-auto" style={{"padding": "0px",}}>
                 <Slideshow/>
             </div>
@@ -25,20 +27,25 @@ const Home = () => {
                 <InfoCard title='A.A. & M.C.' subtitle='Placeholder' info='FC.' data-aos-offset='200'/>
                 <InfoCard title='STANDARD' subtitle='Placeholder' info='TC' data-aos-offset='300'/>
             </div>
-            <div id='about' className='mb-5'>
                 <AboutUs/>
+            <div id='about' className='mb-5 section-bg'>
+                <Link className='' to="/about#top" style={{ textDecoration: 'none',color:"black" }}>
+                    <AboutUs/>
+                </Link>
             </div>
-            <div id='proof-of-concept' className='mb-5' data-aos="fade" data-aos-duration='1000'>
+            <div id='proof-of-concept' className='mb-5 section-bg' data-aos="fade" data-aos-duration='1000'>
                 <ProofOfConcepts/>
             </div>
-            <div id='product' className='mb-5' data-aos="fade" data-aos-duration='1000'>
+            <div id='product' className='mb-5 section-bg' data-aos="fade" data-aos-duration='1000'>
                 <ProductInfo/>
             </div>
-            <div id='contact' className='mb-5'>
-                <ContactUs/>
+            <div id='contact' className='mb-5 section-bg' >
+                <Link className='' to="/contact#top" style={{ textDecoration: 'none',color:"black" }}>
+                    <ContactUs />
+                </Link>
             </div>
         </div>
     );
-}
+};
 
 export default Home;

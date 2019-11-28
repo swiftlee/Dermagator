@@ -1,21 +1,30 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Document, Page} from 'react-pdf';
 
-const PDFViewer = () => {
+const PDFViewer = (props) => {
     const [numPages, setNumPages] = useState(null);
     const [pageNum, setPageNum] = useState(1);
 
+    useEffect(() => {
+        props.setPage(pageNum);
+        props.setNumPages(numPages);
+    }, [numPages, pageNum, props]);
 
     const onDocumentLoadSuccess = ({numPages}) => {
         setNumPages(numPages);
+        props.setNumPages(numPages);
     };
     const goToPrevPage = () => {
-        if (pageNum !== 1)
+        if (pageNum !== 1) {
+            props.setPage(pageNum - 1);
             setPageNum(pageNum - 1);
+        }
     };
     const goToNextPage = () => {
-        if (pageNum !== numPages)
+        if (pageNum !== numPages) {
+            props.setPage(pageNum + 1);
             setPageNum(pageNum + 1);
+        }
     };
 
     return (
@@ -26,16 +35,13 @@ const PDFViewer = () => {
                 <Page pageNumber={pageNum}/>
             </Document>
             <nav>
-                <button onClick={goToPrevPage}>
+                <button onClick={goToPrevPage} className='m-3 btn btn-dark'>
                     Prev
                 </button>
-                <button onClick={goToNextPage}>e
+                <button onClick={goToNextPage} className='btn btn-dark'>
                     Next
                 </button>
             </nav>
-            <p>
-                Page {pageNum} of {numPages}
-            </p>
         </div>
     )
 };
