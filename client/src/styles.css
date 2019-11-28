@@ -25,8 +25,14 @@
 .home{
     height: 2.5em;
     width: 2.5em;
+    position: absolute;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 20px;
+    display: flex;
+    align-items: stretch;
 }
 
 .home:hover{
-    filter: drop-shadow(2.5px 2.5px 2.5px rgba(170, 170, 170, 0.473)); 
+    filter: drop-shadow(2.5px 2.5px 2.5px rgba(196, 196, 196, 0.473)); 
 }

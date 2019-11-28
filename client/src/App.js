@@ -21,7 +21,7 @@ const RoutedApp = withRouter(props => <App {...props}/>);
 const App = (props) => {
     const {pathname} = props.location;
     const homeLogo = <Link to={'/home'}>
-    <img src='/assets/home.png' className='ml-0 home position-static'
+    <img src='/assets/home.png' className= 'home'
          alt='This is replacement text if an image does not display.'/>
 </Link>;
 
