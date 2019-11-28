@@ -12,7 +12,7 @@ const NavBar = (props) => {
         <nav className='sticky-top container-fluid sticky-top mb-3 border-bottom border-info shadow-sm'>
             <div className='navbar navbar-expand navbar-light bg-white justify-content-center'>
                 <a className="navbar-brand nav-item" href="/home">
-                    <img src="/logo192.png" width="30" height="30" alt=""/>
+                    <img src="/assets/home.png" width="30" height="30" alt=""/>
                 </a>
                 {sections.map((section) => {
                     console.log(section.dropdowns);

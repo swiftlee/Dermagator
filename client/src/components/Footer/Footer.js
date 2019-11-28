@@ -1,7 +1,6 @@
 import React from 'react';
 
 const style = {
-    backgroundColor: '#009688',
     borderTop: '1px solid #E7E7E7',
     padding: '20px',
     left: '0',
@@ -13,8 +12,8 @@ const style = {
 const Footer = () => {
     return (
         <div>
-            <div style={style}>
-                <footer className='page-footer font-small text-white pt-4'>
+            <div style={style} className = 'foot1'>
+                <footer className='page-footer font-small pt-4'>
                     <div className='container-fluid text-center text-md-left'>
                         <div className='row'>
                             <div className='col-md-6 mt-md-0 mt-3'>
@@ -40,9 +39,9 @@ const Footer = () => {
                     </div>
                 </footer>
             </div>
-            <div style={{backgroundColor: 'rgb(0,150,136)'}}>
-                <div className='text-center py-3'
-                     style={{backgroundColor: 'rgba(0, 0, 0, 0.2)', color: 'rgba(255,255,255,0.6)'}}>©
+            <div>
+                <div className='text-center py-3 foot2'
+                     style={{color: 'rgba(255,255,255,0.6)'}}>©
                     2019 Copyright:
                     <a className='text-white' href='https://dermagator.com/'> dermagator.com</a>
                 </div>
