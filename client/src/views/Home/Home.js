@@ -14,6 +14,7 @@ import {HashLink as Link} from "react-router-hash-link";
 
 const Home = (props) => {
     return (
+        document.body.style = 'background: white',
         <div className="text-center m-auto">
             <header id="top" className="Welcome">Welcome to DermaGator</header>
             <div className="page-element m-auto" style={{"padding": "0px",}}>
