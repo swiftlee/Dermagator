@@ -33,9 +33,6 @@ const Home = (props) => {
                     <AboutUs/>
                 </Link>
             </div>
-            <div id='proof-of-concept' className='mb-5 section-bg' data-aos="fade" data-aos-duration='1000'>
-                <ProofOfConcepts/>
-            </div>
             <div id='product' className='mb-5 section-bg' data-aos="fade" data-aos-duration='1000'>
                 <ProductInfo/>
             </div>
