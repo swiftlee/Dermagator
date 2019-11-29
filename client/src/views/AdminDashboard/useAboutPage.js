@@ -54,7 +54,7 @@ const useAboutPage = () => {
     }
     const handleSubmit = async(event) => {
         event.preventDefault();
-        axios.post("/api/about/updateAbout", inputs)
+        axios.post("/api/update/updateAbout", inputs)
             .then(res => {
                 
         });

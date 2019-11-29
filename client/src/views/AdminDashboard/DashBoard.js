@@ -2,7 +2,8 @@ import React,{useState} from 'react';
 import useLogin from "../Login/useLogin"
 import {Route, Switch, Redirect} from 'react-router-dom';
 import axios from 'axios';
-import AboutUpdate from '../../components/About/UpdateAboutForm'
+import AboutUpdate from '../../components/About/UpdateAboutForm';
+import ProductUpdate from '../../components/Product/UpdateProductForm';
 const jwt=require('jsonwebtoken');
 
 const DashBoard=()=>{
@@ -31,7 +32,7 @@ const DashBoard=()=>{
             <div>
                 <p>Hello {decoded.name} is welcome here</p>
                 <button onClick={logout}>Log out</button>
-                <AboutUpdate/>
+                <ProductUpdate/>
             </div>
         );
     }
