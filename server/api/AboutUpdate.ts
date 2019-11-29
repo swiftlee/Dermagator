@@ -19,6 +19,6 @@ updateRouter.post('/updateProduct',(req:Request, res: Response)=>{
     
     fs.writeFileSync('../client/src/data/ProductPage.json',jsonString);
     res.send("Product Page Updated")
-})
+});
 
 export default updateRouter;

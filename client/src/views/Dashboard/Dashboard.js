@@ -8,7 +8,7 @@ import AccountSettings from '../../components/Admin/AccountSettings/AccountSetti
 
 const Dashboard= () => {
     return (
-        <div class="wide-container">
+        <div className="wide-container">
 
             {/* <NavBar items={navItems["admin-bar"]}/> */}
             
@@ -18,6 +18,6 @@ const Dashboard= () => {
         </div>
 
     );
-}
+};
 
 export default Dashboard;

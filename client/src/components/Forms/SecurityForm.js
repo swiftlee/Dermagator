@@ -4,38 +4,38 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-const SecurityForm= () => {
+const SecurityForm = () => {
     return (
-        <div>
+        <div className='border-primary border p-4 m-3'>
             <h2> *this should appear when "Security" is clicked* </h2>
             <Form>
                 <Form.Group as={Row} controlId="formHorizontalPassword">
                     <Form.Label column sm={4}>
-                    Old Password
+                        Old Password
                     </Form.Label>
                     <Col sm={7}>
-                    <Form.Control type="password" placeholder="Password" />
+                        <Form.Control type="password" placeholder="Password"/>
                     </Col>
-                </Form.Group>  
+                </Form.Group>
 
                 <Form.Group as={Row} controlId="formHorizontalPassword">
                     <Form.Label column sm={4}>
-                    New Password
+                        New Password
                     </Form.Label>
                     <Col sm={7}>
-                    <Form.Control type="password" placeholder="Password" />
+                        <Form.Control type="password" placeholder="Password"/>
                     </Col>
-                </Form.Group>  
+                </Form.Group>
 
                 <Form.Group as={Row} controlId="formHorizontalPassword">
                     <Form.Label column sm={4}>
-                    Confirm New Password
+                        Confirm New Password
                     </Form.Label>
                     <Col sm={7}>
-                    <Form.Control type="password" placeholder="Password" />
+                        <Form.Control type="password" placeholder="Password"/>
                     </Col>
-                </Form.Group>  
-                
+                </Form.Group>
+
                 <Button variant="info" type="submit">
                     Submit
                 </Button>
@@ -43,7 +43,7 @@ const SecurityForm= () => {
             </Form>
 
         </div>
-        );
-    }
-    
-    export default SecurityForm;
+    );
+};
+
+export default SecurityForm;

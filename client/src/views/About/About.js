@@ -13,7 +13,7 @@ const About = () => {
                 data.map(stuff=>{
                     
                     if(stuff.type==="section"){
-                        console.log(stuff.text)
+                        console.log(stuff.text);
                         return(
                         <div className='row mb-5' data-aos="fade" data-aos-duration='1000' data-aos-easing="ease-in-out"
                         data-aos-mirror="true" id={stuff.id}>

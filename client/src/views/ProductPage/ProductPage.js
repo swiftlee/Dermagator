@@ -17,7 +17,7 @@ function ProductPage() {
                 data.data.map(stuff=>{
                     
                     if(stuff.type==="info"){
-                        console.log(stuff.text)
+                        console.log(stuff.text);
                         return(
                         <div id={stuff.id} className='mb-5'>
                             <div data-aos='fade-right' data-aos-duration="1000" className='standard' id='productpage'>
