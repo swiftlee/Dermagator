@@ -29,7 +29,7 @@ const Editor= () => {
                 
                 
                 <div class="row">
-                    <h1>Account Settings</h1>
+                    <h1>Website Editor</h1>
                 </div>
                 
 

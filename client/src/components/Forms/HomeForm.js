@@ -18,6 +18,15 @@ const HomeForm= () => {
                         </Form.Text>
                     </Form.Group>
 
+                <p> *placeholder for the carousel editor*</p>
+
+                <p> *placeholder for the 'about us' preview editor*</p>
+
+                <p> *placeholder for the 'proof of concept' preview editor*</p>
+
+                <p> *placeholder for the 'our products' preview editor*</p>
+
+                <p> *placeholder for the 'contact us' preview editor*</p>
                     
 
                     <Button variant="info" type="submit">
