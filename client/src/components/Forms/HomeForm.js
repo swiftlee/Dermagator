@@ -7,11 +7,11 @@ import Col from 'react-bootstrap/Col';
 
 const HomeForm= () => {
     return (
-            <div>
+            <div className='border-primary border p-4 m-3'>
                 <h2> *this should appear when "Home" is clicked* </h2>
                 <Form>
                     <Form.Group>
-                        <Form.Label>Home Title</Form.Label>
+                        <Form.Label column=''>Home Title</Form.Label>
                         <Form.Control placeholder="Edit title" />
                         <Form.Text className="text-muted">
                             Current title: Welcome to DermaGator
@@ -35,6 +35,6 @@ const HomeForm= () => {
                 </Form>
             </div>
         );
-    }
+    };
     
     export default HomeForm;

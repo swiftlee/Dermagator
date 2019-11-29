@@ -7,6 +7,6 @@ const UsersForm= () => {
                 UsersForm
             </div>
         );
-    }
+    };
     
     export default UsersForm;

@@ -10,17 +10,17 @@ const useProductPage = () => {
         temporary.data.splice(index,1);
         setInputs(inputs=>({...inputs,data:temporary.data}));
         handleSubmit(event);
-    }
+    };
     const handleNewSectionChange=(event)=>{
         event.persist();
         setSection({...section, [event.target.name]: event.target.value});
-    }
+    };
     const handleNewSection=(event)=>{
         let temporary=inputs;
-        temporary.data.splice(-1,0,section)
+        temporary.data.splice(-1,0,section);
         setInputs(inputs=>({...inputs,data:temporary.data}));
         handleSubmit(event);
-    }
+    };
     const handleSubmit = async(event) => {
         event.preventDefault();
         axios.post("/api/update/updateProduct", inputs)
@@ -32,12 +32,12 @@ const useProductPage = () => {
         let temporary=inputs;
         temporary.data[index].text=information;
         setInputs(inputs=>({...inputs, data:temporary.data}));
-    }
+    };
     const setName=(index,information)=>{
         let temporary=inputs;
         temporary.data[index].name=information;
         setInputs(inputs=>({...inputs, data:temporary.data}));
-    }
+    };
 
     return {
         handleSubmit,
