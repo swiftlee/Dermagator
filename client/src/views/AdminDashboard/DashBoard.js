@@ -2,9 +2,7 @@ import React,{useState} from 'react';
 import useLogin from "../Login/useLogin"
 import {Route, Switch, Redirect} from 'react-router-dom';
 import axios from 'axios';
-import data from "../../data/AboutPage"
-import useAboutPage from './useAboutPage';
-import AboutUpdate from '../../components/About/UpdateForm'
+import AboutUpdate from '../../components/About/UpdateAboutForm'
 const jwt=require('jsonwebtoken');
 
 const DashBoard=()=>{

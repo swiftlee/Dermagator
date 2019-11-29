@@ -3,25 +3,61 @@ import axios from 'axios';
 import data from '../../data/AboutPage'
 const useAboutPage = () => {
     const [inputs, setInputs] = useState(data);
-    const [section,setSection]=useState({name:"", text:"",type:"section"})
+    const [section,setSection]=useState({id:"",name:"", text:"",type:"section"});
+    const [employee,setEmployee]=useState({personName:"",info:""});
+    
+    const deleteSection=(index,event)=>{
+        let temporary=inputs;
+        temporary.data.splice(index,1);
+        setInputs(inputs=>({...inputs,data:temporary.data}));
+        handleSubmit(event);
+    }
+    const deleteEmployee=(index,event)=>{
+        
+        let temporary=inputs;
+        console.log(temporary.data.length)
+        for(var i=0;i<temporary.data.length;i++){
+            console.log(temporary.data[i])
+            if(temporary.data[i].id=="team"){
+                temporary.data[i].team.splice(index,1);//should remove the offending
+                console.log(temporary.data[i].team)
+                break;
+            }
+        }
+        setInputs(inputs=>({...inputs,data:temporary.data}));
+        handleSubmit(event);
+    }
+    const handleEmployeeChange=(event)=>{
+        event.persist();
+        setEmployee({...employee,[event.target.name]:event.target.value});
+    }
+    const handleNewEmployee=(event)=>{
+        let temporary=inputs;
+        for(let i=0;i<temporary.data.length;i++){
+            if(temporary.data[i].id=="team"){
+                temporary.data[i].team.push(employee);
+            }
+        }
+        
+        setInputs(inputs=>({...inputs,data:temporary.data}));
+        handleSubmit(event);
+    }
     const handleNewSectionChange=(event)=>{
         event.persist();
         setSection({...section, [event.target.name]: event.target.value});
     }
-    const handleNewSection=()=>{
+    const handleNewSection=(event)=>{
         let temporary=inputs;
         temporary.data.splice(-1,0,section)
         setInputs(inputs=>({...inputs,data:temporary.data}));
-        handleSubmit();
+        handleSubmit(event);
     }
     const handleSubmit = async(event) => {
         event.preventDefault();
-        console.log("About to Post")
         axios.post("/api/about/updateAbout", inputs)
             .then(res => {
                 
         });
-        console.log("After Post")
     };
     const setText=(index,information)=>{
         let temporary=inputs;
@@ -59,7 +95,12 @@ const useAboutPage = () => {
         setInfoCardText,
         handleNewSection,
         handleNewSectionChange,
-        section
+        section,
+        handleEmployeeChange,
+        handleNewEmployee,
+        employee,
+        deleteSection,
+        deleteEmployee
     };
 };
 export default useAboutPage;
