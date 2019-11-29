@@ -1,0 +1,57 @@
+
+.row:after {
+    left: 0;
+    position: relative;
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .row {
+    display: flex;
+    padding: 10px;
+    /* background-color: #f35555; */
+  }
+  
+  .column {
+    float: left;
+    padding: 10px;
+    /* background-color: #f37a7a; */
+
+  }
+
+  .left {
+    width: 35%;
+    /* background-color: #f5a53c; */
+  }
+  
+  .right {
+    width: 65%;
+    /* background-color: #f3e17a; */
+  }
+
+  .vertical-menu {
+    padding: 10px;
+  }
+      
+.vertical-menu a {
+background-color: #eee;
+color: black;
+display: block;
+padding: 12px;
+text-decoration: none;
+}
+
+.vertical-menu a:hover {
+background-color: #ccc;
+}
+
+.vertical-menu a.active {
+background-color: #4CAF50;
+color: white;
+}
+
+.vertical-container {
+    position: relative;
+}
+  

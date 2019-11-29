@@ -14,6 +14,7 @@ import {HashLink as Link} from "react-router-hash-link";
 
 const Home = (props) => {
     return (
+        document.body.style = 'background: white',
         <div className="text-center m-auto">
             <header id="top" className="Welcome">Welcome to DermaGator</header>
             <div className="page-element m-auto" style={{"padding": "0px",}}>
@@ -27,7 +28,6 @@ const Home = (props) => {
                 <InfoCard title='A.A. & M.C.' subtitle='Placeholder' info='FC.' data-aos-offset='200'/>
                 <InfoCard title='STANDARD' subtitle='Placeholder' info='TC' data-aos-offset='300'/>
             </div>
-                <AboutUs/>
             <div id='about' className='mb-5 section-bg'>
                 <Link className='' to="/about#top" style={{ textDecoration: 'none',color:"black" }}>
                     <AboutUs/>
