@@ -30,7 +30,7 @@ const PDFViewer = (props) => {
     return (
         <div className='pdf'>
             <Document
-                file="/cream_article.pdf"
+                file={props.file}
                 onLoadSuccess={onDocumentLoadSuccess}>
                 <Page pageNumber={pageNum}/>
             </Document>

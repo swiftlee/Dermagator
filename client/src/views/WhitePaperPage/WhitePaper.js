@@ -1,23 +1,34 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './WhitePaper.css';
 import NavBar from '../../components/Header/NavBar';
-
+import PDFViewer from '../../components/PDFViewer';
 const WhitePaper=()=>{
+    const [page, setPage] = useState(1);
+    const [numPages, setNumPages] = useState(1);
+    const [page2,setPage2]=useState(1);
+    const [numPages2,setNumPages2]=useState(1);
+
     return(
         <div className="main">
-            <div className='sticky-top'>
-                <NavBar/>
-            </div>
+            
             <h1> Documents </h1>
-            <div className="first-page">
-                <p> This is where a pdf viewer will be with the file to present</p>
-                <img src='/logo192.png' alt='This is replacement text if this does not display.'/>
+            <div className="first-page" id="first">
+                <PDFViewer setPage={setPage} setNumPages={setNumPages} file={"/cream_one_pager.pdf"}/>
+                <div className='border border-info'>
+                    <p>
+                        Page <span className='font-weight-bolder'>{page}</span> of <span
+                        className='font-weight-bolder'>{numPages}</span>
+                    </p>
+                </div>
             </div>
-            <div className="second-page">
-                <p>
-                    This is where another pdf viewer will be with the file to present
-                </p>
-                <img src='/logo192.png' alt='This is replacement text if this does not display.'/>
+            <div className="second-page"id="second">
+                <PDFViewer setPage={setPage2} setNumPages={setNumPages2} file={"/cream_article.pdf"}/>
+                <div className='border border-info'>
+                    <p>
+                        Page <span className='font-weight-bolder'>{page2}</span> of <span
+                        className='font-weight-bolder'>{numPages2}</span>
+                    </p>
+                </div>
             </div>
         </div>
     );

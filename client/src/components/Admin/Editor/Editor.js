@@ -1,8 +1,8 @@
 import React from 'react';
 import './Editor.css';
 import HomeForm from '../../Forms/HomeForm';
-
-
+import UpdateAboutForm from "../../../components/About/UpdateAboutForm"
+import UpdateProductForm from "../../../components/Product/UpdateProductForm"
 const Editor= () => {
     return (
             // <div class="sidenav">
@@ -47,6 +47,8 @@ const Editor= () => {
                     
                     <div class="column right">
                         <HomeForm/>
+                        <UpdateAboutForm></UpdateAboutForm>
+                        <UpdateProductForm></UpdateProductForm>
                     </div>
 
                 </div>

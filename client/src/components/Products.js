@@ -10,12 +10,12 @@ const ProductsInfo = () => {
     return (
         <div>
             <Link className='' to="/product#top" style={{ textDecoration: 'none',color:"black" }}>
-                <h1>Our Products</h1>
+                <h1>Our Documents:</h1>
             </Link>
             <div>
-                <h2>Product 1</h2>
+                <h2>Preview</h2>
                 <div className='position-relative'>
-                    <PDFViewer setPage={setPage} setNumPages={setNumPages}/>
+                    <PDFViewer setPage={setPage} setNumPages={setNumPages} file={"/cream_one_pager.pdf"}/>
                 </div>
                 <div className='border border-info'>
                     <p>
@@ -23,17 +23,12 @@ const ProductsInfo = () => {
                         className='font-weight-bolder'>{numPages}</span>
                     </p>
                     <p>
-                        Information on product
+                        For more Information:
                     </p>
                     <p>
-                        <Link to="/product">Order Now </Link>
+                        <Link to="/whitepages">See All Documents</Link>
                     </p>
                 </div>
-                <p>
-                    Information on product
-                </p>
-                
-                <a href="/product#standard">Order Now </a>
             </div>
         </div>
     );
