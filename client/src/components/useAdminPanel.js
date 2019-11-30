@@ -15,5 +15,5 @@ const useAdminPanel=()=>{
         handleInputChange,
         inputs
     };
-}
+};
 export default useAdminPanel;

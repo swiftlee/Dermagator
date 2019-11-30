@@ -14,6 +14,7 @@ import {HashLink as Link} from "react-router-hash-link";
 
 const Home = (props) => {
     return (
+        document.body.style = 'background: white',
         <div className="text-center m-auto">
             <header id="top" className="Welcome">Welcome to DermaGator</header>
             <div className="page-element m-auto" style={{"padding": "0px",}}>
@@ -23,22 +24,19 @@ const Home = (props) => {
             <div className='infocards' data-aos="fade" data-aos-duration='1000' data-aos-easing="ease-in-out"
                  data-aos-mirror="true">
                 <InfoCard title='STANDARD' subtitle='DermAssure 101' info='Detailed treatment conditions'
-                          data-aos-offset='100'/>
-                <InfoCard title='A.A. & M.C.' subtitle='Placeholder' info='FC.' data-aos-offset='200'/>
-                <InfoCard title='STANDARD' subtitle='Placeholder' info='TC' data-aos-offset='300'/>
+                          data-aos-offset='100' to="/product#standard"></InfoCard>
+                <InfoCard title='A.A. & M.C.' subtitle='Placeholder' info='FC.' data-aos-offset='200' to="/product#aa_me"/>
+                <InfoCard title='STANDARD' subtitle='Placeholder' info='TC' data-aos-offset='300' to="/product#ss"/>
             </div>
-            <div id='about' className='mb-5'>
+            <div id='about' className='mb-5 section-bg'>
                 <Link className='' to="/about#top" style={{ textDecoration: 'none',color:"black" }}>
                     <AboutUs/>
                 </Link>
             </div>
-            <div id='proof-of-concept' className='mb-5' data-aos="fade" data-aos-duration='1000'>
-                <ProofOfConcepts/>
-            </div>
-            <div id='product' className='mb-5' data-aos="fade" data-aos-duration='1000'>
+            <div id='product' className='mb-5 section-bg' data-aos="fade" data-aos-duration='1000'>
                 <ProductInfo/>
             </div>
-            <div id='contact' className='mb-5' >
+            <div id='contact' className='mb-5 section-bg' >
                 <Link className='' to="/contact#top" style={{ textDecoration: 'none',color:"black" }}>
                     <ContactUs />
                 </Link>
