@@ -4,6 +4,7 @@ import HomeForm from '../../Forms/HomeForm';
 import UpdateAboutForm from "../../../components/About/UpdateAboutForm"
 import UpdateProductForm from "../../../components/Product/UpdateProductForm"
 import {HashLink as Link} from 'react-router-hash-link'
+
 const Editor = () => {
     return (
 // <div className="sidenav">
@@ -39,17 +40,23 @@ const Editor = () => {
                         <div className="vertical-menu">
                             {/* <a href="#" className="active">Home</a> */}
                             <Link to="#">Appearance</Link>
-                            <Link to="#">Home</Link>
-                            <Link to="#About" activeclass='active'>About</Link>
-                            <Link to="#Product">Product</Link>
+                            <Link to="/dashboard?id=#Home">Home</Link>
+                            <Link to="/dashboard?id=#About" activeclass='active'>About</Link>
+                            <Link to="/dashboard?id=#Product" activeclass="active">Product</Link>
                             <Link to="#">Footer</Link>
                         </div>
                     </div>
 
                     <div className="column right col-lg-10 col-sm-10">
-                        <HomeForm/>
-                        <UpdateAboutForm id="#About"/>
-                        <UpdateProductForm id="Product"/>
+                        <div id="Home">
+                            <HomeForm/>
+                        </div>
+                        <div id="About">
+                            <UpdateAboutForm id="About"/>
+                        </div>
+                        <div id="Product">
+                            <UpdateProductForm id="Product"/>
+                        </div>
                     </div>
 
                 </div>
