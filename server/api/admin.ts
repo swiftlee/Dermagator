@@ -4,35 +4,72 @@ import {User} from '../models/User';
 import * as bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
 import validateUser from '../validation/validateUser';
-var bodyParser = require('body-parser'); 
-
+import validateUserCreation from '../validation/validateUserCreation';
+import {hashString} from '../utils/stringUtils';
 
 const adminRouter = Router();
-adminRouter.get('/verify', (req:express.Request,res:express.Response)=>{
-	if(req.isAuthenticated()){
-		const ClientUser={
-			user:req.user,
-			loggedIn:true
+adminRouter.get('/verify', (req: express.Request, res: express.Response) => {
+	if (req.isAuthenticated()) {
+		const ClientUser = {
+			user: req.user,
+			loggedIn: true
 		};
 		return res.send({
-			success:true,
-			message:"Valid session",
-			user:ClientUser
+			success: true,
+			message: 'Valid session',
+			user: ClientUser
 		});
-	}else{
-		const emptyUser={
-			user:"",
-			loggedIn:false
-		}
+	} else {
+		const emptyUser = {
+			user: '',
+			loggedIn: false
+		};
 		return res.send({
-			success:false,
-			message:"Couldn't find session",
-			user:emptyUser
-		})
+			success: false,
+			message: 'Couldn\'t find session',
+			user: emptyUser
+		});
 	}
-})
-adminRouter.post('/create', (req: express.Request, res: express.Response) => {
+});
 
+adminRouter.get('/user', (req: express.Request, res: express.Response) => {
+	if (req.body) {
+		const email = req.body.email;
+		User.find({email: email}, doc => {
+			if (doc) {
+				res.status(200).json(doc);
+			}
+		});
+	}
+});
+
+adminRouter.post('/create', (req: express.Request, res: express.Response) => {
+	const {errors, isValid} = validateUserCreation(req.body);
+	if (!isValid) {
+		return res.status(400).json(errors);
+	}
+
+	// find user by email
+	User.findOne({email: req.body.email}).then((user: any) => {
+		if (user) {
+			return res.status(400).json({email: 'Email already exists.'});
+		} else {
+			const newUser = new User({
+				name: req.body.name,
+				email: req.body.email,
+				password: req.body.password
+			});
+
+			// Hash password before saving in database
+			hashString(newUser.password).then(hash => {
+				newUser.password = hash;
+				newUser
+					.save()
+					.then(user => res.json(user))
+					.catch(err => console.log(err));
+			});
+		}
+	});
 });
 
 adminRouter.post('/login', (req: express.Request, res: express.Response) => {
@@ -40,17 +77,16 @@ adminRouter.post('/login', (req: express.Request, res: express.Response) => {
 	console.log(req.body);
 	const {errors, isValid} = validateUser(req.body);
 	if (!isValid) {
-		console.log("Sup I wonder how you got here")
 		return res.status(400).json(errors);
 	}
 
-	const email : string = req.body.email;
-	const password : string = req.body.password;
+	const email: string = req.body.email;
+	const password: string = req.body.password;
 	// find user by email
-	User.findOne({ email: email }).then((user) => {
+	User.findOne({email: email}).then((user) => {
 		// check if user exists
 		if (!user) {
-			return res.status(404).json({ emailnotfound: 'Email not found.' });
+			return res.status(404).json({emailnotfound: 'Email not found.'});
 		}
 		// check password
 		bcrypt.compare(password, user.password).then((isMatch) => {
@@ -79,11 +115,11 @@ adminRouter.post('/login', (req: express.Request, res: express.Response) => {
 						});
 					}
 				);
-				
+
 			} else {
 				return res
 					.status(400)
-					.json({ passwordincorrect: 'Incorrect password.' });
+					.json({passwordincorrect: 'Incorrect password.'});
 			}
 		});
 	});

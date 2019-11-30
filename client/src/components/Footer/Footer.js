@@ -1,7 +1,6 @@
 import React from 'react';
-
+import data from "../../data/Footer"
 const style = {
-    backgroundColor: '#009688',
     borderTop: '1px solid #E7E7E7',
     padding: '20px',
     left: '0',
@@ -13,36 +12,32 @@ const style = {
 const Footer = () => {
     return (
         <div>
-            <div style={style}>
-                <footer className='page-footer font-small text-white pt-4'>
+            <div style={style} className = 'foot1'>
+                <footer className='page-footer font-small pt-4'>
                     <div className='container-fluid text-center text-md-left'>
                         <div className='row'>
                             <div className='col-md-6 mt-md-0 mt-3'>
-                                <h5 className='text-uppercase font-weight-bold'>Footer text 1</h5>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita sapiente sint,
-                                    nulla, nihil
-                                    repudiandae commodi voluptatibus corrupti animi sequi aliquid magnam debitis, maxime
-                                    quam recusandae
-                                    harum esse fugiat. Itaque, culpa?</p>
+                                <h5 className='text-uppercase font-weight-bold'>{data.data[0].name}</h5>
+                                <p>{data.data[0].text.split("\n").map((i,key)=>{
+                                    return <div key={key}>{i}</div>
+                                    })}</p>
 
                             </div>
                             <hr className='clearfix w-100 d-md-none pb-3'/>
                             <div className='col-md-6 mb-md-0 mb-3'>
-                                <h5 className='text-uppercase font-weight-bold'>Footer text 2</h5>
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio deserunt fuga
-                                    perferendis modi earum
-                                    commodi aperiam temporibus quod nulla nesciunt aliquid debitis ullam omnis quos
-                                    ipsam, aspernatur id
-                                    excepturi hic.</p>
+                                <h5 className='text-uppercase font-weight-bold'>{data.data[1].name}</h5>
+                                <p>{data.data[1].text.split("\n").map((i,key)=>{
+                                return <div key={key}>{i}</div>
+                                })}</p>
 
                             </div>
                         </div>
                     </div>
                 </footer>
             </div>
-            <div style={{backgroundColor: 'rgb(0,150,136)'}}>
-                <div className='text-center py-3'
-                     style={{backgroundColor: 'rgba(0, 0, 0, 0.2)', color: 'rgba(255,255,255,0.6)'}}>©
+            <div>
+                <div className='text-center py-3 foot2'
+                     style={{color: 'rgba(255,255,255,0.6)'}}>©
                     2019 Copyright:
                     <a className='text-white' href='https://dermagator.com/'> dermagator.com</a>
                 </div>

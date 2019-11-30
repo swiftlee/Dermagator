@@ -65,4 +65,7 @@ server/.env
 ./server/dist
 ./server/dist/**
 ./server/dist/*
+dist/
+dist/*
+
 
