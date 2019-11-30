@@ -8,29 +8,29 @@ function NotFound() {
 <div className = "container">
        
                 <div className = "cont">
-                <span class="numer">4</span>
-                <span class="numer">
-                <div class="circle">
-                        <div class="drops"></div>
-                        <div class="drops"></div>
-                        <div class="hand"></div>
-                        <div class="hand rgt"></div>
-                                <div class="holder">
-                                        <div class="bob">
-                                                <div class="nose"></div>
-                                                <div class="face">
-                                                <div class="mouth">
-                                                <div class="tongue"></div>
+                <span className="number">4</span>
+                <span className="number">
+                <div className="circle">
+                        <div className="drops"></div>
+                        <div className="drops"></div>
+                        <div className="hand"></div>
+                        <div className="hand rgt"></div>
+                                <div className="holder">
+                                        <div className="bob">
+                                                <div className="nose"></div>
+                                                <div className="face">
+                                                <div className="mouth">
+                                                <div className="tongue"></div>
                                         </div>
                                 </div>
-                                <div class="ear"></div>
-                                <div class="ear rgt"></div>
-                                <div class="neck"></div>
+                                <div className="ear"></div>
+                                <div className="ear rgt"></div>
+                                <div className="neck"></div>
                                         </div>
                                 </div>
                 </div>
                 </span>
-        <span class="numer">4</span>
+        <span className="number">4</span>
         </div>
          <div className = "row">
          <div className = "col-12">

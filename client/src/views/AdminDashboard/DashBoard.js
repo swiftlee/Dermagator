@@ -10,7 +10,7 @@ const DashBoard=()=>{
     const {logout,returnAuth} = useLogin();
     //trying to get the token
     if(returnAuth()){
-        console.log(returnAuth())
+        console.log(returnAuth());
         return(
             <Redirect to="/login"/>
         )
@@ -42,7 +42,7 @@ const DashBoard=()=>{
             <Redirect to="/login" />
         );
     }
-}
+};
 
 
 // export default DashBoard;

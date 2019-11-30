@@ -3,8 +3,8 @@ import useLogin from './useLogin';
 import './Login.css';
 
 const Login = (props) => {
-    console.log(props)
-    const {inputs, user, isAuthenticated, handleInputChange, handleSubmit,returnAuth} = useLogin();
+    console.log(props);
+    const {inputs, user, isAuthenticated, handleInputChange, handleSubmit, returnAuth} = useLogin();
     return (
         <div className='login-container text-center m-auto' style={{transform: 'translateY(-10%)'}}>
             {
