@@ -3,7 +3,7 @@ import './Editor.css';
 import HomeForm from '../../Forms/HomeForm';
 import UpdateAboutForm from "../../../components/About/UpdateAboutForm"
 import UpdateProductForm from "../../../components/Product/UpdateProductForm"
-
+import {HashLink as Link} from 'react-router-hash-link'
 const Editor = () => {
     return (
 // <div className="sidenav">
@@ -38,18 +38,18 @@ const Editor = () => {
                     <div className="column left col-lg-2 col-sm-1">
                         <div className="vertical-menu">
                             {/* <a href="#" className="active">Home</a> */}
-                            <a href="#">Appearance</a>
-                            <a href="#">Home</a>
-                            <a href="#">About</a>
-                            <a href="#">Product</a>
-                            <a href="#">Footer</a>
+                            <Link to="#">Appearance</Link>
+                            <Link to="#">Home</Link>
+                            <Link to="#About" activeclass='active'>About</Link>
+                            <Link to="#Product">Product</Link>
+                            <Link to="#">Footer</Link>
                         </div>
                     </div>
 
                     <div className="column right col-lg-10 col-sm-10">
                         <HomeForm/>
-                        <UpdateAboutForm/>
-                        <UpdateProductForm/>
+                        <UpdateAboutForm id="#About"/>
+                        <UpdateProductForm id="Product"/>
                     </div>
 
                 </div>

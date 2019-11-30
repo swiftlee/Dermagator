@@ -20,5 +20,11 @@ updateRouter.post('/updateProduct',(req:Request, res: Response)=>{
     fs.writeFileSync('../client/src/data/ProductPage.json',jsonString);
     res.send("Product Page Updated")
 });
+updateRouter.post('/updateHome',(req:Request, res: Response)=>{
+    const jsonString=JSON.stringify(req.body);
+    
+    fs.writeFileSync('../client/src/data/HomePage.json',jsonString);
+    res.send("Product Page Updated")
+})
 
 export default updateRouter;

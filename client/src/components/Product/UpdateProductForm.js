@@ -23,7 +23,7 @@ const ProductUpdate = () => {
                                               onChange={event => setName(index, event.target.value)}
                                               required/>
                                 <Form.Label column=''>Text of Section {index + 1}</Form.Label>
-                                <Form.Control as="textarea" type="text"
+                                <Form.Control as="textarea" type="text" rows="5"
                                               placeholder="Text to Update"
                                               value={inputs.data[index].text}
                                               onChange={event => setText(index, event.target.value)}
