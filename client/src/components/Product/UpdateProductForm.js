@@ -3,7 +3,7 @@ import useProductPage from './useProductPage';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-const ProductUpdate = () => {
+const UpdateProductForm = () => {
     let {
         inputs, handleSubmit, setText, setName, handleNewSection,
         handleNewSectionChange, section, deleteSection
@@ -15,7 +15,7 @@ const ProductUpdate = () => {
                 inputs.data.map((stuff, index) => {
                     if (stuff.type === "info") {
                         return (
-                            <Form className='border-primary border p-4 m-3'>
+                            <Form className='border-primary border p-4 m-3' key={stuff + index}>
                                 <Form.Label column=''>Title of Section {index + 1}:</Form.Label>
                                 <Form.Control type="text"
                                               placeholder="Name to Update"
@@ -38,7 +38,7 @@ const ProductUpdate = () => {
                         )
                     } else {
                         return (
-                            <div className='border-primary border p-4 m-3'>
+                            <div className='border-primary border p-4 m-3' key={index}>
                                 <h2>Update Order Link</h2>
                                 <Form onSubmit={handleSubmit}>
                                     <Form.Label column=''>Title of Section {index + 1}:</Form.Label>
@@ -57,7 +57,7 @@ const ProductUpdate = () => {
                             </div>
                         )
                     }
-            })
+                })
             }
             <div className='border-primary border p-4 m-3'>
                 <h2>Add new section</h2>
@@ -80,4 +80,4 @@ const ProductUpdate = () => {
 };
 
 
-export default ProductUpdate;
+export default UpdateProductForm;

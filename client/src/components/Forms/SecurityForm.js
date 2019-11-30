@@ -9,7 +9,7 @@ const SecurityForm = () => {
         <div className='border-primary border p-4 m-3'>
             <h2> *this should appear when "Security" is clicked* </h2>
             <Form>
-                <Form.Group as={Row} controlId="formHorizontalPassword">
+                <Form.Group as={Row}>
                     <Form.Label column sm={4}>
                         Old Password
                     </Form.Label>
@@ -18,7 +18,7 @@ const SecurityForm = () => {
                     </Col>
                 </Form.Group>
 
-                <Form.Group as={Row} controlId="formHorizontalPassword">
+                <Form.Group as={Row}>
                     <Form.Label column sm={4}>
                         New Password
                     </Form.Label>
@@ -27,7 +27,7 @@ const SecurityForm = () => {
                     </Col>
                 </Form.Group>
 
-                <Form.Group as={Row} controlId="formHorizontalPassword">
+                <Form.Group as={Row}>
                     <Form.Label column sm={4}>
                         Confirm New Password
                     </Form.Label>

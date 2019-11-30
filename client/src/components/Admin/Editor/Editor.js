@@ -30,10 +30,9 @@ const Editor = () => {
         <div data-aos="fade-up" data-aos-duration='1000'>
             <hr/>
 
-            <div className='sticky-top overflow-'>
-                <div className="row">
-                    <h1>Website Editor</h1>
-                </div>
+            <div className="row sticky-top">
+                <h1>Website Editor</h1>
+            </div>
 
 
                 <div className="row">
@@ -47,6 +46,7 @@ const Editor = () => {
                             <Link to="/dashboard?id=#Footer">Footer</Link>
                         </div>
                     </div>
+                </div>
 
                     <div className="column right col-lg-10 col-sm-10">
                         <div id="Home">
@@ -63,6 +63,10 @@ const Editor = () => {
                         </div>
                     </div>
 
+                <div className="column right col-lg-10 col-sm-10">
+                    <HomeForm/>
+                    <UpdateAboutForm/>
+                    <UpdateProductForm/>
                 </div>
             </div>
         </div>
