@@ -2,11 +2,13 @@ import React,{useState} from 'react';
 import './WhitePaper.css';
 import NavBar from '../../components/Header/NavBar';
 import PDFViewer from '../../components/PDFViewer';
-const WhitePaper=()=>{
+const WhitePaper = () => {
     const [page, setPage] = useState(1);
     const [numPages, setNumPages] = useState(1);
-    const [page2,setPage2]=useState(1);
-    const [numPages2,setNumPages2]=useState(1);
+    const [page2, setPage2] = useState(1);
+    const [numPages2, setNumPages2] = useState(1);
+    const [page3, setPage3] = useState(1);
+    const [numPages3, setNumPages3] = useState(1);
 
     return(
         <div className="main">

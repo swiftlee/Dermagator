@@ -68,7 +68,6 @@ const Editor = () => {
                     <UpdateAboutForm/>
                     <UpdateProductForm/>
                 </div>
-            </div>
         </div>
     );
 };
