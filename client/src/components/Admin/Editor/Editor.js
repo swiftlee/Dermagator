@@ -1,8 +1,9 @@
 import React from 'react';
 import './Editor.css';
 import HomeForm from '../../Forms/HomeForm';
-import UpdateAboutForm from "../../../components/About/UpdateAboutForm"
-import UpdateProductForm from "../../../components/Product/UpdateProductForm"
+import UpdateAboutForm from "../../About/UpdateAboutForm"
+import UpdateProductForm from "../../Product/UpdateProductForm"
+import UpdateFooterForm from "../../Footer/UpdateFooterForm"
 import {HashLink as Link} from 'react-router-hash-link'
 
 const Editor = () => {
@@ -43,7 +44,7 @@ const Editor = () => {
                             <Link to="/dashboard?id=#Home">Home</Link>
                             <Link to="/dashboard?id=#About" activeclass='active'>About</Link>
                             <Link to="/dashboard?id=#Product" activeclass="active">Product</Link>
-                            <Link to="#">Footer</Link>
+                            <Link to="/dashboard?id=#Footer">Footer</Link>
                         </div>
                     </div>
 
@@ -56,6 +57,9 @@ const Editor = () => {
                         </div>
                         <div id="Product">
                             <UpdateProductForm id="Product"/>
+                        </div>
+                        <div id="Footer">
+                            <UpdateFooterForm></UpdateFooterForm>
                         </div>
                     </div>
 
