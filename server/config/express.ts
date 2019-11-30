@@ -7,7 +7,7 @@ import config from './config';
 import {createDefaultAdmin} from "../utils/userUtils";
 import adminRouter from '../api/admin';
 import contactRouter from '../api/contact';
-import UpdateRouter from '../api/AboutUpdate';
+import UpdateRouter from 'aboutUpdate.ts';
 
 console.log(`${process.env.DB_URI} and ${config.db.uri}`);
 

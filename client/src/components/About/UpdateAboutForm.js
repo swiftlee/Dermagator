@@ -3,7 +3,7 @@ import useAboutPage from '../../views/AdminDashboard/useAboutPage';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-const AboutUpdate = () => {
+const AboutUpdateForm = () => {
     let {
         inputs, handleSubmit, setText, setName, setInfoCardName, setInfoCardPerson, setInfoCardText, handleNewSection,
         handleNewSectionChange, section, handleEmployeeChange, handleNewEmployee, employee, deleteSection, deleteEmployee
@@ -12,10 +12,10 @@ const AboutUpdate = () => {
         <div className='border-primary border p-4 m-3'>
             <h2>Update or Delete Sections on About Page</h2>
             {
-                inputs.data.map((stuff, index) => {
-                    if (stuff.type === "section") {
+                inputs.data.map((divs, index) => {
+                    if (divs.type === "section") {
                         return (
-                            <Form className='border-primary border p-4 m-3'>
+                            <Form className='border-primary border p-4 m-3' key={divs.type + index}>
                                 <Form.Label column=''>Title of Section {index + 1}:</Form.Label>
                                 <Form.Control type="text"
                                               placeholder="Name to Update"
@@ -38,7 +38,7 @@ const AboutUpdate = () => {
                         )
                     } else {
                         return (
-                            <div className='border-primary border p-4 m-3'>
+                            <div className='border-primary border p-4 m-3' key={index}>
                                 <h2>Update or Delete Employees</h2>
                                 <Form onSubmit={handleSubmit}>
                                     <Form.Label column=''>Title of Section {index + 1}:</Form.Label>
@@ -47,8 +47,8 @@ const AboutUpdate = () => {
                                                   value={inputs.data[index].name}
                                                   onChange={event => setInfoCardName(index, event.target.value)}
                                     />
-                                    {stuff.team.map((information, index2) => (
-                                        <div>
+                                    {divs.team.map((information, index2) => (
+                                        <div key={information + index2}>
                                             <Form.Label column=''>Person {index2 + 1} of
                                                 Section {index + 1}</Form.Label>
                                             <Form.Control type="text"
@@ -112,4 +112,4 @@ const AboutUpdate = () => {
 };
 
 
-export default AboutUpdate;
+export default AboutUpdateForm;
