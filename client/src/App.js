@@ -41,10 +41,11 @@ const App = (props) => {
                     <Route exact path="/about" component={About}/>
                     <Route exact path="/contact" component={Contact}/>
                     <Route exact path="/dashboard" component={Dashboard}/>
-                    <Route component={NotFound}/>
+                    <Route exact path ="/not-found" component={NotFound}/>
+                    <Redirect from='*' to="/not-found" />
                 </Switch>
             </div>
-            {pathname == '/not-found' ? <Footer/> : null}
+            {pathname != '/not-found' ? <Footer/> : null}
         </div>
     );
 };
