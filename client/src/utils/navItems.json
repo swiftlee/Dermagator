@@ -28,7 +28,13 @@
     },
     {
       "id": "#proof-of-concept",
-      "label": "Proof of Concept"
+      "label": "Documents",
+      "dropdowns": [
+        {
+          "route": "/whitepages",
+          "label": "Document 1"
+        }
+      ]
     },
     {
       "id": "#product",

@@ -49,7 +49,7 @@ const useLogin = () => {
         else{
             return false;
         }
-    }
+    };
 
     const logout = () => {
         // remove token from local storage

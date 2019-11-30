@@ -14,7 +14,6 @@ import {HashLink as Link} from "react-router-hash-link";
 import {loadReCaptcha} from 'react-recaptcha-v3'
 import config from './config/config';
 import './styles.css'
-import leftPad from 'left-pad';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RoutedApp = withRouter(props => <App {...props}/>);
@@ -23,14 +22,14 @@ const App = (props) => {
     const {pathname} = props.location;
     const homeLogo = <Link to={'/home'}>
     <img src='/assets/home.png' className= 'home'
-         alt='This is replacement text if an image does not display.'/>
+         alt='This is replacement text if this does not display.'/>
 </Link>;
 
     return (
         <div>
             {loadReCaptcha(config.captcha.sitekey)}
             <div style={{display: "flex", flexDirection: "row", width: "90%"}} className='m-auto' id='top'>
-                {pathname == '/contact' ? homeLogo : null}
+                {pathname === '/contact' || pathname === '/dashboard' ? homeLogo : null}
                 <Switch>
                     <Route exact path="/home" component={Home}/>
                     <Route exact path="/">
@@ -42,10 +41,11 @@ const App = (props) => {
                     <Route exact path="/about" component={About}/>
                     <Route exact path="/contact" component={Contact}/>
                     <Route exact path="/dashboard" component={Dashboard}/>
-                    <Route component={NotFound}/>
+                    <Route exact path ="/not-found" component={NotFound}/>
+                    <Redirect from='*' to="/not-found" />
                 </Switch>
             </div>
-            {pathname == '/not-found' ? <Footer/> : null}
+            {pathname != '/not-found' ? <Footer/> : null}
         </div>
     );
 };

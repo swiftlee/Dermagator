@@ -2,16 +2,15 @@ import React,{useState} from 'react';
 import useLogin from "../Login/useLogin"
 import {Route, Switch, Redirect} from 'react-router-dom';
 import axios from 'axios';
-import data from "../../data/AboutPage"
-import useAboutPage from './useAboutPage';
-import AboutUpdate from '../../components/About/UpdateForm'
+import AboutUpdateForm from '../../components/About/UpdateAboutForm';
+import UpdateProductForm from '../../components/Product/UpdateProductForm';
 const jwt=require('jsonwebtoken');
 
 const DashBoard=()=>{
     const {logout,returnAuth} = useLogin();
     //trying to get the token
     if(returnAuth()){
-        console.log(returnAuth())
+        console.log(returnAuth());
         return(
             <Redirect to="/login"/>
         )
@@ -33,7 +32,7 @@ const DashBoard=()=>{
             <div>
                 <p>Hello {decoded.name} is welcome here</p>
                 <button onClick={logout}>Log out</button>
-                <AboutUpdate/>
+                <UpdateProductForm/>
             </div>
         );
     }
@@ -43,7 +42,7 @@ const DashBoard=()=>{
             <Redirect to="/login" />
         );
     }
-}
+};
 
 
 // export default DashBoard;
