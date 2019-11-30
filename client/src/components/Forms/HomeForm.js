@@ -98,13 +98,3 @@ const HomeForm= () => {
     };
     
     export default HomeForm;
-
-                <Button variant="info" type="submit">
-                    Save
-                </Button>
-            </Form>
-        </div>
-    );
-};
-
-export default HomeForm;
