@@ -54,8 +54,6 @@ const Editor = () => {
                     <div id='Footer'><UpdateFooterForm id="Footer"/></div>
                 </div>
             </div>
-
-
         </div>
     );
 };
