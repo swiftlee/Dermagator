@@ -35,10 +35,12 @@ adminRouter.get('/verify', (req: express.Request, res: express.Response) => {
 adminRouter.get('/user', (req: express.Request, res: express.Response) => {
 	if (req.body) {
 		const email = req.body.email;
-		User.find({email: email}, doc => {
+		User.find((email === 'FINDALL' ? {} : {email: email}), doc => {
 			if (doc) {
 				res.status(200).json(doc);
 			}
+
+			res.status(400).json({});
 		});
 	}
 });

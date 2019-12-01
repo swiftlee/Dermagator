@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 const AboutUpdateForm = () => {
-    let {
+    const {
         inputs, handleSubmit, setText, setName, setInfoCardName, setInfoCardPerson, setInfoCardText, handleNewSection,
         handleNewSectionChange, section, handleEmployeeChange, handleNewEmployee, employee, deleteSection, deleteEmployee
     } = useAboutPage();
