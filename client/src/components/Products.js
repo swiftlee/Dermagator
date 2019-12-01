@@ -15,7 +15,7 @@ const ProductsInfo = () => {
             <div>
                 <h2>Preview</h2>
                 <div className='position-relative'>
-                    <PDFViewer setPage={setPage} setNumPages={setNumPages} file={"/cream_one_pager.pdf"}/>
+                    <PDFViewer file={"/cream_one_pager.pdf"}/>
                 </div>
                 <div className='border border-info'>
                     <p>
