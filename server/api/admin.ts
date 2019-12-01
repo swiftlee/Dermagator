@@ -6,6 +6,7 @@ import * as jwt from 'jsonwebtoken';
 import validateUser from '../validation/validateUser';
 import validateUserCreation from '../validation/validateUserCreation';
 import {hashString} from '../utils/stringUtils';
+import isEmpty = require('is-empty');
 
 const adminRouter = Router();
 adminRouter.get('/verify', (req: express.Request, res: express.Response) => {
@@ -32,17 +33,103 @@ adminRouter.get('/verify', (req: express.Request, res: express.Response) => {
 	}
 });
 
-adminRouter.get('/user', (req: express.Request, res: express.Response) => {
+adminRouter.get('/user', async (req: express.Request, res: express.Response) => {
 	if (req.body) {
-		const email = req.body.email;
-		User.find((email === 'FINDALL' ? {} : {email: email}), doc => {
-			if (doc) {
-				res.status(200).json(doc);
+		const email = req.query.email;
+		let document;
+		await User.find((email === 'FINDALL' ? {} : {email: email}), (err, doc) => {
+
+			if (err) {
+				throw err;
 			}
 
-			res.status(400).json({});
+			if (doc) {
+				document = doc;
+			}
 		});
+
+		if (document) {
+			res.status(200).json(document);
+		} else {
+			res.status(400).json({});
+		}
 	}
+});
+
+adminRouter.post('/modify', (req: express.Request, res: express.Response) => {
+	const newName = req.body.newName;
+	const email = req.body.email;
+	const newEmail = req.body.newEmail;
+	const password = req.body.password;
+	const password1 = req.body.password1;
+	const data = [newName, newEmail, password, password1];
+	const updatedData = {name: '', email: '', password: '', password1: ''};
+	data.forEach((item, i) => {
+		if (item.trim() !== '') {
+			switch (i) {
+				case 0:
+					updatedData.name = item;
+					break;
+				case 1:
+					updatedData.email = item;
+					break;
+				case 2:
+					updatedData.password = item;
+					break;
+				case 3:
+					updatedData.password1 = item;
+					break;
+			}
+		} else {
+			switch (i) {
+				case 0:
+					delete updatedData.name;
+					break;
+				case 1:
+					delete updatedData.email;
+					break;
+				case 2:
+					delete updatedData.password;
+					delete updatedData.password1;
+					break;
+				case 3:
+					delete updatedData.password;
+					delete updatedData.password1;
+					break;
+				default:
+					break;
+			}
+		}
+	});
+
+	console.log(email);
+
+	const updateUser = () => User.updateOne({email: email}, updatedData).then(resolve => {
+		if (resolve) {
+			return res.status(200).json({success: true});
+		}
+	}).catch(err => {
+		if (err) {
+			throw err;
+		}
+		return res.status(400).json({success: false});
+	});
+
+	if (!isEmpty(updatedData)) {
+		console.log(updatedData);
+		if (updatedData.password1 === updatedData.password) {
+			if (!isEmpty(password)) {
+				hashString(password).then(hashedPass => {
+					updatedData.password = hashedPass;
+					delete updatedData.password1;
+				}).finally(updateUser);
+			} else {
+				updateUser();
+			}
+		}
+	} else
+		res.status(200).json({});
+
 });
 
 adminRouter.post('/create', (req: express.Request, res: express.Response) => {

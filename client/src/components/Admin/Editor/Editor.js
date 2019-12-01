@@ -47,7 +47,7 @@ const Editor = () => {
                     </div>
                 </div>
 
-                <div className="column right col-lg-10 col-sm-5 col-md-8">
+                <div className="column right col-lg-10 col-sm-5 col-md-8 pl-5">
                     <div id='Home'><HomeForm id='Home'/></div>
                     <div id='About'><UpdateAboutForm id="About"/></div>
                     <div id='Product'><UpdateProductForm id="Product"/></div>
