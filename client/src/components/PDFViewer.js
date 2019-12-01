@@ -6,31 +6,31 @@ const PDFViewer = (props) => {
     const [pageNum, setPageNum] = useState(1);
 
     useEffect(() => {
-        props.setPage(pageNum);
-        props.setNumPages(numPages);
+        setPageNum(pageNum);
+        setNumPages(numPages);
     }, [numPages, pageNum, props]);
 
     const onDocumentLoadSuccess = ({numPages}) => {
         setNumPages(numPages);
-        props.setNumPages(numPages);
+        //props.setNumPages(numPages);
     };
 
     const goToPrevPage = () => {
         if (pageNum == 1) {
-            props.setPage(numPages);
+            //props.setPage(numPages);
             setPageNum(numPages);
         } else {
-            props.setPage(pageNum - 1);
+            //props.setPage(pageNum - 1);
             setPageNum(pageNum - 1);
         }
     };
 
     const goToNextPage = () => {
         if (pageNum == numPages) {
-            props.setPage(1);
+           // props.setPage(1);
             setPageNum(1);
         } else {
-            props.setPage(pageNum + 1);
+           // props.setPage(pageNum + 1);
             setPageNum(pageNum + 1);
         }
     };
