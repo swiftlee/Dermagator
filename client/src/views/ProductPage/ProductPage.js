@@ -5,12 +5,13 @@ import SS from "../../components/Product/SS";
 import NavBar from "../../components/Header/NavBar";
 import navItems from "../../utils/navItems";
 import data from "../../data/ProductPage"
+import "./ProductPage.css"
 function ProductPage() {
     return (
-        <div className="text-center m-auto">
+        <div className="product">
             <header id="welcome" className="Welcome">Products</header>
-            <div className="page-element m-auto" style={{"padding": "0px",}}></div>
-            <div className='sticky-top mb-3'>
+
+            <div className='nav mb-3'>
                 <NavBar items={navItems['product-bar']}/>
             </div>
             {
@@ -19,7 +20,7 @@ function ProductPage() {
                     if(stuff.type==="info"){
                         console.log(stuff.text);
                         return(
-                        <div id={stuff.id} className='mb-5'>
+                        <div id={stuff.id} className='cards mb-5'>
                             <div data-aos='fade-right' data-aos-duration="1000" className='standard' id='productpage'>
                                 <h1>{stuff.name}</h1>
                                 <p>
@@ -33,7 +34,7 @@ function ProductPage() {
                     }
                     else{
                         return(
-                            <div id={stuff.id} className='mb-5' >
+                            <div id={stuff.id} className='cards' >
                                 <div data-aos='fade-left' data-aos-duration="1000">
                                     <h1>{stuff.name}</h1>
                                     <a href={stuff.text}>External Link </a>
@@ -48,3 +49,4 @@ function ProductPage() {
 }
 
 export default ProductPage
+// after header div <div className="page-element m-auto" style={{"padding": "0px",}}></div>

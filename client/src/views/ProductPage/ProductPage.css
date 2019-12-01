@@ -1,0 +1,8 @@
+.product{
+    margin: auto;
+    text-align: center;
+}
+.nav{
+    position:sticky;
+    position:top;
+}
