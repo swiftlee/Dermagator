@@ -11,6 +11,7 @@ const useLogin = () => {
         if (token) {
             // apply auth token to each request if logged in
             setAuthenticated(true);
+            localStorage.setItem("isAuth", true);
             axios.defaults.headers.common['Authorization'] = token;
         } else {
             // delete auth header
@@ -55,6 +56,7 @@ const useLogin = () => {
         // remove token from local storage
         localStorage.removeItem("jwtToken");
         // remove auth header for future requests
+        localStorage.removeItem("isAuth");
         setAuthenticated(false);
         // set current user to empty obj to set isAuthenticated to false
         setUser({});
