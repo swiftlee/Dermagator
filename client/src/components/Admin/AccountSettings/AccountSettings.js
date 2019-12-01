@@ -16,7 +16,7 @@ const AccountSettings = (props) => {
 
 
             <div className="row">
-                <div className="column left col-lg-2 col-sm-1">
+                <div className="column left col-lg-2 col-sm-8 col-md-4">
                     <div className="vertical-menu sticky-top" style={{top: '10%'}}>
                         {/* <a href="#" className="active">Home</a> */}
                         <a href="#">General</a>
@@ -25,7 +25,7 @@ const AccountSettings = (props) => {
                     </div>
                 </div>
 
-                <div className="column right col-lg-10 col-sm-10">
+                <div className="column right col-lg-10 col-sm-5 col-md-8">
                     <GeneralForm/>
                     <SecurityForm/>
                     {props.token.permissions.includes('create') || props.token.permissions.includes('super') ? <AdminForm/> : null}

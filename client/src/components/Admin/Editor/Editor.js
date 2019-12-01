@@ -35,40 +35,27 @@ const Editor = () => {
             </div>
 
 
-                <div className="row">
-                    <div className="column left col-lg-2 col-sm-1">
-                        <div className="vertical-menu">
-                            {/* <a href="#" className="active">Home</a> */}
-                            <Link to="#">Appearance</Link>
-                            <Link to="/dashboard?id=#Home">Home</Link>
-                            <Link to="/dashboard?id=#About" activeclass='active'>About</Link>
-                            <Link to="/dashboard?id=#Product" activeclass="active">Product</Link>
-                            <Link to="/dashboard?id=#Footer">Footer</Link>
-                        </div>
+            <div className="row">
+                <div className="column left col-lg-2 col-sm-8 col-md-4">
+                    <div className="vertical-menu sticky-top" style={{top: '10%'}}>
+                        {/* <a href="#" className="active">Home</a> */}
+                        <a href="#">Appearance</a>
+                        <a href="/dashboard#Home">Home</a>
+                        <a href="/dashboard#About">About</a>
+                        <a href="/dashboard#Product">Product</a>
+                        <a href="/dashboard#Footer">Footer</a>
                     </div>
                 </div>
 
-                    <div className="column right col-lg-10 col-sm-10">
-                        <div id="Home">
-                            <HomeForm/>
-                        </div>
-                        <div id="About">
-                            <UpdateAboutForm id="About"/>
-                        </div>
-                        <div id="Product">
-                            <UpdateProductForm id="Product"/>
-                        </div>
-                        <div id="Footer">
-                            <UpdateFooterForm></UpdateFooterForm>
-                        </div>
-                    </div>
-
-                <div className="column right col-lg-10 col-sm-10">
-                    <HomeForm/>
-                    <UpdateAboutForm/>
-                    <UpdateProductForm/>
+                <div className="column right col-lg-10 col-sm-5 col-md-8">
+                    <div id='Home'><HomeForm id='Home'/></div>
+                    <div id='About'><UpdateAboutForm id="About"/></div>
+                    <div id='Product'><UpdateProductForm id="Product"/></div>
+                    <div id='Footer'><UpdateFooterForm id="Footer"/></div>
                 </div>
             </div>
+
+
         </div>
     );
 };
