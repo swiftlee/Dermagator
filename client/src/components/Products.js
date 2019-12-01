@@ -9,7 +9,7 @@ const ProductsInfo = () => {
 
     return (
         <div>
-            <Link className='' to="/product#top" style={{ textDecoration: 'none',color:"black" }}>
+            <Link className='' to="/whitepages#top" style={{ textDecoration: 'none',color:"black" }}>
                 <h1>Our Documents:</h1>
             </Link>
             <div>

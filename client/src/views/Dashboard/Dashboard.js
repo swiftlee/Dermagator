@@ -32,10 +32,10 @@ const Dashboard= () => {
             <div className="wide-container">
                 <Button onClick={logout}>Log out</Button>
             {/* <NavBar items={navItems["admin-bar"]}/> */}
-            
-            <AccountSettings/>
-            <Editor/>
-            
+
+            <AccountSettings token={decoded}/>
+            <Editor token={decoded}/>
+
         </div>
         );
     }

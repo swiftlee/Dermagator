@@ -19,7 +19,7 @@ const GeneralForm = () => {
 
                 <Form.Group>
                     <Form.Label column=''>Name</Form.Label>
-                    <Form>
+                    <div>
                         <Form.Row>
                             <Col>
                                 <Form.Control placeholder="First name"/>
@@ -29,7 +29,7 @@ const GeneralForm = () => {
                                 <Form.Control placeholder="Last name"/>
                             </Col>
                         </Form.Row>
-                    </Form>
+                    </div>
                     <Form.Text className="text-muted">
                         Current name: First Last
                     </Form.Text>
