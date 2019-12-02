@@ -1,6 +1,8 @@
 import React, {useState, useEffect, memo} from 'react';
 import axios from 'axios';
 import {Button, Modal, Form} from 'react-bootstrap';
+import isEmpty from 'is-empty';
+import Validator from 'validator';
 
 const permissions = [
     {'super': 'Has permission to edit anything from user accounts to the website itself.'},
@@ -9,11 +11,12 @@ const permissions = [
     {'page-edit': 'Permission to allow an admin to edit text and images on pages.'},
 ];
 
-const AdminForm = () => {
+const AdminForm = (props) => {
 
     const [users, setUsers] = useState([]);
     const [searchFilter, setSearchFilter] = useState('');
     const [cardState, setCardState] = useState(false);
+    const token = props.jwt;
 
     useEffect(() => {
         updateUsers();
@@ -42,7 +45,7 @@ const AdminForm = () => {
             } else
                 return true;
         }).map(user => {
-            return <UserRow user={user} setCardState={setCardState} cardState={cardState} update={updateUsers}/>;
+            return <UserRow user={user} setCardState={setCardState} cardState={cardState} update={updateUsers} token={token}/>;
         });
 
         return <div>{userList}</div>
@@ -85,7 +88,7 @@ const UserRow = memo((props) => {
                 <td>{props.user.name}</td>
             </tr>
             {props.cardState ? <ProfileCard name={props.user.name} email={props.user.email} handleClose={handleClose}
-                                            show={props.cardState} update={update}/> : null}
+                                            show={props.cardState} update={update} token={props.token}/> : null}
         </div>
     );
 });
@@ -94,21 +97,49 @@ const ProfileCard = (props) => {
 
     const handleClose = props.handleClose;
     const show = props.show;
+    const [errors, setErrors] = useState({});
+
     const handleSubmit = () => {
+        setSubmitted(false);
+        setErrors({});
         const data = {
             newName: name,
             email: props.email,
             newEmail: email,
             password: password,
             password1: password1,
+            modifier: props.token
         };
-        axios.post('/api/admin/modify', data).then(res => {
-            if (res.status === 200)
-                setError('');
-        }).catch(err => setError('error')).finally(() => {
-            setSubmitted(true);
-            props.update();
+
+        if (!isEmpty(data.newEmail) && !Validator.isEmail(data.newEmail)) {
+            setErrors({email: 'Please enter a valid email address.'});
+        } else if (password.trim() !== password1.trim()) {
+            setErrors({email: 'Passwords do not match.'});
+        } else {
+            axios.post('/api/admin/modify', data).then(res => {
+                if (res.status === 200)
+                    setError('');
+            }).catch(err => setError('error')).finally(() => {
+                setSubmitted(true);
+                props.update();
+            });
+        }
+
+        console.log(errors);
+    };
+
+    const getError = () => {
+        console.log('pablo');
+        let err;
+        Object.entries(errors).some(entry => {
+            console.log(entry[1]);
+            if (entry[1] && !isEmpty(entry[1])) {
+                err =  <div className='text-danger'>{entry[1]}</div>;
+                return true;
+            }
         });
+
+        return err;
     };
 
     const [name, setName] = useState('');
@@ -125,8 +156,15 @@ const ProfileCard = (props) => {
             </Modal.Header>
             <Modal.Body>
                 {submitted && error === '' ?
-                    <span>Successfully modified {props.name}'s information!</span> : (submitted && error !== '' ?
-                        <span>There was an error updating this user's profile.</span> : null)}
+                    <span
+                        className='text-success'>Successfully modified <strong>{props.name}</strong>'s information!</span> : (submitted && error !== '' ?
+                        <span className='text-danger'>There was an error updating this user's profile.</span> : null)}
+                {
+                    console.log(!submitted && !isEmpty(errors))
+                }
+                {
+                    !submitted && !isEmpty(errors) ? getError() : null
+                }
                 <div className='p-2 border-primary border-bottom'>
                     Current name: {props.name}
                     <br/>

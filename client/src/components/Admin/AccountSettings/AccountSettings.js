@@ -2,7 +2,7 @@ import React from 'react';
 import './AccountSettings.css';
 import GeneralForm from '../../Forms/GeneralForm';
 import SecurityForm from '../../Forms/SecurityForm';
-import AdminForm from "./AdminForm";
+import AdminForm from "../../Forms/AdminForm";
 
 
 const AccountSettings = (props) => {
@@ -28,7 +28,7 @@ const AccountSettings = (props) => {
                 <div className="column right col-lg-10 col-sm-5 col-md-8 pl-5">
                     <GeneralForm/>
                     <SecurityForm/>
-                    {props.token.permissions.includes('create') || props.token.permissions.includes('super') ? <AdminForm/> : null}
+                    {props.token.permissions.includes('create') || props.token.permissions.includes('super') ? <AdminForm token={props.token} jwt={props.jwt}/> : null}
                 </div>
 
             </div>
