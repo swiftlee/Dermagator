@@ -9,7 +9,7 @@ const jwt=require('jsonwebtoken');
 const DashBoard=()=>{
     const {logout,returnAuth} = useLogin();
     //trying to get the token
-    if(returnAuth()){
+    if (returnAuth()) {
         console.log(returnAuth());
         return(
             <Redirect to="/login"/>
