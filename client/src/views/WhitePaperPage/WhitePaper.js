@@ -21,10 +21,6 @@ const WhitePaper = () => {
         <div className="main">
             <h1> Documents </h1>
             <NavBar items={navItems["home-bar"]}/>
-            <a className="navbar-brand nav-item sticky-left" href="/home">
-                <img src="/assets/home.png" width="30" height="30" alt=""/>
-            </a>
-
             {pdfViewers}
         </div>
     )
