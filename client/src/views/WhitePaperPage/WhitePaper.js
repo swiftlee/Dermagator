@@ -12,7 +12,6 @@ const WhitePaper = () => {
 
     return(
         <div className="main">
-            
             <h1> Documents </h1>
             <div className="first-page" id="first">
                 <PDFViewer setPage={setPage} setNumPages={setNumPages} file={"/cream_one_pager.pdf"}/>

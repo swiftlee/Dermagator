@@ -1,10 +1,14 @@
 import React from 'react';
 import {HashLink as Link} from 'react-router-hash-link'
+import Button from "react-bootstrap/Button"
+
+
 import './Navbar.css';
 
 const NavBar = (props) => {
 
     const sections = [...props.items];
+    const token = localStorage.getItem("jwtToken");
     {/*items: {id: '#id', label: 'Label', dropdowns: []} */
     }
 
@@ -45,6 +49,9 @@ const NavBar = (props) => {
                                 : null}
                         </div>);
                 })}
+                {!token ? 
+                <Button variant="outline-primary" className='navbar-brand nav-item' href="/dashboard">Log in</Button> :
+                <Button variant="outline-primary" className='navbar-brand nav-item' href="/dashboard">go to Dashboard</Button>}
             </div>
         </nav>
     )
