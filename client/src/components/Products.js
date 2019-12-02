@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import PDFViewer from '../components/PDFViewer';
+import React from 'react';
+import PDFViewer from '../components/PDFViewer/PDFViewer';
 import {HashLink as Link} from "react-router-hash-link";
 import data from "../data/PDFS";
 

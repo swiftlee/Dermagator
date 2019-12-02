@@ -15,14 +15,14 @@ const PDFViewer = (props) => {
     };
 
     const goToPrevPage = () => {
-        if (pageNum == 1)
+        if (pageNum === 1)
             setPageNum(numPages);
         else
             setPageNum(pageNum - 1);
     };
 
     const goToNextPage = () => {
-        if (pageNum == numPages)
+        if (pageNum === numPages)
             setPageNum(1);
         else
             setPageNum(pageNum + 1);
@@ -48,18 +48,18 @@ const PDFViewer = (props) => {
     )
 
     const buttonChanger = (
-        <nav>
+        <div align="center">
             <button onClick={goToPrevPage} className='m-3 btn btn-dark'>
                 Prev
             </button>
             <button onClick={goToNextPage} className='btn btn-dark'>
                 Next
             </button>
-        </nav>
+        </div>
     )
 
-    if (numPages == 1)  {
-        return(
+    if (numPages === 1)  {
+        return (
             <div>
                 {defaultPDF}
                 {pageBar}

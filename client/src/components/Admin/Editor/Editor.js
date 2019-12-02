@@ -4,6 +4,7 @@ import HomeForm from '../../Forms/HomeForm';
 import UpdateAboutForm from "../../About/UpdateAboutForm"
 import UpdateProductForm from "../../Product/UpdateProductForm"
 import UpdateFooterForm from "../../Footer/UpdateFooterForm"
+import UpdatePDFS from "../../PDFViewer/UpdatePDFS"
 import {HashLink as Link} from 'react-router-hash-link'
 
 const Editor = () => {
@@ -44,6 +45,7 @@ const Editor = () => {
                         <a href="/dashboard#About">About</a>
                         <a href="/dashboard#Product">Product</a>
                         <a href="/dashboard#Footer">Footer</a>
+                        <a href="/dashboard#PDFS">PDFS</a>
                     </div>
                 </div>
 
@@ -52,6 +54,7 @@ const Editor = () => {
                     <div id='About'><UpdateAboutForm id="About"/></div>
                     <div id='Product'><UpdateProductForm id="Product"/></div>
                     <div id='Footer'><UpdateFooterForm id="Footer"/></div>
+                    <div id='PDFS'><UpdatePDFS id="PDFS"/></div>
                 </div>
             </div>
         </div>

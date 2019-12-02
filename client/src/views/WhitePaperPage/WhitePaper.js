@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './WhitePaper.css';
 import NavBar from '../../components/Header/NavBar';
-import PDFViewer from '../../components/PDFViewer';
+import PDFViewer from '../../components/PDFViewer/PDFViewer';
 import data from '../../data/PDFS';
 
 const WhitePaper = () => {

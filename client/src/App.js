@@ -45,7 +45,7 @@ const App = (props) => {
                     <Redirect from='*' to="/not-found" />
                 </Switch>
             </div>
-            {pathname != '/not-found' ? <Footer/> : null}
+            {pathname !== '/not-found' ? <Footer/> : null}
         </div>
     );
 };
