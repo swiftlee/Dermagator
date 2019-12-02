@@ -1,43 +1,30 @@
-import React,{useState} from 'react';
+import React from 'react';
 import './WhitePaper.css';
 import NavBar from '../../components/Header/NavBar';
-import PDFViewer from '../../components/PDFViewer';
-import navItems from "../../utils/navItems";
+import PDFViewer from '../../components/PDFViewer/PDFViewer';
+import data from '../../data/PDFS';
+
 const WhitePaper = () => {
-    const [page, setPage] = useState(1);
-    const [numPages, setNumPages] = useState(1);
-    const [page2, setPage2] = useState(1);
-    const [numPages2, setNumPages2] = useState(1);
-    const [page3, setPage3] = useState(1);
-    const [numPages3, setNumPages3] = useState(1);
+    var pdfViewers = []; 
+    for (var key in data) {
+        for (var i in data[key]) {
+            console.log(data[key][i]);
+            console.log(key);
+            console.log(i);
+            console.log(data[key][i].file);
+            pdfViewers.push(              
+                <div className={data[key][i].id + "-page"} id={data[key][i].id}>
+                <PDFViewer file={data[key][i].file}/>
+                </div>
+            );
+        }
+    }
 
     return(
-        <div className="main mx-auto">
-            <NavBar items={navItems["home-bar"]}/>
-            <a className="navbar-brand nav-item sticky-left" href="/home">
-                <img src="/assets/home.png" width="30" height="30" alt=""/>
-            </a>
+        <div className="main">
             <h1> Documents </h1>
-            <div className="first-page" id="first">
-                <PDFViewer setPage={setPage} setNumPages={setNumPages} file={"/cream_one_pager.pdf"}/>
-                <div className='border border-info'>
-                    <p>
-                        Page <span className='font-weight-bolder'>{page}</span> of <span
-                        className='font-weight-bolder'>{numPages}</span>
-                    </p>
-                </div>
-            </div>
-            <div className="second-page"id="second">
-                <PDFViewer setPage={setPage2} setNumPages={setNumPages2} file={"/cream_article.pdf"}/>
-                <div className='border border-info'>
-                    <p>
-                        Page <span className='font-weight-bolder'>{page2}</span> of <span
-                        className='font-weight-bolder'>{numPages2}</span>
-                    </p>
-                </div>
-            </div>
+            {pdfViewers}
         </div>
-    );
-
+    )
 };
 export default WhitePaper;  

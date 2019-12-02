@@ -18,7 +18,7 @@ const useAboutPage = () => {
         console.log(temporary.data.length);
         for(var i=0;i<temporary.data.length;i++){
             console.log(temporary.data[i]);
-            if(temporary.data[i].id=="team"){
+            if(temporary.data[i].id==="team"){
                 temporary.data[i].team.splice(index,1);//should remove the offending
                 console.log(temporary.data[i].team);
                 break;
@@ -34,7 +34,7 @@ const useAboutPage = () => {
     const handleNewEmployee=(event)=>{
         let temporary=inputs;
         for(let i=0;i<temporary.data.length;i++){
-            if(temporary.data[i].id=="team"){
+            if(temporary.data[i].id==="team"){
                 temporary.data[i].team.push(employee);
             }
         }
