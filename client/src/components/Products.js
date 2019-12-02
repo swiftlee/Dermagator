@@ -1,11 +1,14 @@
-import React, {useState} from 'react';
-import PDFViewer from '../components/PDFViewer';
+import React from 'react';
+import PDFViewer from '../components/PDFViewer/PDFViewer';
 import {HashLink as Link} from "react-router-hash-link";
+import data from "../data/PDFS";
 
 const ProductsInfo = () => {
-
-    const [page, setPage] = useState(1);
-    const [numPages, setNumPages] = useState(1);
+    var getKey;
+    for (var key in data) {
+        getKey = key;
+        break;
+    }
 
     return (
         <div>
@@ -15,13 +18,9 @@ const ProductsInfo = () => {
             <div>
                 <h2>Preview</h2>
                 <div className='position-relative'>
-                    <PDFViewer file={"/cream_one_pager.pdf"}/>
+                    <PDFViewer file={data[getKey][0].file}/>
                 </div>
                 <div className='border border-info'>
-                    <p>
-                        Page <span className='font-weight-bolder'>{page}</span> of <span
-                        className='font-weight-bolder'>{numPages}</span>
-                    </p>
                     <p>
                         For more Information:
                     </p>

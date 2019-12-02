@@ -30,5 +30,11 @@ updateRouter.post('/updateFooter', (req: Request, res: Response) => {
     fs.writeFileSync('../client/src/data/Footer.json', jsonString);
     res.send("Footer Updated")
 });
+updateRouter.post('/updatePDFS', (req: Request, res: Response) => {
+    const jsonString = JSON.stringify(req.body);
+
+    fs.writeFileSync('../client/src/data/PDFS.json', jsonString);
+    res.send("PDFS Updated")
+});
 
 export default updateRouter;
