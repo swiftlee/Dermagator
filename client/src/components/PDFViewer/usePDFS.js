@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import data from '../../data/PDFS';
 
-// DEBUG: changed 'temp.data' to 'temp.pdfs'
 const usePDFS = () => {
     const [inputs, setInputs] = useState(data);
     const [file, setFile] = useState({id: "", file: ""});
