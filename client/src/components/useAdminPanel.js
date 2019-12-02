@@ -1,16 +1,17 @@
-import React,{useState} from 'react'
-const useAdminPanel=()=>{
+import React, {useState} from 'react'
+
+const useAdminPanel = () => {
     const [inputs, setInputs] = useState({});
-    const handleSubmit=(event)=>{
-        if(event){
+    const handleSubmit = (event) => {
+        if (event) {
             event.preventDefault();
         }
     };
-    const handleInputChange=(event)=>{
+    const handleInputChange = (event) => {
         event.persist();
-        setInputs(inputs=>({...inputs,[event.target.name]:event.target.value}));
+        setInputs(inputs => ({...inputs, [event.target.name]: event.target.value}));
     };
-    return{
+    return {
         handleSubmit,
         handleInputChange,
         inputs

@@ -27,7 +27,7 @@ const PDFViewer = (props) => {
         else
             setPageNum(pageNum + 1);
     };
-    
+
     const defaultPDF = (
         <div className='pdf'>
         <Document

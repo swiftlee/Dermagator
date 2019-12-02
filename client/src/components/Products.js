@@ -5,12 +5,14 @@ import data from "../data/PDFS";
 
 const ProductsInfo = () => {
     var getKey;
-    for (var key in data)
+    for (var key in data) {
         getKey = key;
+        break;
+    }
 
     return (
         <div>
-            <Link className='' to="/product#top" style={{ textDecoration: 'none',color:"black" }}>
+            <Link className='' to="/whitepages#top" style={{ textDecoration: 'none',color:"black" }}>
                 <h1>Our Documents:</h1>
             </Link>
             <div>
