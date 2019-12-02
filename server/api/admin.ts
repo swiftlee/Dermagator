@@ -2,7 +2,7 @@ import express, {Router} from 'express';
 import config from '../config/config';
 import {User} from '../models/User';
 import * as bcrypt from 'bcryptjs';
-import * as jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import validateUser from '../validation/validateUser';
 import validateUserCreation from '../validation/validateUserCreation';
 import {hashString} from '../utils/stringUtils';
@@ -56,80 +56,89 @@ adminRouter.get('/user', async (req: express.Request, res: express.Response) => 
 	}
 });
 
+// todo: validate body
 adminRouter.post('/modify', (req: express.Request, res: express.Response) => {
-	const newName = req.body.newName;
-	const email = req.body.email;
-	const newEmail = req.body.newEmail;
-	const password = req.body.password;
-	const password1 = req.body.password1;
-	const data = [newName, newEmail, password, password1];
-	const updatedData = {name: '', email: '', password: '', password1: ''};
-	data.forEach((item, i) => {
-		if (item.trim() !== '') {
-			switch (i) {
-				case 0:
-					updatedData.name = item;
-					break;
-				case 1:
-					updatedData.email = item;
-					break;
-				case 2:
-					updatedData.password = item;
-					break;
-				case 3:
-					updatedData.password1 = item;
-					break;
+	const token = req.body.token || '';
+	const jwtToken = jwt.decode(token.substring(7, token.length).trim());
+	const time = Date.now() / 1000;
+	// jwtToken.exp > time
+	if (true) {
+		const newName = req.body.newName;
+		const email = req.body.email;
+		const newEmail = req.body.newEmail;
+		const password = req.body.password;
+		const password1 = req.body.password1;
+		const data = [newName, newEmail, password, password1];
+		const updatedData = {name: '', email: '', password: '', password1: ''};
+		data.forEach((item, i) => {
+			if (item.trim() !== '') {
+				switch (i) {
+					case 0:
+						updatedData.name = item;
+						break;
+					case 1:
+						updatedData.email = item;
+						break;
+					case 2:
+						updatedData.password = item;
+						break;
+					case 3:
+						updatedData.password1 = item;
+						break;
+				}
+			} else {
+				switch (i) {
+					case 0:
+						delete updatedData.name;
+						break;
+					case 1:
+						delete updatedData.email;
+						break;
+					case 2:
+						delete updatedData.password;
+						delete updatedData.password1;
+						break;
+					case 3:
+						delete updatedData.password;
+						delete updatedData.password1;
+						break;
+					default:
+						break;
+				}
+			}
+		});
+
+		console.log(email);
+
+		const updateUser = () => User.updateOne({email: email}, updatedData).then(resolve => {
+			if (resolve) {
+				return res.status(200).json({success: true});
+			}
+		}).catch(err => {
+			if (err) {
+				throw err;
+			}
+			return res.status(400).json({success: false});
+		});
+
+		if (!isEmpty(updatedData)) {
+			console.log(updatedData);
+			if (updatedData.password1 === updatedData.password) {
+				if (!isEmpty(password)) {
+					hashString(password).then(hashedPass => {
+						updatedData.password = hashedPass;
+						delete updatedData.password1;
+					}).finally(updateUser);
+				} else {
+					updateUser();
+				}
 			}
 		} else {
-			switch (i) {
-				case 0:
-					delete updatedData.name;
-					break;
-				case 1:
-					delete updatedData.email;
-					break;
-				case 2:
-					delete updatedData.password;
-					delete updatedData.password1;
-					break;
-				case 3:
-					delete updatedData.password;
-					delete updatedData.password1;
-					break;
-				default:
-					break;
-			}
+			res.status(200).json({});
 		}
-	});
-
-	console.log(email);
-
-	const updateUser = () => User.updateOne({email: email}, updatedData).then(resolve => {
-		if (resolve) {
-			return res.status(200).json({success: true});
-		}
-	}).catch(err => {
-		if (err) {
-			throw err;
-		}
-		return res.status(400).json({success: false});
-	});
-
-	if (!isEmpty(updatedData)) {
-		console.log(updatedData);
-		if (updatedData.password1 === updatedData.password) {
-			if (!isEmpty(password)) {
-				hashString(password).then(hashedPass => {
-					updatedData.password = hashedPass;
-					delete updatedData.password1;
-				}).finally(updateUser);
-			} else {
-				updateUser();
-			}
-		}
-	} else
-		res.status(200).json({});
-
+	} else {
+		res.status(400).json({error: 'No data to update.'});
+	}
 });
 
 adminRouter.post('/create', (req: express.Request, res: express.Response) => {
