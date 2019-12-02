@@ -2,7 +2,7 @@ import express, {Router} from 'express';
 import config from '../config/config';
 import {User} from '../models/User';
 import * as bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import * as jwt from 'jsonwebtoken';
 import validateUser from '../validation/validateUser';
 import validateUserCreation from '../validation/validateUserCreation';
 import {hashString} from '../utils/stringUtils';
@@ -59,10 +59,10 @@ adminRouter.get('/user', async (req: express.Request, res: express.Response) => 
 // todo: validate body
 adminRouter.post('/modify', (req: express.Request, res: express.Response) => {
 	const token = req.body.token || '';
-	const jwtToken = jwt.decode(token.substring(7, token.length).trim());
+	const decoded : any = JSON.parse(JSON.stringify(jwt.decode(token.substring(7, token.length).trim())));
 	const time = Date.now() / 1000;
 	// jwtToken.exp > time
-	if (true) {
+	if (decoded.exp > time && (decoded.permissions.includes('super') || decoded.permissions.includes('user-edit'))) {
 		const newName = req.body.newName;
 		const email = req.body.email;
 		const newEmail = req.body.newEmail;
