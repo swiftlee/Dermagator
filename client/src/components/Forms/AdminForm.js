@@ -108,7 +108,7 @@ const ProfileCard = (props) => {
             newEmail: email,
             password: password,
             password1: password1,
-            modifier: props.token
+            token: props.token
         };
 
         if (!isEmpty(data.newEmail) && !Validator.isEmail(data.newEmail)) {
