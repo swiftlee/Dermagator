@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import './WhitePaper.css';
 import NavBar from '../../components/Header/NavBar';
 import PDFViewer from '../../components/PDFViewer';
+import navItems from "../../utils/navItems";
 const WhitePaper = () => {
     const [page, setPage] = useState(1);
     const [numPages, setNumPages] = useState(1);
@@ -11,7 +12,11 @@ const WhitePaper = () => {
     const [numPages3, setNumPages3] = useState(1);
 
     return(
-        <div className="main">
+        <div className="main mx-auto">
+            <NavBar items={navItems["home-bar"]}/>
+            <a className="navbar-brand nav-item sticky-left" href="/home">
+                <img src="/assets/home.png" width="30" height="30" alt=""/>
+            </a>
             <h1> Documents </h1>
             <div className="first-page" id="first">
                 <PDFViewer setPage={setPage} setNumPages={setNumPages} file={"/cream_one_pager.pdf"}/>
