@@ -1,45 +1,44 @@
-import React,{useState} from 'react';
+import React, {useState} from 'react';
 import useLogin from "../Login/useLogin"
 import {Route, Switch, Redirect} from 'react-router-dom';
 import axios from 'axios';
 import AboutUpdateForm from '../../components/About/UpdateAboutForm';
 import UpdateProductForm from '../../components/Product/UpdateProductForm';
-const jwt=require('jsonwebtoken');
 
-const DashBoard=()=>{
-    const {logout,returnAuth} = useLogin();
+const jwt = require('jsonwebtoken');
+
+const DashBoard = () => {
+    const {logout, returnAuth} = useLogin();
     //trying to get the token
-    if(returnAuth()){
+    if (returnAuth()) {
         console.log(returnAuth());
-        return(
+        return (
             <Redirect to="/login"/>
         )
     }
-    const token=localStorage.getItem("jwtToken");
+    const token = localStorage.getItem("jwtToken");
     console.log(token);
-    var decoded;
-    if(token){
-        decoded=jwt.decode(token.substring(7, token.length).trim());
-    }
-    else{
-        return(
+    let decoded;
+    if (token) {
+        decoded = jwt.decode(token.substring(7, token.length).trim());
+    } else {
+        return (
             <Redirect to="/login"/>
         )
     }
-    const time=Date.now()/1000;
-    if(decoded.exp>time){
-        return(
+    const time = Date.now() / 1000;
+    if (decoded.exp > time) {
+        return (
             <div>
                 <p>Hello {decoded.name} is welcome here</p>
                 <button onClick={logout}>Log out</button>
                 <UpdateProductForm/>
             </div>
         );
-    }
-    else{
+    } else {
         logout();
-        return(
-            <Redirect to="/login" />
+        return (
+            <Redirect to="/login"/>
         );
     }
 };
