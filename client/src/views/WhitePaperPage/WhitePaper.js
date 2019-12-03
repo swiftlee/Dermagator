@@ -1,6 +1,7 @@
 import React from 'react';
 import './WhitePaper.css';
 import NavBar from '../../components/Header/NavBar';
+import navItems from "../../utils/navItems";
 import PDFViewer from '../../components/PDFViewer/PDFViewer';
 import data from '../../data/PDFS';
 

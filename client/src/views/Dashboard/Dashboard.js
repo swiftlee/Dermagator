@@ -30,9 +30,11 @@ const Dashboard = () => {
         return (
             <div className="wide-container">
                 <Button onClick={logout} className='float-right mt-2'>Log out</Button>
-                {/* <NavBar items={navItems["admin-bar"]}/> */}
+                
+                
                 <AccountSettings token={decoded} jwt={token}/>
-                <Editor token={decoded}/>
+                <Editor token={decoded}/> 
+
 
             </div>
         );
