@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 const SecurityForm = () => {
     return (
         <div className='border-primary border p-4 m-3'>
-            <h2> *this should appear when "Security" is clicked* </h2>
+            <h1>Security</h1>
             <Form>
                 <Form.Group as={Row}>
                     <Form.Label column sm={4}>
@@ -36,7 +36,7 @@ const SecurityForm = () => {
                     </Col>
                 </Form.Group>
 
-                <Button variant="info" type="submit">
+                <Button type="submit">
                     Submit
                 </Button>
 

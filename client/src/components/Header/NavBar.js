@@ -13,7 +13,7 @@ const NavBar = (props) => {
     }
 
     return (
-        <nav className='sticky-top container-fluid sticky-top mb-3 border-bottom border-info shadow-sm'>
+        <nav className='sticky-top container-fluid sticky-top mb-3 border-bottom  shadow-sm'>
             <div className='navbar navbar-expand navbar-light bg-white justify-content-center'>
                 <a className="navbar-brand nav-item" href="/home">
                     <img src="/assets/home.png" width="30" height="30" alt=""/>
