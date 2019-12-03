@@ -104,5 +104,15 @@
       "id": "#order",
       "label": "Order"
     }
+  ],
+  "whitepage-bar": [
+    {
+      "id": "#doc1",
+      "label": "Background & Facts"
+    },
+    {
+      "id": "#doc2",
+      "label": "Article"
+    }
   ]
 }

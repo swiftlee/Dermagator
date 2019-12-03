@@ -197,6 +197,7 @@ const ProfileCard = (props) => {
                 {
                     // TODO: allow modifiable permissions and create optional select buttons
                     permissions.map(permission => {
+
                     })
                 }
             </Modal.Body>

@@ -6,21 +6,23 @@ import PDFViewer from '../../components/PDFViewer/PDFViewer';
 import data from '../../data/PDFS';
 
 const WhitePaper = () => {
-    var pdfViewers = []; 
-    for (var key in data) {
-        for (var i in data[key]) {
-            pdfViewers.push(              
-                <div className={data[key][i].id + "-page"} id={data[key][i].id}>
-                <PDFViewer file={data[key][i].file}/>
+    const pdfViewers = [];
+    let counter = 1;
+    for (let key in data) {
+        for (let i in data[key]) {
+            pdfViewers.push(
+                <div className={data[key][i].id + "-page"} id={`doc${counter}`}>
+                    <PDFViewer file={data[key][i].file}/>
                 </div>
             );
+            counter++;
         }
     }
 
-    return(
+    return (
         <div className="main">
             <h1> Documents </h1>
-            <NavBar items={navItems["home-bar"]}/>
+            <NavBar items={navItems["whitepage-bar"]}/>
             {pdfViewers}
         </div>
     )
