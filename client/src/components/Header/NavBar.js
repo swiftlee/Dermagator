@@ -51,7 +51,7 @@ const NavBar = (props) => {
                 })}
                 {!token ? 
                 <Button variant="outline-primary" className='navbar-brand nav-item' href="/login">Log in</Button> :
-                <Button variant="outline-primary" className='navbar-brand nav-item' href="/dashboard">go toDashboard</Button>}
+                <Button variant="outline-primary" className='navbar-brand nav-item' href="/dashboard">Dashboard</Button>}
             </div>
         </nav>
     )
