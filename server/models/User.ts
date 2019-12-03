@@ -14,7 +14,7 @@ const UserSchema = new Schema({
         required: true
     },
     permissions: {
-        type: Array,
+        type: [String],
         default: []
     }
 });

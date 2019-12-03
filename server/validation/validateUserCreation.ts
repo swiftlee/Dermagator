@@ -3,10 +3,11 @@ import Validator from 'validator';
 
 const validateUserCreation = (data: any) : any => {
     const errors: any = {};
+    console.log(data);
     data.name = !isEmpty(data.name) ? data.name : '';
     data.email = !isEmpty(data.email) ? data.email : '';
     data.password = !isEmpty(data.password) ? data.password : '';
-    data.password2 = !isEmpty(data.password2) ? data.password2 : '';
+    data.password1 = !isEmpty(data.password1) ? data.password1 : '';
 
 
     if (Validator.isEmpty(data.email)) {
@@ -15,7 +16,7 @@ const validateUserCreation = (data: any) : any => {
         errors.email = 'Email is invalid.';
     }
 
-    if (Validator.isEmpty(name)) {
+    if (Validator.isEmpty(data.name)) {
         errors.name = 'Name field is required.'
     }
 
@@ -23,11 +24,11 @@ const validateUserCreation = (data: any) : any => {
         errors.password = 'Password field is required.';
     }
 
-    if (Validator.isEmpty(data.password2)) {
-        errors.password2 = 'Confirm password field is required.';
+    if (Validator.isEmpty(data.password1)) {
+        errors.password1 = 'Confirm password field is required.';
     }
 
-    if (data.password !== data.password2) {
+    if (data.password !== data.password1) {
         errors.password = 'Password and confirm password do not match.';
     }
 

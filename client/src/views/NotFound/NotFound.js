@@ -1,12 +1,18 @@
 import React from 'react';
 import './NotFound.css';
+import {HashLink as Link} from 'react-router-hash-link'
 
 function NotFound() {
+
 
         return (
                 document.body.style = 'background: #72b9ff',
 <div className = "container">
-       
+                <Link to= '/home'>
+                <img src='/assets/home-404.png' className= 'home'
+                alt='This is replacement text if this does not display.'/>
+                </Link>
+
                 <div className = "cont">
                 <span className="number">4</span>
                 <span className="number">

@@ -4,8 +4,8 @@ import {HashLink as Link} from "react-router-hash-link";
 import data from "../data/PDFS";
 
 const ProductsInfo = () => {
-    var getKey;
-    for (var key in data) {
+    let getKey;
+    for (let key in data) {
         getKey = key;
         break;
     }

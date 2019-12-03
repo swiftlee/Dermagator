@@ -29,7 +29,7 @@ const App = (props) => {
         <div>
             {loadReCaptcha(config.captcha.sitekey)}
             <div style={{display: "flex", flexDirection: "row", width: "90%"}} className='m-auto' id='top'>
-                {pathname === '/contact' || pathname === '/dashboard' ? homeLogo : null}
+                {pathname === '/contact' || pathname === '/dashboard' || pathname === '/login' ? homeLogo : null}
                 <Switch>
                     <Route exact path="/home" component={Home}/>
                     <Route exact path="/">

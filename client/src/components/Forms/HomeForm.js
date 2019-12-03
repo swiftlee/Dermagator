@@ -93,7 +93,7 @@ const HomeForm = () => {
                     <Button className='mr-3' type="submit" onClick={handleSubmit}> Update Contact Section</Button>
                 </div>
             </Form>
-            <Button variant="info" type="submit">
+            <Button type="submit">
                 Save
             </Button>
         </div>

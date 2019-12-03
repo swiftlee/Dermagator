@@ -11,9 +11,6 @@ const PDFSUpdate = () => {
             handleNewFileChange,
             file,
             deleteFile } = usePDFS();
-    
-            console.log(inputs);
-    
 
     return (
         <div className='border-primary border p-4 m-3'>

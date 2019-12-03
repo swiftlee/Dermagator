@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Editor.css';
 import HomeForm from '../../Forms/HomeForm';
 import UpdateAboutForm from "../../About/UpdateAboutForm"
@@ -8,25 +8,14 @@ import UpdatePDFS from "../../PDFViewer/UpdatePDFS"
 import {HashLink as Link} from 'react-router-hash-link'
 
 const Editor = () => {
+    
+    const [home, setHome] = useState(true);
+    const [about, setAbout] = useState(false);
+    const [product, setProduct] = useState(false);
+    const [footer, setFooter] = useState(false);
+    const [pdfs, setPDFs] = useState(false);
+    
     return (
-// <div className="sidenav">
-        //     <a href="#about">About</a>
-        //     <a href="#services">Services</a>
-        //     <a href="#clients">Clients</a>
-        //     <a href="#contact">Contact</a>
-
-        //     <button className="dropdown-btn">Dropdown
-        //     <i className="fa fa-caret-down"></i>
-        //     </button>
-
-        //     <div className="dropdown-container">
-        //     <a href="#">Link 1</a>
-        //     <a href="#">Link 2</a>
-        //     <a href="#">Link 3</a>
-        //     </div>
-
-        //     <a href="#contact">Search</a>
-        // </div>
 
         <div data-aos="fade-up" data-aos-duration='1000'>
             <hr/>
@@ -39,22 +28,47 @@ const Editor = () => {
             <div className="row">
                 <div className="column left col-lg-2 col-sm-8 col-md-4">
                     <div className="vertical-menu sticky-top" style={{top: '10%'}}>
-                        {/* <a href="#" className="active">Home</a> */}
-                        <a href="#">Appearance</a>
-                        <a href="/dashboard#Home">Home</a>
-                        <a href="/dashboard#About">About</a>
-                        <a href="/dashboard#Product">Product</a>
-                        <a href="/dashboard#Footer">Footer</a>
-                        <a href="/dashboard#PDFS">PDFS</a>
+
+                       
+                       <a onClick={() => {setHome(true); setAbout(false); setProduct(false); setFooter(false); setPDFs(false)}}
+                        href="/dashboard#Home">
+                            Home
+                        </a>
+                        
+                        <a onClick={() => {setHome(false); setAbout(true); setProduct(false); setFooter(false); setPDFs(false)}}
+                        href="/dashboard#About">
+                            About
+                        </a>
+                        
+                        <a onClick={() => {setHome(false); setAbout(false); setProduct(true); setFooter(false); setPDFs(false)}}
+                        href="/dashboard#Product">
+                            Product
+                        </a>
+                        
+                        <a onClick={() => {setHome(false); setAbout(false); setProduct(false); setFooter(true); setPDFs(false)}}
+                        href="/dashboard#Footer">
+                            Footer
+                        </a>
+                       
+                        <a onClick={() => {setHome(false); setAbout(false); setProduct(false); setFooter(false); setPDFs(true)}}
+                        href="/dashboard#PDFS">
+                            PDFS
+                        </a>
                     </div>
                 </div>
 
                 <div className="column right col-lg-10 col-sm-5 col-md-8 pl-5">
-                    <div id='Home'><HomeForm id='Home'/></div>
+                        {home ?
+                            <div data-aos="fade-up" data-aos-duration='1000'>
+                                <HomeForm/>
+                            </div> 
+                            : null
+                        }
+{/*                     
                     <div id='About'><UpdateAboutForm id="About"/></div>
                     <div id='Product'><UpdateProductForm id="Product"/></div>
                     <div id='Footer'><UpdateFooterForm id="Footer"/></div>
-                    <div id='PDFS'><UpdatePDFS id="PDFS"/></div>
+                    <div id='PDFS'><UpdatePDFS id="PDFS"/></div> */}
                 </div>
             </div>
         </div>

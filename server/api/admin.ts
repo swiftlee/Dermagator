@@ -59,7 +59,7 @@ adminRouter.get('/user', async (req: express.Request, res: express.Response) => 
 // todo: validate body
 adminRouter.post('/modify', (req: express.Request, res: express.Response) => {
 	const token = req.body.token || '';
-	const decoded : any = JSON.parse(JSON.stringify(jwt.decode(token.substring(7, token.length).trim())));
+	const decoded: any = JSON.parse(JSON.stringify(jwt.decode(token.substring(7, token.length).trim())));
 	const time = Date.now() / 1000;
 	// jwtToken.exp > time
 	if (decoded.exp > time && (decoded.permissions.includes('super') || decoded.permissions.includes('user-edit'))) {
@@ -69,9 +69,11 @@ adminRouter.post('/modify', (req: express.Request, res: express.Response) => {
 		const password = req.body.password;
 		const password1 = req.body.password1;
 		const data = [newName, newEmail, password, password1];
-		const updatedData = {name: '', email: '', password: '', password1: ''};
+		const permissions = req.body.permissions;
+		const updatedData = {name: '', email: '', password: '', password1: '', permissions: [...permissions]};
+		console.log('permz', req.body.permissions);
 		data.forEach((item, i) => {
-			if (item.trim() !== '') {
+			if (!(item instanceof Array) && item.trim() !== '') {
 				switch (i) {
 					case 0:
 						updatedData.name = item;
@@ -102,13 +104,16 @@ adminRouter.post('/modify', (req: express.Request, res: express.Response) => {
 						delete updatedData.password;
 						delete updatedData.password1;
 						break;
+					case 4:
+						updatedData.permissions = updatedData.permissions.filter(entry => entry !== null);
+						break;
 					default:
 						break;
 				}
 			}
 		});
 
-		console.log(email);
+		console.log('UPDATED:', updatedData);
 
 		const updateUser = () => User.updateOne({email: email}, updatedData).then(resolve => {
 			if (resolve) {
@@ -141,8 +146,24 @@ adminRouter.post('/modify', (req: express.Request, res: express.Response) => {
 	}
 });
 
+adminRouter.post('/delete', (req: express.Request, res: express.Response) => {
+	if (req.body.token) {
+		const token = req.body.token;
+		const decoded: any = JSON.parse(JSON.stringify(jwt.decode(token.substring(7, token.length).trim())));
+		const time = Date.now() / 1000;
+		// jwtToken.exp > time
+		if (decoded.exp > time && (decoded.permissions.includes('super') || decoded.permissions.includes('user-edit'))) {
+			if (decoded.email !== req.body.email) {
+				User.remove({email: req.body.email}).then(doc => res.status(200).json({success: true})).catch(err => console.log(err));
+			} else
+				res.status(400).json({deletion: 'You cannot delete yourself!'});
+		}
+	}
+});
+
 adminRouter.post('/create', (req: express.Request, res: express.Response) => {
 	const {errors, isValid} = validateUserCreation(req.body);
+	console.log(errors);
 	if (!isValid) {
 		return res.status(400).json(errors);
 	}
@@ -155,7 +176,8 @@ adminRouter.post('/create', (req: express.Request, res: express.Response) => {
 			const newUser = new User({
 				name: req.body.name,
 				email: req.body.email,
-				password: req.body.password
+				password: req.body.password,
+				permissions: req.body.permissions
 			});
 
 			// Hash password before saving in database
@@ -194,6 +216,7 @@ adminRouter.post('/login', (req: express.Request, res: express.Response) => {
 				const payload = {
 					id: user.id,
 					name: user.name,
+					email: user.email,
 					permissions: user.permissions
 				};
 
