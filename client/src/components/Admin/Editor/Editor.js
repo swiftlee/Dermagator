@@ -58,17 +58,40 @@ const Editor = () => {
                 </div>
 
                 <div className="column right col-lg-10 col-sm-5 col-md-8 pl-5">
-                        {home ?
-                            <div data-aos="fade-up" data-aos-duration='1000'>
-                                <HomeForm/>
-                            </div> 
-                            : null
-                        }
-{/*                     
-                    <div id='About'><UpdateAboutForm id="About"/></div>
-                    <div id='Product'><UpdateProductForm id="Product"/></div>
-                    <div id='Footer'><UpdateFooterForm id="Footer"/></div>
-                    <div id='PDFS'><UpdatePDFS id="PDFS"/></div> */}
+                    {home ?
+                        <div data-aos="fade-up" data-aos-duration='1000'>
+                            <HomeForm/>
+                        </div> 
+                        : null
+                    }
+
+                    {about ?
+                        <div data-aos="fade-up" data-aos-duration='1000'>
+                            <UpdateAboutForm/>
+                        </div> 
+                        : null
+                    }
+
+                    {product ?
+                        <div data-aos="fade-up" data-aos-duration='1000'>
+                            <UpdateProductForm/>
+                        </div> 
+                        : null
+                    }
+
+                    {footer ?
+                        <div data-aos="fade-up" data-aos-duration='1000'>
+                            <UpdateFooterForm/>
+                        </div> 
+                        : null
+                    }
+
+                    {pdfs ?
+                        <div data-aos="fade-up" data-aos-duration='1000'>
+                            <UpdatePDFS/>
+                        </div> 
+                        : null
+                    }
                 </div>
             </div>
         </div>
