@@ -28,7 +28,7 @@ const AccountSettings = (props) => {
                 <div className="column right col-lg-10 col-sm-5 col-md-8 pl-5">
                     <GeneralForm/>
                     <SecurityForm/>
-                    {props.token.permissions.includes('create') || props.token.permissions.includes('super') ? <AdminForm token={props.token} jwt={props.jwt}/> : null}
+                    <AdminForm token={props.token} jwt={props.jwt}/>
                 </div>
 
             </div>
