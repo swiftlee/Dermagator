@@ -7,7 +7,7 @@ const contactRouter = Router();
 const mgun = mailgun({
     apiKey: process.env.MAILGUN_API_KEY || config.mail.key,
     domain: process.env.MAILGUN_DOMAIN || config.mail.domain,
-    publicApiKey: process.env.MAILGUN_API_KEY || config.mail.public_key
+    publicApiKey: process.env.MAILGUN_PUB_KEY || config.mail.public_key
 });
 const grecaptcha = require("grecaptcha"); // typings are broken for grecaptcha, must use require
 const client = new grecaptcha(process.env.CAPTCHA_SECRET || config.captcha.secret);

@@ -1,9 +1,15 @@
+:root {
+    --background-color: #72b9ff;
+    --section-bg-color: #ebf5ff;
+    --footer-color2: #c0d5eb;
+}
+
 .primary {
-    color: #72b9ff;
+    color: var(--background-color);
 }
 
 .primary-bg {
-    background-color: #72b9ff;
+    background-color: var(--background-color);
 }
 
 .title {
@@ -11,15 +17,15 @@
 }
 
 .section-bg {
-    background-color: #ebf5ff;
+    background-color: var(--section-bg-color);
 }
 
 .foot1 {
-    background-color: #ebf5ff;
+    background-color: var(--section-bg-color);
 }
 
 .foot2 {
-    background-color: #c0d5eb;
+    background-color: var(--footer-color2);
 }
 
 .home {
@@ -30,6 +36,60 @@
     position: sticky;
     top: 20px;
     transform: translateX(-60px);
+}
+
+.row-divided > .vertical-divider {
+    height: calc(50% - 1rem);
+}
+
+.vertical-divider {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: 50%;
+    line-height: 0;
+    text-align: center;
+    text-transform: uppercase;
+    transform: translateX(-50%);
+}
+
+.vertical-divider:before {
+    top: -100%;
+}
+
+.vertical-divider:before, .vertical-divider:after {
+    position: absolute;
+    left: 50%;
+    content: '';
+    z-index: 9;
+    border-left: 1px solid rgba(34,36,38,.15);
+    border-right: 1px solid rgba(255,255,255,.1);
+    width: 0;
+    height: calc(100%);
+}
+
+.table-row tr {
+    line-height: 30px;
+    width: 200px !important;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.table-row tr:nth-child(even) {
+    background: var(--background-color);
+}
+
+.table-row tr:nth-child(odd) {
+    background: var(--section-bg-color);
+}
+
+.vertical-divider:after {
+    top: auto;
+    bottom: 0;
 }
 
 .home:hover {

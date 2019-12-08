@@ -33,7 +33,7 @@ const Dashboard = () => {
                 
                 
                 <AccountSettings token={decoded} jwt={token}/>
-                <Editor token={decoded}/> 
+                <Editor token={decoded} jwt={token}/>
 
 
             </div>

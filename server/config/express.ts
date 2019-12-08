@@ -8,6 +8,7 @@ import {createDefaultAdmin} from "../utils/userUtils";
 import adminRouter from '../api/admin';
 import contactRouter from '../api/contact';
 import updateRouter from "../api/aboutUpdate";
+import uploadRouter from "../api/upload";
 
 console.log(`${process.env.DB_URI} and ${config.db.uri}`);
 
@@ -23,6 +24,8 @@ const app = express();
 
 // enable request logging for development debugging
 app.use(morgan('dev'));
+
+// static public dir
 
 // body parser middleware
 app.use(
@@ -50,5 +53,6 @@ createDefaultAdmin();
 app.use('/api/admin', adminRouter);
 app.use('/api/contact', contactRouter);
 app.use('/api/update', updateRouter);
+app.use('/api/upload', uploadRouter);
 
 export default app;

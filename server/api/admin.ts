@@ -56,7 +56,6 @@ adminRouter.get('/user', async (req: express.Request, res: express.Response) => 
 	}
 });
 
-// todo: validate body
 adminRouter.post('/modify', (req: express.Request, res: express.Response) => {
 	const token = req.body.token || '';
 	const decoded: any = JSON.parse(JSON.stringify(jwt.decode(token.substring(7, token.length).trim())));
@@ -114,6 +113,9 @@ adminRouter.post('/modify', (req: express.Request, res: express.Response) => {
 		});
 
 		console.log('UPDATED:', updatedData);
+		if (isEmpty(updatedData.permissions)) {
+			delete updatedData.permissions;
+		}
 
 		const updateUser = () => User.updateOne({email: email}, updatedData).then(resolve => {
 			if (resolve) {

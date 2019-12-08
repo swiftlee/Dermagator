@@ -6,15 +6,17 @@ import UpdateProductForm from "../../Product/UpdateProductForm"
 import UpdateFooterForm from "../../Footer/UpdateFooterForm"
 import UpdatePDFS from "../../PDFViewer/UpdatePDFS"
 import {HashLink as Link} from 'react-router-hash-link'
+import AddImageForm from "../../Forms/AddImageForm";
 
-const Editor = () => {
+const Editor = (props) => {
     
     const [home, setHome] = useState(true);
     const [about, setAbout] = useState(false);
     const [product, setProduct] = useState(false);
     const [footer, setFooter] = useState(false);
     const [pdfs, setPDFs] = useState(false);
-    
+    const [images, setImages] = useState(false);
+
     return (
 
         <div data-aos="fade-up" data-aos-duration='1000'>
@@ -28,31 +30,35 @@ const Editor = () => {
             <div className="row">
                 <div className="column left col-lg-2 col-sm-8 col-md-4">
                     <div className="vertical-menu sticky-top" style={{top: '10%'}}>
-
                        
-                       <a onClick={() => {setHome(true); setAbout(false); setProduct(false); setFooter(false); setPDFs(false)}}
+                       <a onClick={() => {setHome(true); setAbout(false); setProduct(false); setFooter(false); setPDFs(false); setImages(false);}}
                         href="/dashboard#Home">
                             Home
                         </a>
                         
-                        <a onClick={() => {setHome(false); setAbout(true); setProduct(false); setFooter(false); setPDFs(false)}}
+                        <a onClick={() => {setHome(false); setAbout(true); setProduct(false); setFooter(false); setPDFs(false); setImages(false);}}
                         href="/dashboard#About">
                             About
                         </a>
                         
-                        <a onClick={() => {setHome(false); setAbout(false); setProduct(true); setFooter(false); setPDFs(false)}}
+                        <a onClick={() => {setHome(false); setAbout(false); setProduct(true); setFooter(false); setPDFs(false); setImages(false);}}
                         href="/dashboard#Product">
                             Product
                         </a>
                         
-                        <a onClick={() => {setHome(false); setAbout(false); setProduct(false); setFooter(true); setPDFs(false)}}
+                        <a onClick={() => {setHome(false); setAbout(false); setProduct(false); setFooter(true); setPDFs(false); setImages(false);}}
                         href="/dashboard#Footer">
                             Footer
                         </a>
                        
-                        <a onClick={() => {setHome(false); setAbout(false); setProduct(false); setFooter(false); setPDFs(true)}}
+                        <a onClick={() => {setHome(false); setAbout(false); setProduct(false); setFooter(false); setPDFs(true); setImages(false);}}
                         href="/dashboard#PDFS">
                             PDFS
+                        </a>
+
+                        <a onClick={() => {setHome(false); setAbout(false); setProduct(false); setFooter(false); setPDFs(false); setImages(true);}}
+                           href="/dashboard#Images">
+                            Images
                         </a>
                     </div>
                 </div>
@@ -91,6 +97,13 @@ const Editor = () => {
                             <UpdatePDFS/>
                         </div> 
                         : null
+                    }
+
+                    {
+                        images ?
+                            <div data-aos='fade-up' data-aos-duration='1000'>
+                                <AddImageForm token={props.jwt}/>
+                            </div> : null
                     }
                 </div>
             </div>
